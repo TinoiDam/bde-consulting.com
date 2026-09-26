@@ -16,21 +16,19 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#00D4FF]/15 to-transparent rounded-full blur-3xl animate-float-slow-reverse"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="max-w-2xl">
-            <p className="text-xs md:text-sm font-semibold tracking-widest text-[#0052CC] mb-6 uppercase">
-              WELCOME TO BDE
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight">
-              Where Strategic Clarity Meets Applied AI
+          <div className="max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-8 leading-tight">
+              Strategie is helder,<br />
+              maar niet uitvoerbaar.
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-xl">
-              Governance, informatievoorziening en AI-context vertaald naar controleerbare structuren en heldere implementatie.
+            <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl">
+              Zonder regie op samenhang ontstaat voortgang buiten de strategie.
             </p>
             <Link
               href="/services"
               className="inline-block px-8 py-3 md:py-4 bg-[#0052CC] text-white font-semibold text-sm md:text-base hover:bg-[#003d9f] transition"
             >
-              SEE HOW WE WORK
+              ONTDEK ONZE AANPAK
             </Link>
           </div>
         </div>
