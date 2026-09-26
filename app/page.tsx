@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="bg-white m-0 p-0">
+    <main className="bg-white">
       {/* Hero Section - BCG Style with Blue to Teal Gradient Effect */}
-      <section className="relative overflow-hidden py-20 md:py-48 lg:py-56 -mt-0">
+      <section className="relative overflow-hidden py-16 md:py-32 lg:py-40">
         {/* Blue to teal gradient background - BCG effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#e8f4ff] via-[#d4f0ff] to-[#e8f8ff]"></div>
 
