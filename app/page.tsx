@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="bg-white">
       {/* Hero Section - BCG Style with Blue to Teal Gradient Effect */}
-      <section className="relative overflow-hidden min-h-screen flex items-center">
+      <section className="relative overflow-hidden min-h-screen flex flex-col">
         {/* Blue to teal gradient background - BCG effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#e8f4ff] via-[#d4f0ff] to-[#e8f8ff]"></div>
 
@@ -15,49 +15,49 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#00D4FF]/25 via-[#0052CC]/10 to-transparent rounded-full blur-3xl animate-float-slow"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#00D4FF]/15 to-transparent rounded-full blur-3xl animate-float-slow-reverse"></div>
 
-        <div className="relative z-10 w-full">
-          <div className="max-w-7xl mx-auto px-6 mb-20">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-12 leading-tight max-w-3xl">
+        {/* Content - Top */}
+        <div className="relative z-10 flex-1 flex items-center">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight max-w-3xl">
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0052CC] leading-tight max-w-3xl">
-              Zorg voor regie<br />
-              op samenhang.
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0052CC] leading-tight max-w-3xl">
+              Zorg voor regie op samenhang.
             </h2>
           </div>
+        </div>
 
-          {/* Specialisaties - BCG style horizontal spread */}
-          <div className="w-full py-16 md:py-20">
-            <div className="max-w-full px-6 md:px-12">
-              <div className="flex justify-between items-start flex-wrap gap-8 md:gap-4">
-                <div className="flex-shrink-0">
-                  <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
-                    Interim
-                  </p>
-                  <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
-                    Consultancy
-                  </p>
-                </div>
+        {/* Specialisaties - Bottom of Hero */}
+        <div className="relative z-10 w-full border-t border-gray-200/30 py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex justify-between items-baseline flex-wrap gap-12">
+              <div>
+                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">
+                  Specialisatie
+                </p>
+                <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                  Interim Consultancy
+                </p>
+              </div>
 
-                <div className="flex-shrink-0 text-center">
-                  <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
-                    Project &amp; Programma
-                  </p>
-                  <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
-                    Management
-                  </p>
-                </div>
+              <div>
+                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">
+                  Specialisatie
+                </p>
+                <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                  Project- &amp; Programmamanagement
+                </p>
+              </div>
 
-                <div className="flex-shrink-0 text-right">
-                  <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
-                    Data, IT &amp;
-                  </p>
-                  <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
-                    Transformatie
-                  </p>
-                </div>
+              <div>
+                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">
+                  Specialisatie
+                </p>
+                <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                  Data, IT &amp; Transformatie
+                </p>
               </div>
             </div>
           </div>
