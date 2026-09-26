@@ -29,35 +29,44 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Specialisaties - Bottom of Hero */}
-        <div className="relative z-10 w-full border-t border-gray-200/30 py-12 md:py-16">
+        {/* Specialisaties - Bottom of Hero with Scroll Indicator */}
+        <div className="relative z-10 w-full bg-white border-t border-gray-200/20 py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex justify-between items-baseline flex-wrap gap-12">
+            <div className="flex justify-between items-baseline flex-wrap gap-16 md:gap-8 mb-8">
               <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">
+                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
                   Specialisatie
                 </p>
-                <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                <p className="text-base md:text-lg font-serif font-bold text-gray-900">
                   Interim Consultancy
                 </p>
               </div>
 
               <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">
+                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
                   Specialisatie
                 </p>
-                <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
-                  Project- &amp; Programmamanagement
+                <p className="text-base md:text-lg font-serif font-bold text-gray-900">
+                  Project- &amp;<br />Programmamanagement
                 </p>
               </div>
 
               <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">
+                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
                   Specialisatie
                 </p>
-                <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
-                  Data, IT &amp; Transformatie
+                <p className="text-base md:text-lg font-serif font-bold text-gray-900">
+                  Data, IT &amp;<br />Transformatie
                 </p>
+              </div>
+
+              <div className="ml-auto flex flex-col items-center gap-2">
+                <span className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
+                  Scroll
+                </span>
+                <svg className="w-5 h-5 text-[#0052CC] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
               </div>
             </div>
           </div>
