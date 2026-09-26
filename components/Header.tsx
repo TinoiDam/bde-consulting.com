@@ -7,8 +7,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="sticky top-0 z-50 bg-white">
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="w-10 h-10 bg-gradient-to-br from-[#0052CC] to-[#00D4FF] rounded-lg flex items-center justify-center">

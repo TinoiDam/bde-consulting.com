@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="bg-white">
       {/* Hero Section - BCG Style with Blue to Teal Gradient Effect */}
-      <section className="relative overflow-hidden py-20 md:py-40 lg:py-48">
+      <section className="relative overflow-hidden py-16 md:py-32 lg:py-40">
         {/* Blue to teal gradient background - BCG effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#e8f4ff] via-[#d4f0ff] to-[#e8f8ff]"></div>
 
