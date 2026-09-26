@@ -1,56 +1,129 @@
 export default function Services() {
-  const services = [
-    {
-      title: 'Governance',
-      description: 'Wij helpen organisaties sterke governancestructuren op te zetten die duurzaam zijn en schaalbaar groeien.',
-      points: ['Compliance & Risk', 'Beleidsvorming', 'Stakeholdermanagement']
-    },
-    {
-      title: 'Informatievoorziening',
-      description: 'Het transformeren van data in actionable intelligence voor betere bedrijfsbeslissingen.',
-      points: ['Data Strategy', 'Business Intelligence', 'Reporting & Analytics']
-    },
-    {
-      title: 'AI Context',
-      description: 'Strategische implementatie van AI-technologie afgestemd op uw bedrijfsdoelstellingen.',
-      points: ['AI Readiness', 'Implementation', 'Change Management']
-    }
-  ];
-
   return (
-    <main className="bg-[#f9f7f5]">
+    <main>
       {/* Hero */}
-      <section className="bg-[#0f1419] text-white py-20">
+      <section className="bg-[#0f1419] text-white py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4">Onze Diensten</h1>
-          <p className="text-xl text-[#d4a5a5]">Expertise in governance, data en AI</p>
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+            ONZE DIENSTEN
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl">
+            Gespecialiseerde expertise in governance, informatievoorziening en AI.
+          </p>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-24">
+      {/* Governance Deep Dive */}
+      <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          {services.map((service, i) => (
-            <div key={i} className="mb-20 pb-20 border-b border-gray-200 last:border-0">
-              <div className="flex gap-8 items-start">
-                <div className="flex-1">
-                  <div className="w-16 h-1 bg-[#a85a5a] mb-6"></div>
-                  <h2 className="text-4xl font-bold mb-4">{service.title}</h2>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.points.map((point, j) => (
-                      <li key={j} className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#a85a5a] rounded-full"></span>
-                        <span className="text-gray-700">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-20 items-start">
+            <div>
+              <div className="h-2 w-20 bg-[#a85a5a] mb-8"></div>
+              <h2 className="text-5xl font-bold mb-8 leading-tight">
+                GOVERNANCE
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                In een steeds complexere regelgeving en stakeholder-omgeving is governance geen optie maar een noodzaak. Wij helpen organisaties governancestructuren op te zetten die risico's beheersen, compliantie borgen en stakeholder vertrouwen opbouwen.
+              </p>
+              <h3 className="text-2xl font-bold mb-6">Wat we bieden</h3>
+              <ul className="space-y-4">
+                {[
+                  { title: 'Governance raamwerken', desc: 'Op maat gesneden governance modellen afgestemd op uw organisatie en industrie' },
+                  { title: 'Risico & Compliance', desc: 'Systematische analyse van compliance-vereisten en risicomitigatie' },
+                  { title: 'Bestuurstructuren', desc: 'Optimalisatie van boards, commissies en rapportagestructuren' },
+                  { title: 'Policy & Richtlijnen', desc: 'Ontwikkeling van beleid dat op alle niveaus wordt nageleefd' }
+                ].map((item, i) => (
+                  <li key={i} className="border-l-4 border-[#a85a5a] pl-6">
+                    <h4 className="font-bold mb-2">{item.title}</h4>
+                    <p className="text-gray-600">{item.desc}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
+            <div className="bg-gradient-to-br from-[#a85a5a]/20 to-[#0f1419]/10 aspect-square rounded-lg h-96"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Informatievoorziening Deep Dive */}
+      <section className="py-32 bg-[#f9f7f5]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-20 items-start">
+            <div className="bg-gradient-to-br from-[#0f1419]/10 to-[#a85a5a]/20 aspect-square rounded-lg h-96 order-last md:order-first"></div>
+            <div>
+              <div className="h-2 w-20 bg-[#a85a5a] mb-8"></div>
+              <h2 className="text-5xl font-bold mb-8 leading-tight">
+                INFORMATIEVOORZIENING
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Data en informatie zijn geen middelen om op te slaan, maar strategische assets om mee te werken. Wij helpen organisaties hun informatiestromen transformeren in duidelijke, betrouwbare inzichten die betere beslissingen ondersteunen.
+              </p>
+              <h3 className="text-2xl font-bold mb-6">Wat we bieden</h3>
+              <ul className="space-y-4">
+                {[
+                  { title: 'Data Strategie', desc: 'Visie en roadmap voor data als strategische asset' },
+                  { title: 'BI & Analytics', desc: 'Moderne platforms voor business intelligence en data analytics' },
+                  { title: 'Reporting & KPI\'s', desc: 'Ontwerp van dashboard- en rapportagestructuren' },
+                  { title: 'Data Governance', desc: 'Beheer van datakwaliteit, integriteit en beveiliging' }
+                ].map((item, i) => (
+                  <li key={i} className="border-l-4 border-[#a85a5a] pl-6">
+                    <h4 className="font-bold mb-2">{item.title}</h4>
+                    <p className="text-gray-600">{item.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Context Deep Dive */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-20 items-start">
+            <div>
+              <div className="h-2 w-20 bg-[#a85a5a] mb-8"></div>
+              <h2 className="text-5xl font-bold mb-8 leading-tight">
+                AI CONTEXT
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                AI biedt enorme mogelijkheden, maar vereist ook scrupuleuze voorbereiding. We helpen u het volledige ecosysteem – strategie, technologie, mensen, ethiek – op elkaar af te stemmen zodat AI-initiatieven slagen.
+              </p>
+              <h3 className="text-2xl font-bold mb-6">Wat we bieden</h3>
+              <ul className="space-y-4">
+                {[
+                  { title: 'AI Strategie', desc: 'Identificatie van high-impact use cases en prioriteiten' },
+                  { title: 'AI Readiness', desc: 'Beoordeling van organisatorische voorbereiding en capaciteiten' },
+                  { title: 'Implementation', desc: 'Practical guidance voor pilots tot schaal en adoptie' },
+                  { title: 'Governance & Risico\'s', desc: 'Ethische overwegingen, risico\'s en compliance' }
+                ].map((item, i) => (
+                  <li key={i} className="border-l-4 border-[#a85a5a] pl-6">
+                    <h4 className="font-bold mb-2">{item.title}</h4>
+                    <p className="text-gray-600">{item.desc}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-[#a85a5a]/20 to-[#0f1419]/10 aspect-square rounded-lg h-96"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="bg-[#0f1419] text-white py-24">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-6 tracking-tight">
+            Wij helpen u het volledige potentieel te benutten
+          </h2>
+          <p className="text-lg text-gray-300 mb-12">
+            Laten we in gesprek gaan over uw specifieke uitdagingen.
+          </p>
+          <a
+            href="#contact"
+            className="inline-block px-10 py-4 bg-[#a85a5a] text-white font-bold hover:bg-[#8d4a4a] transition"
+          >
+            NEEM CONTACT OP
+          </a>
         </div>
       </section>
     </main>
