@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BDE Consulting Website
 
-## Getting Started
+Professionele consultingwebsite gebouwd met Next.js, Tailwind CSS en hosted op Vercel.
 
-First, run the development server:
+## 🎨 Design
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Kleurenschema**: Dark Navy (#0f1419) + Rose Mauve (#a85a5a)
+- **Typografie**: Geist Sans (modern, schoon)
+- **Taal**: Nederlands
+
+## 📁 Structuur
+
+```
+app/
+├── page.tsx           # Homepage met hero sectie
+├── services/          # Diensten pagina
+├── portfolio/         # Portfolio / Casestudies
+├── insights/          # Blog / Insights
+└── layout.tsx         # Globale layout met header
+components/
+├── Header.tsx         # Navigatieheader
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Lokaal runnen
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open http://localhost:3000
 
-## Learn More
+## 🚀 Deploy naar Vercel
 
-To learn more about Next.js, take a look at the following resources:
+### Stap 1: Git repository
+```bash
+git add .
+git commit -m "Initial BDE Consulting site"
+git remote add origin https://github.com/yourusername/bde-consulting
+git push -u origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Stap 2: Vercel deployment
+1. Ga naar https://vercel.com
+2. Klik "Add New..." → "Project"
+3. Selecteer je GitHub repository
+4. Klik "Deploy"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Stap 3: Custom domain
+1. In Vercel Project Settings → Domains
+2. Voeg `bde-consulting.com` toe
+3. Update DNS records naar Vercel nameservers
 
-## Deploy on Vercel
+## 📝 Blog/Insights met Database
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Voor dynamic blog posts met database:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Optie 1: Supabase (Aanbevolen)
+```bash
+npm install @supabase/supabase-js
+```
+
+Maak database table:
+```sql
+CREATE TABLE insights (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  slug VARCHAR(255) UNIQUE,
+  excerpt TEXT,
+  content TEXT,
+  category VARCHAR(100),
+  date TIMESTAMP,
+  author VARCHAR(100)
+);
+```
+
+Update `.env.local`:
+```
+NEXT_PUBLIC_SUPABASE_URL=your_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+```
+
+## 🔧 Aanpassingen
+
+- **Kleuren**: Pas `#0f1419` en `#a85a5a` aan in files
+- **Koppelingen**: Update links in `Header.tsx`
+- **Content**: Edit pagina's in `app/` directory
+
+## ✨ Next Steps
+
+- [ ] CMS/Database integratie
+- [ ] Contactformulier met email
+- [ ] Analytics (Vercel Analytics)
+- [ ] SEO & meta tags
+- [ ] Newsletter signup
