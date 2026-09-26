@@ -21,9 +21,14 @@ export default function Home() {
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl">
-              Zonder regie op samenhang ontstaat voortgang buiten de strategie.
-            </p>
+            <div className="mb-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0052CC] mb-6">
+                Zorg voor regie op samenhang
+              </h2>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl">
+                Interim Consultancy • Project- programma management • Data, IT en Digitale transformaties
+              </p>
+            </div>
             <Link
               href="/services"
               className="inline-block px-8 py-3 md:py-4 bg-[#0052CC] text-white font-semibold text-sm md:text-base hover:bg-[#003d9f] transition"
