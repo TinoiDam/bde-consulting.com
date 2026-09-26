@@ -15,48 +15,49 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#00D4FF]/25 via-[#0052CC]/10 to-transparent rounded-full blur-3xl animate-float-slow"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#00D4FF]/15 to-transparent rounded-full blur-3xl animate-float-slow-reverse"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-12 leading-tight">
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-6 mb-20">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-12 leading-tight max-w-3xl">
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
 
-            <div className="mb-12">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0052CC] mb-8 leading-tight">
-                Zorg voor regie<br />
-                op samenhang.
-              </h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0052CC] leading-tight max-w-3xl">
+              Zorg voor regie<br />
+              op samenhang.
+            </h2>
+          </div>
 
-              <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-                <div className="flex-1">
-                  <p className="text-sm md:text-base font-semibold tracking-widest text-gray-600 uppercase mb-4">
-                    Specialisaties
+          {/* Specialisaties - BCG style horizontal labels */}
+          <div className="w-full bg-gradient-to-r from-[#e8f4ff]/40 to-transparent py-12 md:py-16">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+                <div>
+                  <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-600 uppercase mb-4">
+                    Specialisatie
                   </p>
-                  <ul className="space-y-3">
-                    <li className="text-base md:text-lg text-gray-700 flex items-start gap-3">
-                      <span className="text-[#00D4FF] font-bold mt-1">→</span>
-                      <span>Interim Consultancy</span>
-                    </li>
-                    <li className="text-base md:text-lg text-gray-700 flex items-start gap-3">
-                      <span className="text-[#00D4FF] font-bold mt-1">→</span>
-                      <span>Project- en programmamanagement</span>
-                    </li>
-                    <li className="text-base md:text-lg text-gray-700 flex items-start gap-3">
-                      <span className="text-[#00D4FF] font-bold mt-1">→</span>
-                      <span>Data, IT en Digitale transformaties</span>
-                    </li>
-                  </ul>
+                  <p className="text-xl md:text-2xl font-serif font-bold text-gray-900 leading-tight">
+                    Interim<br />Consultancy
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-600 uppercase mb-4">
+                    Specialisatie
+                  </p>
+                  <p className="text-xl md:text-2xl font-serif font-bold text-gray-900 leading-tight">
+                    Project- &amp;<br />Programma<br />management
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-600 uppercase mb-4">
+                    Specialisatie
+                  </p>
+                  <p className="text-xl md:text-2xl font-serif font-bold text-gray-900 leading-tight">
+                    Data, IT &amp;<br />Digitale<br />Transformaties
+                  </p>
                 </div>
               </div>
             </div>
-
-            <Link
-              href="/services"
-              className="inline-block px-8 py-3 md:py-4 bg-[#0052CC] text-white font-semibold text-sm md:text-base hover:bg-[#003d9f] transition"
-            >
-              ONTDEK ONZE AANPAK
-            </Link>
           </div>
         </div>
       </section>
