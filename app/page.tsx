@@ -28,32 +28,34 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Specialisaties - BCG style horizontal labels */}
-          <div className="w-full bg-gradient-to-r from-[#e8f4ff]/40 to-transparent py-12 md:py-16">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-                <div>
-                  <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-600 uppercase mb-4">
-                    Specialisatie
+          {/* Specialisaties - BCG style horizontal spread */}
+          <div className="w-full py-16 md:py-20">
+            <div className="max-w-full px-6 md:px-12">
+              <div className="flex justify-between items-start flex-wrap gap-8 md:gap-4">
+                <div className="flex-shrink-0">
+                  <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
+                    Interim
                   </p>
-                  <p className="text-xl md:text-2xl font-serif font-bold text-gray-900 leading-tight">
-                    Interim<br />Consultancy
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-600 uppercase mb-4">
-                    Specialisatie
-                  </p>
-                  <p className="text-xl md:text-2xl font-serif font-bold text-gray-900 leading-tight">
-                    Project- &amp;<br />Programma<br />management
+                  <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                    Consultancy
                   </p>
                 </div>
-                <div>
-                  <p className="text-xs md:text-sm font-semibold tracking-widest text-gray-600 uppercase mb-4">
-                    Specialisatie
+
+                <div className="flex-shrink-0 text-center">
+                  <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
+                    Project &amp; Programma
                   </p>
-                  <p className="text-xl md:text-2xl font-serif font-bold text-gray-900 leading-tight">
-                    Data, IT &amp;<br />Digitale<br />Transformaties
+                  <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                    Management
+                  </p>
+                </div>
+
+                <div className="flex-shrink-0 text-right">
+                  <p className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
+                    Data, IT &amp;
+                  </p>
+                  <p className="text-lg md:text-xl font-serif font-bold text-gray-900">
+                    Transformatie
                   </p>
                 </div>
               </div>
