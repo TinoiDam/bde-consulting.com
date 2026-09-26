@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BDE Consulting | Governance, Informatievoorziening & AI",
+  title: "BDE | Strategic Consulting",
   description: "Governance, informatievoorziening en AI-context vertaald naar controleerbare structuren en heldere implementatie.",
 };
 

@@ -18,7 +18,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="max-w-2xl">
             <p className="text-xs md:text-sm font-semibold tracking-widest text-[#0052CC] mb-6 uppercase">
-              WELCOME TO BDE CONSULTING
+              WELCOME TO BDE
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight">
               Where Strategic Clarity Meets Applied AI
