@@ -3,70 +3,70 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main className="bg-white">
-      {/* Hero Section - Aurora Mesh Gradient */}
+      {/* Hero Section - Volumetric Aurora Mesh Gradient */}
       <section
         className="relative overflow-hidden min-h-screen flex flex-col"
         style={{
-          backgroundColor: '#E4F3FA'
+          backgroundColor: '#DBE8F5'
         }}
       >
-        {/* Beam 1 - Sharp bright stripe with subtle breathing */}
+        {/* Large volumetric blob 1 - Top right */}
         <div
-          className="absolute pointer-events-none animate-breathe-1"
+          className="absolute pointer-events-none animate-aurora-1"
           style={{
-            width: '35%',
-            height: '150%',
-            backgroundColor: '#8BC4F0',
-            top: '-30%',
-            right: '10%',
-            transform: 'rotate(-15deg)',
-            filter: 'blur(120px)',
-            opacity: 0.82
+            width: '60%',
+            height: '60%',
+            background: 'radial-gradient(circle at 40% 40%, rgba(160, 200, 255, 0.6) 0%, rgba(140, 180, 255, 0.3) 40%, transparent 70%)',
+            top: '-15%',
+            right: '-10%',
+            borderRadius: '50%',
+            filter: 'blur(80px)',
+            opacity: 0.8
           }}
         ></div>
 
-        {/* Beam 2 - Secondary stripe with breathing animation */}
+        {/* Large volumetric blob 2 - Center */}
         <div
-          className="absolute pointer-events-none animate-breathe-2"
+          className="absolute pointer-events-none animate-aurora-2"
           style={{
-            width: '40%',
-            height: '160%',
-            backgroundColor: '#8BC4F0',
-            top: '-40%',
-            right: '150px',
-            transform: 'rotate(-25deg)',
-            filter: 'blur(140px)',
+            width: '70%',
+            height: '70%',
+            background: 'radial-gradient(circle at 50% 50%, rgba(165, 210, 255, 0.5) 0%, rgba(100, 160, 220, 0.2) 50%, transparent 80%)',
+            top: '10%',
+            left: '-15%',
+            borderRadius: '50%',
+            filter: 'blur(100px)',
+            opacity: 0.7
+          }}
+        ></div>
+
+        {/* Large volumetric blob 3 - Bottom center */}
+        <div
+          className="absolute pointer-events-none animate-aurora-3"
+          style={{
+            width: '65%',
+            height: '65%',
+            background: 'radial-gradient(circle at 45% 45%, rgba(0, 180, 255, 0.4) 0%, rgba(100, 200, 255, 0.15) 45%, transparent 75%)',
+            bottom: '-25%',
+            left: '20%',
+            borderRadius: '50%',
+            filter: 'blur(90px)',
+            opacity: 0.75
+          }}
+        ></div>
+
+        {/* Accent blob - Right side */}
+        <div
+          className="absolute pointer-events-none animate-float-slow"
+          style={{
+            width: '45%',
+            height: '45%',
+            background: 'radial-gradient(circle at 45% 45%, rgba(0, 150, 220, 0.35) 0%, transparent 65%)',
+            top: '50%',
+            right: '-5%',
+            borderRadius: '50%',
+            filter: 'blur(85px)',
             opacity: 0.6
-          }}
-        ></div>
-
-        {/* Beam 3 - Shadow stripe with flowing animation */}
-        <div
-          className="absolute pointer-events-none animate-breathe-3"
-          style={{
-            width: '38%',
-            height: '155%',
-            backgroundColor: '#A8D9F7',
-            top: '-35%',
-            right: '-100px',
-            transform: 'rotate(-20deg)',
-            filter: 'blur(130px)',
-            opacity: 0.5
-          }}
-        ></div>
-
-        {/* Secondary dynamic band - High contrast edge */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: '95%',
-            height: '55%',
-            backgroundColor: '#A8D9F7',
-            bottom: '-15%',
-            left: '-20%',
-            transform: 'rotate(18deg) skewX(-25deg) skewY(12deg)',
-            filter: 'blur(40px)',
-            opacity: 0.65
           }}
         ></div>
 
