@@ -116,7 +116,7 @@ export default function Home() {
       </section>
 
       {/* Specialisaties Section */}
-      <section className="py-8 md:py-12 lg:py-16 bg-white">
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f8fbfc] to-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 w-full">
           {/* Mobile: Vertical, Desktop: Horizontal */}
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-8">
