@@ -7,23 +7,53 @@ export default function Home() {
       <section
         className="relative overflow-hidden min-h-screen flex flex-col"
         style={{
-          backgroundColor: '#E4F3FA',
-          backgroundImage: `
-            radial-gradient(at 85% 5%, #A1DCF9 0px, transparent 35%),
-            radial-gradient(at 95% 25%, #7ECEF7 0px, transparent 45%),
-            radial-gradient(at 75% 45%, #C1EAFA 0px, transparent 40%),
-            radial-gradient(at 100% 55%, #A1DCF9 0px, transparent 50%),
-            radial-gradient(at 50% 30%, #EDF7FC 0px, transparent 60%),
-            radial-gradient(at 20% 75%, #C1EAFA 0px, transparent 45%),
-            radial-gradient(at 5% 95%, #7ECEF7 0px, transparent 40%),
-            radial-gradient(at 35% 5%, #EDF7FC 0px, transparent 55%),
-            radial-gradient(at 65% 85%, #A1DCF9 0px, transparent 50%),
-            radial-gradient(at 15% 35%, #7ECEF7 0px, transparent 45%)
-          `,
-          backgroundSize: '100% 100%',
-          backgroundAttachment: 'fixed'
+          backgroundColor: '#E4F3FA'
         }}
       >
+        {/* Primary diagonal aurora band - Bright, wide, skewed */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '150%',
+            height: '80%',
+            backgroundColor: '#A1DCF9',
+            top: '-20%',
+            right: '-30%',
+            transform: 'rotate(-25deg) skewY(-15deg)',
+            filter: 'blur(80px)',
+            opacity: 0.75
+          }}
+        ></div>
+
+        {/* Secondary accent band - Softer, complementary angle */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '140%',
+            height: '70%',
+            backgroundColor: '#C1EAFA',
+            bottom: '-10%',
+            left: '-20%',
+            transform: 'rotate(20deg) skewY(10deg)',
+            filter: 'blur(90px)',
+            opacity: 0.65
+          }}
+        ></div>
+
+        {/* Tertiary glow layer - Soft edge definition */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '160%',
+            height: '90%',
+            backgroundColor: '#A1DCF9',
+            top: '10%',
+            left: '-40%',
+            transform: 'rotate(35deg) skewX(-20deg)',
+            filter: 'blur(100px)',
+            opacity: 0.45
+          }}
+        ></div>
 
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
