@@ -30,7 +30,7 @@ export default function Home() {
         </div>
 
         {/* Specialisaties - Floating over gradient */}
-        <div className="relative z-10 w-full bg-gradient-to-r from-transparent via-[#0052CC]/5 to-[#0052CC]/15 py-8 md:py-12 lg:py-16">
+        <div className="relative z-10 w-full bg-gradient-to-b from-[#e8f4ff]/40 via-[#d4f0ff]/20 to-white py-8 md:py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6 w-full">
             {/* Mobile: Vertical, Desktop: Horizontal */}
             <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-8 mb-8">
