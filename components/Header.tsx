@@ -10,8 +10,9 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex flex-col">
           <span className="text-lg md:text-xl font-bold tracking-tight text-gray-900">BDE</span>
+          <span className="text-xs md:text-sm font-light tracking-widest text-gray-500 uppercase">Management Consulting</span>
         </Link>
 
         {/* Desktop Menu */}
