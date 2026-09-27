@@ -9,10 +9,19 @@ export default function Home() {
         style={{
           backgroundColor: '#E4F3FA',
           backgroundImage: `
-            radial-gradient(at 90% 10%, #A1DCF9 0px, transparent 50%),
-            radial-gradient(at 100% 60%, #C1EAFA 0px, transparent 40%),
-            radial-gradient(at 10% 90%, #EDF7FC 0px, transparent 50%)
-          `
+            radial-gradient(at 85% 5%, #A1DCF9 0px, transparent 35%),
+            radial-gradient(at 95% 25%, #7ECEF7 0px, transparent 45%),
+            radial-gradient(at 75% 45%, #C1EAFA 0px, transparent 40%),
+            radial-gradient(at 100% 55%, #A1DCF9 0px, transparent 50%),
+            radial-gradient(at 50% 30%, #EDF7FC 0px, transparent 60%),
+            radial-gradient(at 20% 75%, #C1EAFA 0px, transparent 45%),
+            radial-gradient(at 5% 95%, #7ECEF7 0px, transparent 40%),
+            radial-gradient(at 35% 5%, #EDF7FC 0px, transparent 55%),
+            radial-gradient(at 65% 85%, #A1DCF9 0px, transparent 50%),
+            radial-gradient(at 15% 35%, #7ECEF7 0px, transparent 45%)
+          `,
+          backgroundSize: '100% 100%',
+          backgroundAttachment: 'fixed'
         }}
       >
 
