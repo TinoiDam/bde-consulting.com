@@ -10,33 +10,48 @@ export default function Home() {
           backgroundColor: '#E4F3FA'
         }}
       >
-        {/* Primary focused light beam - Sharp, directed, strong contrast */}
+        {/* Hard, bright primary light beam - Centered, sharp, intense */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '120%',
-            height: '50%',
+            width: '100%',
+            height: '60%',
             backgroundColor: '#A1DCF9',
-            top: '5%',
-            right: '-15%',
-            transform: 'rotate(-20deg) skewY(-10deg)',
-            filter: 'blur(50px)',
-            opacity: 0.8
+            top: '-10%',
+            right: '-25%',
+            transform: 'rotate(-22deg) skewY(-20deg) scaleX(1.3)',
+            filter: 'blur(35px)',
+            opacity: 0.88
           }}
         ></div>
 
-        {/* Secondary accent - Complementary direction, softer */}
+        {/* Secondary dynamic band - High contrast edge */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '110%',
-            height: '45%',
+            width: '95%',
+            height: '55%',
             backgroundColor: '#C1EAFA',
-            bottom: '5%',
-            left: '-10%',
-            transform: 'rotate(15deg) skewY(8deg)',
-            filter: 'blur(60px)',
-            opacity: 0.5
+            bottom: '-15%',
+            left: '-20%',
+            transform: 'rotate(18deg) skewX(-25deg) skewY(12deg)',
+            filter: 'blur(40px)',
+            opacity: 0.65
+          }}
+        ></div>
+
+        {/* Soft glow edges - Subtle transition */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '140%',
+            height: '100%',
+            backgroundColor: '#C1EAFA',
+            top: '0%',
+            left: '-30%',
+            transform: 'rotate(35deg) skewX(-30deg)',
+            filter: 'blur(80px)',
+            opacity: 0.3
           }}
         ></div>
 
