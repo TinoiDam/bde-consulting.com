@@ -30,7 +30,7 @@ export default function Home() {
         </div>
 
         {/* Specialisaties - Bottom of Hero with Scroll Indicator */}
-        <div className="relative z-10 w-full bg-gradient-to-b from-[#0052CC]/5 via-white/50 to-white py-8 md:py-12 lg:py-16">
+        <div className="relative z-10 w-full bg-gradient-to-b from-[#0052CC]/20 via-[#0052CC]/10 to-white py-8 md:py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6 w-full">
             {/* Mobile: Vertical, Desktop: Horizontal */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mb-8">
