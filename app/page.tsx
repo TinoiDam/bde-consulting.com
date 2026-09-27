@@ -29,39 +29,39 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Specialisaties - Floating over gradient */}
-        <div className="relative z-10 w-full py-8 md:py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-6 w-full">
-            {/* Mobile: Vertical, Desktop: Horizontal */}
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-8 mb-8">
-              <div className="bg-white/40 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
-                <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
-                  Interim Consultancy
-                </p>
-              </div>
+        {/* Scroll Indicator - Hidden on mobile, visible on md+ */}
+        <div className="relative z-10 hidden md:flex justify-end items-center gap-4 pt-8 px-6">
+          <div className="w-12 h-0.5 bg-white/80"></div>
+          <svg className="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
+          </svg>
+          <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
+            Scroll Down
+          </span>
+        </div>
+      </section>
 
-              <div className="bg-white/40 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
-                <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
-                  Project- &amp; Programmamanagement
-                </p>
-              </div>
-
-              <div className="bg-white/40 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
-                <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
-                  Data, IT &amp; Transformatie
-                </p>
-              </div>
+      {/* Specialisaties Section */}
+      <section className="py-8 md:py-12 lg:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+          {/* Mobile: Vertical, Desktop: Horizontal */}
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-8">
+            <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
+              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+                Interim Consultancy
+              </p>
             </div>
 
-            {/* Scroll Indicator - Hidden on mobile, visible on md+ */}
-            <div className="hidden md:flex justify-end items-center gap-4 pt-8">
-              <div className="w-12 h-0.5 bg-white/80"></div>
-              <svg className="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
-              </svg>
-              <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
-                Scroll Down
-              </span>
+            <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
+              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+                Project- &amp; Programmamanagement
+              </p>
+            </div>
+
+            <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
+              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+                Data, IT &amp; Transformatie
+              </p>
             </div>
           </div>
         </div>
