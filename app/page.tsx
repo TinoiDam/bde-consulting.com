@@ -16,12 +16,12 @@ export default function Home() {
           style={{
             width: '60%',
             height: '60%',
-            background: 'radial-gradient(circle at 40% 40%, rgba(160, 200, 255, 0.6) 0%, rgba(140, 180, 255, 0.3) 40%, transparent 70%)',
+            background: 'radial-gradient(circle at 40% 40%, rgba(100, 180, 255, 0.95) 0%, rgba(80, 150, 240, 0.6) 40%, transparent 70%)',
             top: '-15%',
             right: '-10%',
             borderRadius: '50%',
             filter: 'blur(80px)',
-            opacity: 0.8
+            opacity: 1
           }}
         ></div>
 
@@ -31,12 +31,12 @@ export default function Home() {
           style={{
             width: '70%',
             height: '70%',
-            background: 'radial-gradient(circle at 50% 50%, rgba(165, 210, 255, 0.5) 0%, rgba(100, 160, 220, 0.2) 50%, transparent 80%)',
+            background: 'radial-gradient(circle at 50% 50%, rgba(0, 150, 220, 0.85) 0%, rgba(50, 130, 200, 0.4) 50%, transparent 80%)',
             top: '10%',
             left: '-15%',
             borderRadius: '50%',
             filter: 'blur(100px)',
-            opacity: 0.7
+            opacity: 1
           }}
         ></div>
 
@@ -46,12 +46,12 @@ export default function Home() {
           style={{
             width: '65%',
             height: '65%',
-            background: 'radial-gradient(circle at 45% 45%, rgba(0, 180, 255, 0.4) 0%, rgba(100, 200, 255, 0.15) 45%, transparent 75%)',
+            background: 'radial-gradient(circle at 45% 45%, rgba(0, 180, 255, 0.8) 0%, rgba(100, 200, 255, 0.35) 45%, transparent 75%)',
             bottom: '-25%',
             left: '20%',
             borderRadius: '50%',
             filter: 'blur(90px)',
-            opacity: 0.75
+            opacity: 1
           }}
         ></div>
 
@@ -61,12 +61,12 @@ export default function Home() {
           style={{
             width: '45%',
             height: '45%',
-            background: 'radial-gradient(circle at 45% 45%, rgba(0, 150, 220, 0.35) 0%, transparent 65%)',
+            background: 'radial-gradient(circle at 45% 45%, rgba(0, 120, 200, 0.7) 0%, transparent 65%)',
             top: '50%',
             right: '-5%',
             borderRadius: '50%',
             filter: 'blur(85px)',
-            opacity: 0.6
+            opacity: 1
           }}
         ></div>
 
