@@ -49,9 +49,20 @@ export default function HeroVideo() {
     play(videos[0]);
     raf = requestAnimationFrame(tick);
 
+    // The hero is pinned while content slides over it; pause once it is fully covered
+    let inView = true;
+    const onScroll = () => {
+      const visible = window.scrollY < window.innerHeight;
+      if (visible === inView) return;
+      inView = visible;
+      if (inView) resume();
+      else videos.forEach((v) => v.pause());
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
     // Autoplay can be refused (e.g. iOS Low Power Mode); start on the first interaction instead
     const resume = () => {
-      if (videos[active].paused) play(videos[active]);
+      if (inView && videos[active].paused) play(videos[active]);
     };
     const onVisible = () => {
       if (!document.hidden) resume();
@@ -62,6 +73,7 @@ export default function HeroVideo() {
 
     return () => {
       cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
       document.removeEventListener('visibilitychange', onVisible);
       window.removeEventListener('touchstart', resume);
       window.removeEventListener('click', resume);
@@ -70,7 +82,7 @@ export default function HeroVideo() {
 
   const cls = 'absolute inset-0 w-full h-full object-cover object-center pointer-events-none';
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-[#DBE8F5]" aria-hidden="true">
       <video ref={a} className={cls} autoPlay muted playsInline preload="auto" disablePictureInPicture>
         <source src="/videos/hero.webm" type="video/webm" />
         <source src="/videos/hero.mp4" type="video/mp4" />
