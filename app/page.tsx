@@ -23,7 +23,7 @@ export default function Home() {
               maar niet uitvoerbaar.
             </h1>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#0052CC] leading-tight max-w-3xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight max-w-3xl">
               Zorg voor regie op samenhang.
             </h2>
           </div>
