@@ -29,34 +29,37 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Specialisaties - Bottom of Hero with Scroll Indicator */}
-        <div className="relative z-10 w-full bg-white py-8 md:py-12 lg:py-16">
-          {/* Gradient overlay on right side */}
-          <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#0052CC]/10 to-transparent pointer-events-none hidden md:block"></div>
-
-          <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+        {/* Specialisaties - Floating over gradient */}
+        <div className="relative z-10 w-full bg-gradient-to-r from-transparent via-[#0052CC]/5 to-[#0052CC]/15 py-8 md:py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6 w-full">
             {/* Mobile: Vertical, Desktop: Horizontal */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mb-8">
-              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900">
-                Interim Consultancy
-              </p>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-8 mb-8">
+              <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
+                <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+                  Interim Consultancy
+                </p>
+              </div>
 
-              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900">
-                Project- &amp; Programmamanagement
-              </p>
+              <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
+                <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+                  Project- &amp; Programmamanagement
+                </p>
+              </div>
 
-              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900">
-                Data, IT &amp; Transformatie
-              </p>
+              <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
+                <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+                  Data, IT &amp; Transformatie
+                </p>
+              </div>
             </div>
 
             {/* Scroll Indicator - Hidden on mobile, visible on md+ */}
             <div className="hidden md:flex justify-end items-center gap-4 pt-8">
               <div className="w-12 h-0.5 bg-gradient-to-r from-[#0052CC] to-[#00D4FF]"></div>
-              <svg className="w-6 h-6 text-[#0052CC] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <svg className="w-6 h-6 text-white drop-shadow-lg animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
               </svg>
-              <span className="text-xs font-semibold tracking-widest text-[#0052CC] uppercase">
+              <span className="text-xs font-semibold tracking-widest text-white drop-shadow-lg uppercase">
                 Scroll Down
               </span>
             </div>
