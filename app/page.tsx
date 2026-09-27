@@ -118,22 +118,22 @@ export default function Home() {
       {/* Specialisaties Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f8fbfc] to-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 w-full">
-          {/* Mobile: Vertical, Desktop: Horizontal */}
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-8">
-            <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
-              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+          {/* Mobile: Stack, Desktop: Horizontal */}
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-6 md:gap-8">
+            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-1 sm:flex-none">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900">
                 Interim Consultancy
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
-              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-1 sm:flex-none">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900">
                 Project- &amp; Programmamanagement
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm px-6 py-4 rounded-sm inline-block">
-              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900 whitespace-nowrap">
+            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-1 sm:flex-none">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900">
                 Data, IT &amp; Transformatie
               </p>
             </div>
