@@ -10,26 +10,9 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex flex-col items-start">
-          {/* Monogram Symbol */}
-          <svg className="w-8 h-8 md:w-10 md:h-10 mb-1" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* B - Left curve */}
-            <path d="M16 12 L28 12 Q32 12 32 16 L32 22 Q32 26 28 26 L16 26 M16 26 L28 26 Q32 26 32 30 L32 50 Q32 54 28 54 L16 54"
-                  stroke="#0052CC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-
-            {/* D - Center curve (overlapping) */}
-            <path d="M32 12 L40 12 Q48 12 48 22 L48 42 Q48 54 40 54 L32 54"
-                  stroke="#00D4FF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-
-            {/* E - Right lines (overlapping) */}
-            <path d="M48 12 L56 12 M48 32 L54 32 M48 54 L56 54"
-                  stroke="#0052CC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-
-          <div className="flex flex-col">
-            <span className="text-sm md:text-base font-bold tracking-tight text-gray-900 leading-none">BDE</span>
-            <span className="text-xs font-light tracking-widest text-gray-400 uppercase">Management Consulting</span>
-          </div>
+        <Link href="/" className="flex flex-col items-center">
+          <span className="text-xl md:text-2xl font-bold tracking-tight text-gray-900">BDE</span>
+          <span className="text-xs font-light tracking-widest text-gray-400 uppercase leading-none">Management Consulting</span>
         </Link>
 
         {/* Desktop Menu */}
