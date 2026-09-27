@@ -18,17 +18,24 @@ const clients = [
 
 const heightFor = (ratio: number, weight: number) => Math.round(Math.sqrt(AREA / ratio) * weight);
 
-export default function ClientLogos() {
+// 'row': full-width strip with its own centered heading; 'grid': 3x3 grid of equal cells for use inside a column
+export default function ClientLogos({ variant = 'row' }: { variant?: 'row' | 'grid' }) {
+  const list =
+    variant === 'grid'
+      ? 'grid grid-cols-3 gap-x-6 gap-y-6 md:gap-y-8 [&>li]:h-16'
+      : 'mt-8 md:mt-12 flex flex-wrap xl:flex-nowrap items-center justify-center xl:justify-between gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10 xl:gap-x-6 2xl:gap-x-12';
   return (
     <div>
-      <p className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-[#0A1931]/55">
-        Project ervaring
-      </p>
-      <ul className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10">
+      {variant === 'row' && (
+        <p className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-[#0A1931]/55">
+          Project ervaring
+        </p>
+      )}
+      <ul className={list}>
         {clients.map((c) => (
           <li
             key={c.file}
-            className="logo-item-wrapper flex items-center justify-center grayscale opacity-60 transition duration-300 ease-out hover:grayscale-0 hover:opacity-100"
+            className="logo-item-wrapper flex items-center justify-center transition duration-300 ease-out hover:grayscale hover:opacity-50"
           >
             {/* eslint-disable-next-line @next/next/no-img-element -- fixed optical height, width follows the aspect ratio */}
             <img

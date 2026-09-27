@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import HeroVideo from '@/components/HeroVideo';
 import TrustSection from '@/components/TrustSection';
+import MethodSection from '@/components/MethodSection';
 import CasesSection from '@/components/CasesSection';
 import AboutSection from '@/components/AboutSection';
 
@@ -48,6 +49,9 @@ export default function Home() {
       <div className="relative z-10">
         {/* Trust / validation */}
         <TrustSection />
+
+        {/* Method: three-step roadmap */}
+        <MethodSection />
 
         {/* Cases: intro heading + tab dashboard (eyebrow and title are configurable) */}
         <CasesSection eyebrow="Cases & Deliverables" title="Hoe dit in de praktijk eruit ziet" />

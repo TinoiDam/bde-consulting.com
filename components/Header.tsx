@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname();
   const [overHero, setOverHero] = useState(true);
 
-  // The wordmark is white only while it sits on the blue homepage hero
+  // Over the homepage hero the bar is transparent with a white wordmark; elsewhere it turns frosted white
   useEffect(() => {
     const update = () => setOverHero(window.scrollY < window.innerHeight - 80);
     update();
@@ -23,7 +23,13 @@ export default function Header() {
   const onBlue = pathname === '/' && overHero;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <header
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-[background-color,border-color,backdrop-filter] duration-300 border-b ${
+        onBlue && !isOpen
+          ? 'bg-transparent border-transparent'
+          : 'bg-white/95 backdrop-blur-md border-[#e2e8f0]'
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo - BDE wordmark with Monolith Chevron brand mark */}
         <Link

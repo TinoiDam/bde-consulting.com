@@ -1,5 +1,3 @@
-import ClientLogos from '@/components/ClientLogos';
-
 // PLACEHOLDER CONTENT: replace quotes and tags with final copy
 const cards: { sector?: string; role?: string; quote: string; tags: string[] }[] = [
   {
@@ -79,13 +77,6 @@ export default function TrustSection() {
               </figcaption>
             </figure>
           ))}
-        </div>
-      </section>
-
-      {/* Project experience logos */}
-      <section className="bg-[#f8fafc] pt-16 pb-20 md:pt-20 md:pb-24 lg:pt-[100px] lg:pb-[120px]">
-        <div className="max-w-[110rem] mx-auto px-4 sm:px-6 lg:px-[4vw]">
-          <ClientLogos />
         </div>
       </section>
     </>
