@@ -16,44 +16,46 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#00D4FF]/15 to-transparent rounded-full blur-3xl animate-float-slow-reverse"></div>
 
         {/* Content - Top */}
-        <div className="relative z-10 flex-1 flex items-center">
+        <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
           <div className="max-w-7xl mx-auto px-6 w-full">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-900 mb-6 leading-tight max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-gray-900 mb-8 md:mb-6 leading-tight">
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 leading-tight max-w-3xl">
-              Zorg voor regie op samenhang.
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 leading-tight">
+              Zorg voor regie<br />op samenhang.
             </h2>
           </div>
         </div>
 
         {/* Specialisaties - Bottom of Hero with Scroll Indicator */}
-        <div className="relative z-10 w-full bg-white border-t border-gray-200/20 py-12 md:py-16">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex justify-between items-baseline flex-wrap gap-16 md:gap-8 mb-8">
-              <p className="text-base md:text-lg font-serif font-bold text-gray-900">
+        <div className="relative z-10 w-full bg-white border-t border-gray-200/20 py-8 md:py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            {/* Mobile: Vertical, Desktop: Horizontal */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mb-8">
+              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900">
                 Interim Consultancy
               </p>
 
-              <p className="text-base md:text-lg font-serif font-bold text-gray-900">
-                Project- &amp;<br />Programmamanagement
+              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900">
+                Project- &amp; Programmamanagement
               </p>
 
-              <p className="text-base md:text-lg font-serif font-bold text-gray-900">
-                Data, IT &amp;<br />Transformatie
+              <p className="text-sm sm:text-base md:text-lg font-serif font-bold text-gray-900">
+                Data, IT &amp; Transformatie
               </p>
+            </div>
 
-              <div className="absolute bottom-12 md:bottom-16 right-6 md:right-12 flex items-center gap-4">
-                <div className="w-12 h-0.5 bg-gradient-to-r from-[#0052CC] to-[#00D4FF]"></div>
-                <svg className="w-6 h-6 text-[#0052CC] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
-                </svg>
-                <span className="text-xs font-semibold tracking-widest text-[#0052CC] uppercase whitespace-nowrap">
-                  Scroll Down
-                </span>
-              </div>
+            {/* Scroll Indicator - Hidden on mobile, visible on md+ */}
+            <div className="hidden md:flex justify-end items-center gap-4 pt-8">
+              <div className="w-12 h-0.5 bg-gradient-to-r from-[#0052CC] to-[#00D4FF]"></div>
+              <svg className="w-6 h-6 text-[#0052CC] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
+              </svg>
+              <span className="text-xs font-semibold tracking-widest text-[#0052CC] uppercase">
+                Scroll Down
+              </span>
             </div>
           </div>
         </div>
