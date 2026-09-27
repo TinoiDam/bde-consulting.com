@@ -10,48 +10,33 @@ export default function Home() {
           backgroundColor: '#E4F3FA'
         }}
       >
-        {/* Primary diagonal aurora band - Bright, wide, skewed */}
+        {/* Primary focused light beam - Sharp, directed, strong contrast */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '150%',
-            height: '80%',
+            width: '120%',
+            height: '50%',
             backgroundColor: '#A1DCF9',
-            top: '-20%',
-            right: '-30%',
-            transform: 'rotate(-25deg) skewY(-15deg)',
-            filter: 'blur(80px)',
-            opacity: 0.75
+            top: '5%',
+            right: '-15%',
+            transform: 'rotate(-20deg) skewY(-10deg)',
+            filter: 'blur(50px)',
+            opacity: 0.8
           }}
         ></div>
 
-        {/* Secondary accent band - Softer, complementary angle */}
+        {/* Secondary accent - Complementary direction, softer */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '140%',
-            height: '70%',
+            width: '110%',
+            height: '45%',
             backgroundColor: '#C1EAFA',
-            bottom: '-10%',
-            left: '-20%',
-            transform: 'rotate(20deg) skewY(10deg)',
-            filter: 'blur(90px)',
-            opacity: 0.65
-          }}
-        ></div>
-
-        {/* Tertiary glow layer - Soft edge definition */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: '160%',
-            height: '90%',
-            backgroundColor: '#A1DCF9',
-            top: '10%',
-            left: '-40%',
-            transform: 'rotate(35deg) skewX(-20deg)',
-            filter: 'blur(100px)',
-            opacity: 0.45
+            bottom: '5%',
+            left: '-10%',
+            transform: 'rotate(15deg) skewY(8deg)',
+            filter: 'blur(60px)',
+            opacity: 0.5
           }}
         ></div>
 
