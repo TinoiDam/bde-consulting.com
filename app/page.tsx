@@ -6,7 +6,7 @@ export default function Home() {
     <main className="bg-white">
       {/* Hero Section - Video Background */}
       <section
-        className="relative overflow-hidden min-h-screen flex flex-col"
+        className="relative overflow-hidden min-h-screen min-h-[100svh] flex flex-col"
         style={{
           backgroundColor: '#DBE8F5'
         }}
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator - Visible on all screens */}
-        <div className="relative z-10 flex flex-row justify-end items-center gap-3 md:gap-4 pt-8 px-6">
+        <div className="relative z-10 flex flex-row justify-end items-center gap-3 md:gap-4 pt-8 px-6 pb-[max(5rem,calc(env(safe-area-inset-bottom)+3rem))] md:pb-0">
           <div className="w-12 h-0.5 bg-white/70"></div>
           {/* Apple-style mouse */}
           <svg className="w-5 h-7 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">

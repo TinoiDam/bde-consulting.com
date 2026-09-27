@@ -1,29 +1,47 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const [overHero, setOverHero] = useState(true);
+
+  // The wordmark is white only while it sits on the blue homepage hero
+  useEffect(() => {
+    const update = () => setOverHero(window.scrollY < window.innerHeight - 80);
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+  const onBlue = pathname === '/' && overHero;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-baseline gap-3 relative py-2">
-          {/* BDE elegant script - prominent */}
-          <span
-            className="text-2xl md:text-3xl font-light text-[#4A7BA7] leading-none"
-            style={{fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '300'}}
+        {/* Logo - BDE wordmark with Monolith Chevron brand mark */}
+        <Link
+          href="/"
+          aria-label="BDE - home"
+          className={`group py-2 inline-flex items-start font-bold leading-none tracking-[-0.03em] text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] transition-colors duration-300 ${onBlue ? 'text-[#ffffff]' : 'text-gray-900'}`}
+          style={{ fontFamily: 'var(--font-wordmark), Georgia, serif' }}
+        >
+          BDE
+          {/* Chevron pointing top-right; sized in em so it scales with the letters */}
+          <svg
+            viewBox="0 0 10 10"
+            aria-hidden="true"
+            focusable="false"
+            className={`ml-[0.08em] -mt-[0.06em] w-[0.36em] h-[0.36em] shrink-0 transition-colors duration-300 ease-in-out ${onBlue ? 'text-[#ffffff] group-hover:text-[#DDEEFF] group-focus-visible:text-[#DDEEFF]' : 'text-[#0052CC]'}`}
           >
-            BDE
-          </span>
-
-          {/* Management Consulting - much smaller */}
-          <div className="flex flex-col gap-0 leading-tight">
-            <span className="text-[10px] md:text-xs font-serif font-medium text-gray-900 tracking-widest">MANAGEMENT</span>
-            <span className="text-[10px] md:text-xs font-serif font-medium text-gray-900 tracking-widest">CONSULTING</span>
-          </div>
+            <polygon points="2,0 10,0 10,8 7.6,8 7.6,2.4 2,2.4" fill="currentColor" />
+          </svg>
         </Link>
 
         {/* Desktop Menu */}
