@@ -1,89 +1,18 @@
 import Link from 'next/link';
+import HeroVideo from '@/components/HeroVideo';
 
 export default function Home() {
   return (
     <main className="bg-white">
-      {/* Hero Section - Volumetric Aurora Mesh Gradient */}
+      {/* Hero Section - Video Background */}
       <section
         className="relative overflow-hidden min-h-screen flex flex-col"
         style={{
           backgroundColor: '#DBE8F5'
         }}
       >
-        {/* Large volumetric blob 1 - Top right */}
-        <div
-          className="absolute pointer-events-none animate-aurora-1"
-          style={{
-            width: '60%',
-            height: '60%',
-            background: 'radial-gradient(circle at 40% 40%, rgba(100, 180, 255, 0.95) 0%, rgba(80, 150, 240, 0.6) 40%, transparent 70%)',
-            top: '-15%',
-            right: '-10%',
-            borderRadius: '50%',
-            filter: 'blur(80px)',
-            opacity: 1
-          }}
-        ></div>
-
-        {/* Large volumetric blob 2 - Center */}
-        <div
-          className="absolute pointer-events-none animate-aurora-2"
-          style={{
-            width: '70%',
-            height: '70%',
-            background: 'radial-gradient(circle at 50% 50%, rgba(0, 150, 220, 0.85) 0%, rgba(50, 130, 200, 0.4) 50%, transparent 80%)',
-            top: '10%',
-            left: '-15%',
-            borderRadius: '50%',
-            filter: 'blur(100px)',
-            opacity: 1
-          }}
-        ></div>
-
-        {/* Large volumetric blob 3 - Bottom center */}
-        <div
-          className="absolute pointer-events-none animate-aurora-3"
-          style={{
-            width: '65%',
-            height: '65%',
-            background: 'radial-gradient(circle at 45% 45%, rgba(0, 180, 255, 0.8) 0%, rgba(100, 200, 255, 0.35) 45%, transparent 75%)',
-            bottom: '-25%',
-            left: '20%',
-            borderRadius: '50%',
-            filter: 'blur(90px)',
-            opacity: 1
-          }}
-        ></div>
-
-        {/* Accent blob - Right side */}
-        <div
-          className="absolute pointer-events-none animate-float-slow"
-          style={{
-            width: '45%',
-            height: '45%',
-            background: 'radial-gradient(circle at 45% 45%, rgba(0, 120, 200, 0.7) 0%, transparent 65%)',
-            top: '50%',
-            right: '-5%',
-            borderRadius: '50%',
-            filter: 'blur(85px)',
-            opacity: 1
-          }}
-        ></div>
-
-        {/* Soft glow edges - Subtle transition */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            width: '140%',
-            height: '100%',
-            backgroundColor: '#A8D9F7',
-            top: '0%',
-            left: '-30%',
-            transform: 'rotate(35deg) skewX(-30deg)',
-            filter: 'blur(80px)',
-            opacity: 0.3
-          }}
-        ></div>
+        {/* Background video */}
+        <HeroVideo />
 
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
