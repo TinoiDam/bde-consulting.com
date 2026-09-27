@@ -3,40 +3,64 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main className="bg-white">
-      {/* Hero Section - Aurora Mesh Gradient Effect */}
-      <section className="relative overflow-hidden min-h-screen flex flex-col">
-        {/* Base soft blue background */}
-        <div className="absolute inset-0 bg-[#d4eaf5]"></div>
+      {/* Hero Section - Aurora Mesh Gradient with massive blurred blobs */}
+      <section className="relative overflow-hidden min-h-screen flex flex-col bg-[#E4F3FA]">
 
-        {/* Aurora Mesh Gradient - Multiple overlapping radial gradients */}
-        {/* Blob 1 - Top right cyan */}
-        <div className="absolute inset-0 opacity-60" style={{
-          background: 'radial-gradient(circle at 75% 20%, rgba(100, 200, 255, 0.4) 0%, transparent 50%)'
-        }}></div>
+        {/* Blob 1 - Top right: Large glowing cyan circle */}
+        <div
+          className="absolute rounded-full opacity-70"
+          style={{
+            width: '600px',
+            height: '600px',
+            backgroundColor: '#A1DCF9',
+            top: '-10%',
+            right: '-5%',
+            filter: 'blur(140px)',
+            pointerEvents: 'none'
+          }}
+        ></div>
 
-        {/* Blob 2 - Center teal */}
-        <div className="absolute inset-0 opacity-50" style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(150, 220, 240, 0.3) 0%, transparent 60%)'
-        }}></div>
+        {/* Blob 2 - Center/Right: Softer light blue circle */}
+        <div
+          className="absolute rounded-full opacity-60"
+          style={{
+            width: '500px',
+            height: '500px',
+            backgroundColor: '#C1EAFA',
+            top: '30%',
+            right: '10%',
+            filter: 'blur(140px)',
+            pointerEvents: 'none'
+          }}
+        ></div>
 
-        {/* Blob 3 - Bottom left light blue */}
-        <div className="absolute inset-0 opacity-40" style={{
-          background: 'radial-gradient(circle at 20% 80%, rgba(180, 230, 250, 0.3) 0%, transparent 55%)'
-        }}></div>
+        {/* Blob 3 - Bottom left: Subtle ice blue circle */}
+        <div
+          className="absolute rounded-full opacity-50"
+          style={{
+            width: '450px',
+            height: '450px',
+            backgroundColor: '#A1DCF9',
+            bottom: '-5%',
+            left: '5%',
+            filter: 'blur(140px)',
+            pointerEvents: 'none'
+          }}
+        ></div>
 
-        {/* Blob 4 - Top left soft cyan */}
-        <div className="absolute inset-0 opacity-35" style={{
-          background: 'radial-gradient(circle at 10% 30%, rgba(120, 210, 250, 0.25) 0%, transparent 50%)'
-        }}></div>
-
-        {/* Blob 5 - Right side flowing teal */}
-        <div className="absolute inset-0 opacity-45" style={{
-          background: 'radial-gradient(ellipse at 85% 40%, rgba(100, 220, 240, 0.35) 0%, transparent 55%)'
-        }}></div>
-
-        {/* Animated floating elements for extra depth */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-bl from-[#00D4FF]/20 via-[#0052CC]/5 to-transparent rounded-full blur-3xl animate-float-slow opacity-60"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-gradient-to-tr from-[#00D4FF]/15 to-transparent rounded-full blur-3xl animate-float-slow-reverse opacity-50"></div>
+        {/* Blob 4 - Top left: Gentle flowing accent */}
+        <div
+          className="absolute rounded-full opacity-55"
+          style={{
+            width: '550px',
+            height: '550px',
+            backgroundColor: '#C1EAFA',
+            top: '-15%',
+            left: '15%',
+            filter: 'blur(140px)',
+            pointerEvents: 'none'
+          }}
+        ></div>
 
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
