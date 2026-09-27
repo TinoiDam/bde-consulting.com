@@ -118,22 +118,22 @@ export default function Home() {
       {/* Specialisaties Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f8fbfc] to-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 w-full">
-          {/* Mobile: Stack, Desktop: Horizontal */}
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-6 md:gap-8">
-            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-1 sm:flex-none">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900">
+          {/* Mobile: Horizontal scroll, Desktop: Horizontal flex */}
+          <div className="flex overflow-x-auto md:overflow-visible md:flex-row md:justify-between md:items-center gap-4 md:gap-6 lg:gap-8 pb-2 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
+            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-shrink-0 md:flex-shrink-1 md:flex-1 min-w-[200px] md:min-w-auto">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900 whitespace-nowrap md:whitespace-normal">
                 Interim Consultancy
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-1 sm:flex-none">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900">
+            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-shrink-0 md:flex-shrink-1 md:flex-1 min-w-[200px] md:min-w-auto">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900 whitespace-nowrap md:whitespace-normal">
                 Project- &amp; Programmamanagement
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-1 sm:flex-none">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900">
+            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-shrink-0 md:flex-shrink-1 md:flex-1 min-w-[200px] md:min-w-auto">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900 whitespace-nowrap md:whitespace-normal">
                 Data, IT &amp; Transformatie
               </p>
             </div>
