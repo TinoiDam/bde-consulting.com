@@ -3,64 +3,18 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main className="bg-white">
-      {/* Hero Section - Aurora Mesh Gradient with massive blurred blobs */}
-      <section className="relative overflow-hidden min-h-screen flex flex-col bg-[#E4F3FA]">
-
-        {/* Blob 1 - Top right: Large glowing cyan circle */}
-        <div
-          className="absolute rounded-full opacity-70"
-          style={{
-            width: '600px',
-            height: '600px',
-            backgroundColor: '#A1DCF9',
-            top: '-10%',
-            right: '-5%',
-            filter: 'blur(140px)',
-            pointerEvents: 'none'
-          }}
-        ></div>
-
-        {/* Blob 2 - Center/Right: Softer light blue circle */}
-        <div
-          className="absolute rounded-full opacity-60"
-          style={{
-            width: '500px',
-            height: '500px',
-            backgroundColor: '#C1EAFA',
-            top: '30%',
-            right: '10%',
-            filter: 'blur(140px)',
-            pointerEvents: 'none'
-          }}
-        ></div>
-
-        {/* Blob 3 - Bottom left: Subtle ice blue circle */}
-        <div
-          className="absolute rounded-full opacity-50"
-          style={{
-            width: '450px',
-            height: '450px',
-            backgroundColor: '#A1DCF9',
-            bottom: '-5%',
-            left: '5%',
-            filter: 'blur(140px)',
-            pointerEvents: 'none'
-          }}
-        ></div>
-
-        {/* Blob 4 - Top left: Gentle flowing accent */}
-        <div
-          className="absolute rounded-full opacity-55"
-          style={{
-            width: '550px',
-            height: '550px',
-            backgroundColor: '#C1EAFA',
-            top: '-15%',
-            left: '15%',
-            filter: 'blur(140px)',
-            pointerEvents: 'none'
-          }}
-        ></div>
+      {/* Hero Section - Aurora Mesh Gradient */}
+      <section
+        className="relative overflow-hidden min-h-screen flex flex-col"
+        style={{
+          backgroundColor: '#E4F3FA',
+          backgroundImage: `
+            radial-gradient(at 90% 10%, #A1DCF9 0px, transparent 50%),
+            radial-gradient(at 100% 60%, #C1EAFA 0px, transparent 40%),
+            radial-gradient(at 10% 90%, #EDF7FC 0px, transparent 50%)
+          `
+        }}
+      >
 
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
