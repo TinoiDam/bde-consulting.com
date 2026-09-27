@@ -10,27 +10,19 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 relative py-2">
-          {/* Management Consulting serif text */}
-          <div className="flex flex-col gap-0 leading-tight">
-            <span className="text-xs md:text-sm font-serif font-bold text-gray-900 tracking-tight">MANAGEMENT</span>
-            <span className="text-xs md:text-sm font-serif font-bold text-gray-900 tracking-tight">CONSULTING</span>
-          </div>
+        <Link href="/" className="flex items-baseline gap-3 relative py-2">
+          {/* BDE elegant script - prominent */}
+          <span
+            className="text-2xl md:text-3xl font-light text-[#4A7BA7] leading-none"
+            style={{fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '300'}}
+          >
+            BDE
+          </span>
 
-          {/* BDE elegant script with pen accent */}
-          <div className="relative">
-            <span
-              className="text-lg md:text-xl font-light text-[#4A7BA7] leading-none"
-              style={{fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '300'}}
-            >
-              BDE
-            </span>
-            {/* Pen accent line - prominent diagonal */}
-            <svg width="60" height="70" className="absolute -right-8 -top-4 fill-none stroke-[#4A7BA7] stroke-[2]" viewBox="0 0 60 70">
-              <path d="M50 10 Q40 30, 25 65" strokeLinecap="round" strokeLinejoin="round"/>
-              {/* Extra width to pen stroke */}
-              <path d="M52 5 Q42 25, 27 60" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
-            </svg>
+          {/* Management Consulting - much smaller */}
+          <div className="flex flex-col gap-0 leading-tight">
+            <span className="text-[10px] md:text-xs font-serif font-medium text-gray-900 tracking-widest">MANAGEMENT</span>
+            <span className="text-[10px] md:text-xs font-serif font-medium text-gray-900 tracking-widest">CONSULTING</span>
           </div>
         </Link>
 
