@@ -10,18 +10,18 @@ export default function Home() {
           backgroundColor: '#E4F3FA'
         }}
       >
-        {/* Hard, bright primary light beam - Centered, sharp, intense */}
+        {/* Hard, bright primary light beam - Wide, soft edges, organic */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '100%',
-            height: '60%',
+            width: '150%',
+            height: '80%',
             backgroundColor: '#8BC4F0',
-            top: '-10%',
-            right: '-25%',
-            transform: 'rotate(-22deg) skewY(-20deg) scaleX(1.3)',
-            filter: 'blur(35px)',
-            opacity: 0.88
+            top: '-15%',
+            right: '-35%',
+            transform: 'rotate(-22deg) skewY(-20deg) scaleX(1.4)',
+            filter: 'blur(160px)',
+            opacity: 0.85
           }}
         ></div>
 
