@@ -10,24 +10,26 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-baseline gap-2 relative py-2">
-          {/* BDE in elegant script */}
-          <span
-            className="text-lg md:text-xl font-light text-[#4A7BA7] leading-none"
-            style={{fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '300'}}
-          >
-            BDE
-          </span>
+        <Link href="/" className="flex items-center gap-3 relative py-2">
+          {/* Management Consulting serif text */}
+          <div className="flex flex-col gap-0 leading-tight">
+            <span className="text-xs md:text-sm font-serif font-bold text-gray-900 tracking-tight">MANAGEMENT</span>
+            <span className="text-xs md:text-sm font-serif font-bold text-gray-900 tracking-tight">CONSULTING</span>
+          </div>
 
-          {/* Management Consulting with pen accent */}
+          {/* BDE elegant script with pen accent */}
           <div className="relative">
-            <div className="flex flex-col gap-0 leading-none">
-              <span className="text-xs md:text-sm font-serif font-bold text-gray-900 tracking-tight">MANAGEMENT</span>
-              <span className="text-xs md:text-sm font-serif font-bold text-gray-900 tracking-tight">CONSULTING</span>
-            </div>
-            {/* Pen accent line */}
-            <svg width="50" height="60" className="absolute -right-12 -top-3 fill-none stroke-[#4A7BA7] stroke-[1.5]" viewBox="0 0 50 60">
-              <path d="M45 5 Q40 20, 35 50" strokeLinecap="round"/>
+            <span
+              className="text-lg md:text-xl font-light text-[#4A7BA7] leading-none"
+              style={{fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '300'}}
+            >
+              BDE
+            </span>
+            {/* Pen accent line - prominent diagonal */}
+            <svg width="60" height="70" className="absolute -right-8 -top-4 fill-none stroke-[#4A7BA7] stroke-[2]" viewBox="0 0 60 70">
+              <path d="M50 10 Q40 30, 25 65" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* Extra width to pen stroke */}
+              <path d="M52 5 Q42 25, 27 60" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
             </svg>
           </div>
         </Link>
