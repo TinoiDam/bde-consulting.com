@@ -10,48 +10,48 @@ export default function Home() {
           backgroundColor: '#E4F3FA'
         }}
       >
-        {/* Primary light beam 1 - Main bright band */}
+        {/* Beam 1 - Sharp bright stripe */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '150%',
-            height: '80%',
+            width: '35%',
+            height: '150%',
             backgroundColor: '#8BC4F0',
-            top: '-15%',
-            right: '-35%',
-            transform: 'rotate(-22deg) skewY(-20deg) scaleX(1.4)',
-            filter: 'blur(160px)',
-            opacity: 0.85
+            top: '-30%',
+            right: '10%',
+            transform: 'rotate(-15deg)',
+            filter: 'blur(120px)',
+            opacity: 0.82
           }}
         ></div>
 
-        {/* Secondary light beam 2 - Complementary angle */}
+        {/* Beam 2 - Secondary stripe */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '140%',
-            height: '75%',
+            width: '40%',
+            height: '160%',
             backgroundColor: '#8BC4F0',
-            top: '-10%',
-            right: '-20%',
-            transform: 'rotate(-18deg) skewY(-18deg) scaleX(1.3)',
-            filter: 'blur(150px)',
-            opacity: 0.55
+            top: '-40%',
+            right: '150px',
+            transform: 'rotate(-25deg)',
+            filter: 'blur(140px)',
+            opacity: 0.6
           }}
         ></div>
 
-        {/* Tertiary light beam 3 - Shadow ray */}
+        {/* Beam 3 - Shadow stripe */}
         <div
           className="absolute pointer-events-none"
           style={{
-            width: '160%',
-            height: '85%',
+            width: '38%',
+            height: '155%',
             backgroundColor: '#A8D9F7',
-            top: '-20%',
-            right: '-45%',
-            transform: 'rotate(-26deg) skewY(-22deg) scaleX(1.5)',
-            filter: 'blur(170px)',
-            opacity: 0.45
+            top: '-35%',
+            right: '-100px',
+            transform: 'rotate(-20deg)',
+            filter: 'blur(130px)',
+            opacity: 0.5
           }}
         ></div>
 
