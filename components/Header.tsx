@@ -10,8 +10,23 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center bg-white/90 px-4 py-2 rounded-full">
-          <span className="text-base md:text-lg font-bold tracking-tight text-gray-900 leading-none">BDE</span>
+        <Link href="/" className="flex items-center gap-3 relative">
+          <div className="relative">
+            <span
+              className="text-2xl md:text-3xl font-light text-[#4A7BA7] leading-none"
+              style={{fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '300'}}
+            >
+              BDE
+            </span>
+            {/* Pen accent line */}
+            <svg width="40" height="50" className="absolute -right-8 -top-2 fill-none stroke-[#4A7BA7] stroke-[1.5]" viewBox="0 0 40 50">
+              <path d="M35 0 Q30 15, 25 35" strokeLinecap="round"/>
+            </svg>
+          </div>
+          <div className="flex flex-col gap-0">
+            <span className="text-xs tracking-widest text-gray-700 font-medium leading-tight" style={{letterSpacing: '0.08em'}}>MANAGEMENT</span>
+            <span className="text-xs tracking-widest text-gray-700 font-medium leading-tight" style={{letterSpacing: '0.08em'}}>CONSULTING</span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
