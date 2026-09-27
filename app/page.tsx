@@ -33,32 +33,17 @@ export default function Home() {
         <div className="relative z-10 w-full bg-white border-t border-gray-200/20 py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex justify-between items-baseline flex-wrap gap-16 md:gap-8 mb-8">
-              <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
-                  Specialisatie
-                </p>
-                <p className="text-base md:text-lg font-serif font-bold text-gray-900">
-                  Interim Consultancy
-                </p>
-              </div>
+              <p className="text-base md:text-lg font-serif font-bold text-gray-900">
+                Interim Consultancy
+              </p>
 
-              <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
-                  Specialisatie
-                </p>
-                <p className="text-base md:text-lg font-serif font-bold text-gray-900">
-                  Project- &amp;<br />Programmamanagement
-                </p>
-              </div>
+              <p className="text-base md:text-lg font-serif font-bold text-gray-900">
+                Project- &amp;<br />Programmamanagement
+              </p>
 
-              <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
-                  Specialisatie
-                </p>
-                <p className="text-base md:text-lg font-serif font-bold text-gray-900">
-                  Data, IT &amp;<br />Transformatie
-                </p>
-              </div>
+              <p className="text-base md:text-lg font-serif font-bold text-gray-900">
+                Data, IT &amp;<br />Transformatie
+              </p>
 
               <div className="absolute bottom-12 md:bottom-16 right-6 md:right-12 flex items-center gap-4">
                 <div className="w-12 h-0.5 bg-gradient-to-r from-[#0052CC] to-[#00D4FF]"></div>
