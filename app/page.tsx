@@ -100,7 +100,7 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator - Visible on all screens */}
-        <div className="relative z-10 flex justify-end items-center gap-3 md:gap-4 pt-8 px-6 flex-col md:flex-row">
+        <div className="relative z-10 flex flex-row justify-end items-center gap-3 md:gap-4 pt-8 px-6">
           <div className="w-12 h-0.5 bg-white/70"></div>
           {/* Apple-style mouse */}
           <svg className="w-5 h-7 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
