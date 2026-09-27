@@ -7,53 +7,23 @@ export default function Home() {
       <section
         className="relative overflow-hidden min-h-screen flex flex-col"
         style={{
-          backgroundColor: '#E4F3FA'
+          backgroundColor: '#E4F3FA',
+          backgroundImage: `
+            radial-gradient(at 85% 5%, #A1DCF9 0px, transparent 35%),
+            radial-gradient(at 95% 25%, #7ECEF7 0px, transparent 45%),
+            radial-gradient(at 75% 45%, #C1EAFA 0px, transparent 40%),
+            radial-gradient(at 100% 55%, #A1DCF9 0px, transparent 50%),
+            radial-gradient(at 50% 30%, #EDF7FC 0px, transparent 60%),
+            radial-gradient(at 20% 75%, #C1EAFA 0px, transparent 45%),
+            radial-gradient(at 5% 95%, #7ECEF7 0px, transparent 40%),
+            radial-gradient(at 35% 5%, #EDF7FC 0px, transparent 55%),
+            radial-gradient(at 65% 85%, #A1DCF9 0px, transparent 50%),
+            radial-gradient(at 15% 35%, #7ECEF7 0px, transparent 45%)
+          `,
+          backgroundSize: '100% 100%',
+          backgroundAttachment: 'fixed'
         }}
       >
-        {/* Skewed light band 1 - Bright cyan aurora stripe */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            width: '140%',
-            height: '100%',
-            backgroundColor: '#A1DCF9',
-            transform: 'rotate(-15deg) skewX(-20deg) translateY(-30%)',
-            filter: 'blur(100px)',
-            opacity: 0.7,
-            top: '-10%',
-            left: '-20%'
-          }}
-        ></div>
-
-        {/* Skewed light band 2 - Softer accent from right */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            width: '120%',
-            height: '120%',
-            backgroundColor: '#C1EAFA',
-            transform: 'rotate(25deg) skewX(15deg) translateY(10%)',
-            filter: 'blur(120px)',
-            opacity: 0.6,
-            top: '20%',
-            right: '-30%'
-          }}
-        ></div>
-
-        {/* Third subtle layer for depth */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            width: '130%',
-            height: '130%',
-            backgroundColor: '#A1DCF9',
-            transform: 'rotate(-25deg) skewX(-15deg)',
-            filter: 'blur(110px)',
-            opacity: 0.4,
-            bottom: '-20%',
-            left: '10%'
-          }}
-        ></div>
 
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
