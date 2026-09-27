@@ -29,8 +29,7 @@ export default function Header() {
         <Link
           href="/"
           aria-label="BDE - home"
-          className={`group py-2 inline-flex items-start font-bold leading-none tracking-[-0.03em] text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] transition-colors duration-300 ${onBlue ? 'text-[#ffffff]' : 'text-gray-900'}`}
-          style={{ fontFamily: 'var(--font-wordmark), Georgia, serif' }}
+          className={`group py-2 inline-flex items-start font-serif font-bold leading-none tracking-[-0.03em] text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] transition-colors duration-300 ${onBlue ? 'text-[#ffffff]' : 'text-gray-900'}`}
         >
           BDE
           {/* Chevron pointing top-right; sized in em so it scales with the letters */}

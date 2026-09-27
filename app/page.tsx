@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import HeroVideo from '@/components/HeroVideo';
+import TrustSection from '@/components/TrustSection';
 
 export default function Home() {
   return (
@@ -17,12 +18,12 @@ export default function Home() {
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
           <div className="max-w-7xl mx-auto px-6 w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-[#0A1931] leading-tight">
+            <h1 className="text-[2.25rem] sm:text-[2.5rem] md:text-5xl lg:text-7xl font-serif font-extrabold text-[#0A1931] leading-[1.12] tracking-[-0.01em]">
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
 
-            <h2 className="mt-10 md:mt-12 lg:mt-14 text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-normal text-[#0A1931] leading-snug">
+            <h2 className="mt-10 md:mt-12 lg:mt-14 text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans font-normal text-[#0A1931] leading-snug tracking-[-0.01em]">
               Zorg voor regie<br />op samenhang.
             </h2>
           </div>
@@ -43,6 +44,9 @@ export default function Home() {
           </span>
         </div>
       </section>
+
+      {/* Trust / validation */}
+      <TrustSection />
 
       {/* Featured Section 1 - Governance */}
       <section className="py-16 md:py-24 lg:py-32 bg-white">
