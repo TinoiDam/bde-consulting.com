@@ -10,9 +10,9 @@ export default function Home() {
           backgroundColor: '#E4F3FA'
         }}
       >
-        {/* Beam 1 - Sharp bright stripe */}
+        {/* Beam 1 - Sharp bright stripe with subtle breathing */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none animate-breathe-1"
           style={{
             width: '35%',
             height: '150%',
@@ -25,9 +25,9 @@ export default function Home() {
           }}
         ></div>
 
-        {/* Beam 2 - Secondary stripe */}
+        {/* Beam 2 - Secondary stripe with breathing animation */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none animate-breathe-2"
           style={{
             width: '40%',
             height: '160%',
@@ -40,9 +40,9 @@ export default function Home() {
           }}
         ></div>
 
-        {/* Beam 3 - Shadow stripe */}
+        {/* Beam 3 - Shadow stripe with flowing animation */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none animate-breathe-3"
           style={{
             width: '38%',
             height: '155%',

@@ -12,6 +12,9 @@ const config: Config = {
         'float-slow': 'float-slow 8s ease-in-out infinite',
         'float-slow-reverse': 'float-slow-reverse 10s ease-in-out infinite',
         'pulse-subtle': 'pulse-subtle 6s ease-in-out infinite',
+        'breathe-1': 'breathe-1 25s ease-in-out infinite',
+        'breathe-2': 'breathe-2 30s ease-in-out infinite',
+        'breathe-3': 'breathe-3 22s ease-in-out infinite',
       },
       keyframes: {
         'float-slow': {
@@ -25,6 +28,18 @@ const config: Config = {
         'pulse-subtle': {
           '0%, 100%': { opacity: '0.6' },
           '50%': { opacity: '0.8' },
+        },
+        'breathe-1': {
+          '0%, 100%': { transform: 'translateY(0px) translateX(0px) scale(1)' },
+          '50%': { transform: 'translateY(-8px) translateX(4px) scale(1.02)' },
+        },
+        'breathe-2': {
+          '0%, 100%': { transform: 'translateY(0px) scale(1)' },
+          '50%': { transform: 'translateY(6px) scale(0.98)' },
+        },
+        'breathe-3': {
+          '0%, 100%': { transform: 'translateX(0px) scale(1)' },
+          '50%': { transform: 'translateX(-5px) scale(1.01)' },
         },
       },
     },
