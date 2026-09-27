@@ -10,7 +10,7 @@ export default function Home() {
           backgroundColor: '#E4F3FA'
         }}
       >
-        {/* Hard, bright primary light beam - Wide, soft edges, organic */}
+        {/* Primary light beam 1 - Main bright band */}
         <div
           className="absolute pointer-events-none"
           style={{
@@ -22,6 +22,36 @@ export default function Home() {
             transform: 'rotate(-22deg) skewY(-20deg) scaleX(1.4)',
             filter: 'blur(160px)',
             opacity: 0.85
+          }}
+        ></div>
+
+        {/* Secondary light beam 2 - Complementary angle */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '140%',
+            height: '75%',
+            backgroundColor: '#8BC4F0',
+            top: '-10%',
+            right: '-20%',
+            transform: 'rotate(-18deg) skewY(-18deg) scaleX(1.3)',
+            filter: 'blur(150px)',
+            opacity: 0.55
+          }}
+        ></div>
+
+        {/* Tertiary light beam 3 - Shadow ray */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '160%',
+            height: '85%',
+            backgroundColor: '#A8D9F7',
+            top: '-20%',
+            right: '-45%',
+            transform: 'rotate(-26deg) skewY(-22deg) scaleX(1.5)',
+            filter: 'blur(170px)',
+            opacity: 0.45
           }}
         ></div>
 
