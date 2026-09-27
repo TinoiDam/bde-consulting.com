@@ -31,11 +31,15 @@ export default function Home() {
 
         {/* Scroll Indicator - Hidden on mobile, visible on md+ */}
         <div className="relative z-10 hidden md:flex justify-end items-center gap-4 pt-8 px-6">
-          <div className="w-12 h-0.5 bg-white/80"></div>
-          <svg className="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
+          <div className="w-12 h-0.5 bg-[#b8dff0]"></div>
+          {/* Apple-style mouse */}
+          <svg className="w-5 h-7 text-[#b8dff0] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+            {/* Mouse body */}
+            <path d="M12 2C8.7 2 6 4.7 6 8v8c0 3.3 2.7 6 6 6s6-2.7 6-6V8c0-3.3-2.7-6-6-6z" strokeLinecap="round" strokeLinejoin="round"/>
+            {/* Scroll wheel */}
+            <path d="M12 5v3" strokeLinecap="round"/>
           </svg>
-          <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
+          <span className="text-xs font-bold tracking-widest text-gray-900 uppercase drop-shadow">
             Scroll Down
           </span>
         </div>
