@@ -60,13 +60,14 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="ml-auto flex flex-col items-center gap-2">
-                <span className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
-                  Scroll
-                </span>
-                <svg className="w-5 h-5 text-[#0052CC] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              <div className="absolute bottom-12 md:bottom-16 right-6 md:right-12 flex items-center gap-4">
+                <div className="w-12 h-0.5 bg-gradient-to-r from-[#0052CC] to-[#00D4FF]"></div>
+                <svg className="w-6 h-6 text-[#0052CC] animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
                 </svg>
+                <span className="text-xs font-semibold tracking-widest text-[#0052CC] uppercase whitespace-nowrap">
+                  Scroll Down
+                </span>
               </div>
             </div>
           </div>
