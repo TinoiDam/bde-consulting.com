@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero Section - BCG Style with Blue to Teal Gradient Effect */}
       <section className="relative overflow-hidden min-h-screen flex flex-col">
         {/* Blue to teal gradient background - BCG effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5dcedb] via-[#3ec6d8] to-[#2ed9d4]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#3d9fd0] via-[#2a8fc8] to-[#1d85bf]"></div>
 
         {/* Diagonal gradient overlay for BCG effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00D4FF]/15 to-[#00D4FF]/5 opacity-80"></div>
