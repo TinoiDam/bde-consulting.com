@@ -19,6 +19,26 @@
   }
 }
 
+/* Aurora Flow Animations - GPU Accelerated */
+@keyframes aurora-flow-1 {
+  0%, 100% { transform: rotate(-22deg) skewX(-15deg) scale(1) translate(0px, 0px); opacity: 0.7; }
+  50% { transform: rotate(-24deg) skewX(-12deg) scale(1.1) translate(-20px, 30px); opacity: 0.85; }
+}
+
+@keyframes aurora-flow-2 {
+  0%, 100% { transform: rotate(-18deg) skewX(-10deg) scale(1) translate(0px, 0px); opacity: 0.6; }
+  50% { transform: rotate(-15deg) skewX(-13deg) scale(1.05) translate(30px, -20px); opacity: 0.75; }
+}
+
+@keyframes aurora-flow-3 {
+  0%, 100% { transform: rotate(15deg) scale(1); opacity: 0.9; }
+  50% { transform: rotate(18deg) scale(1.1) translate(-10px, -10px); opacity: 0.75; }
+}
+
+.animate-aurora-1 { animation: aurora-flow-1 26s ease-in-out infinite; will-change: transform, opacity; }
+.animate-aurora-2 { animation: aurora-flow-2 32s ease-in-out infinite; will-change: transform, opacity; }
+.animate-aurora-3 { animation: aurora-flow-3 20s ease-in-out infinite; will-change: transform, opacity; }
+
 body {
   background: var(--background);
   color: var(--foreground);

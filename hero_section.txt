@@ -1,0 +1,41 @@
+        {/* Aurora Background Layers */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          {/* Light beam 1 - Main bright diagonal stream */}
+          <div
+            className="absolute animate-aurora-1"
+            style={{
+              width: '45%',
+              height: '160%',
+              backgroundColor: '#A1DCF9',
+              top: '-20%',
+              right: '-10%',
+              filter: 'blur(110px)'
+            }}
+          ></div>
+
+          {/* Light beam 2 - Secondary softer ray */}
+          <div
+            className="absolute animate-aurora-2"
+            style={{
+              width: '25%',
+              height: '140%',
+              backgroundColor: '#C1EAFA',
+              top: '-10%',
+              right: '25%',
+              filter: 'blur(130px)'
+            }}
+          ></div>
+
+          {/* Light beam 3 - Subtle glow for depth */}
+          <div
+            className="absolute animate-aurora-3"
+            style={{
+              width: '50%',
+              height: '80%',
+              backgroundColor: '#EDF7FC',
+              bottom: '-20%',
+              left: '-10%',
+              filter: 'blur(100px)'
+            }}
+          ></div>
+        </div>
