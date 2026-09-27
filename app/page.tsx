@@ -17,19 +17,19 @@ export default function Home() {
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
           <div className="max-w-7xl mx-auto px-6 w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-gray-900 mb-8 md:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-[#0A1931] leading-tight">
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 leading-tight">
+            <h2 className="mt-10 md:mt-12 lg:mt-14 text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-normal text-[#0A1931] leading-snug">
               Zorg voor regie<br />op samenhang.
             </h2>
           </div>
         </div>
 
         {/* Scroll Indicator - Visible on all screens */}
-        <div className="relative z-10 flex flex-row justify-end items-center gap-3 md:gap-4 pt-8 px-6 pb-[max(5rem,calc(env(safe-area-inset-bottom)+3rem))] md:pb-0">
+        <div className="relative z-10 flex flex-row justify-end items-center gap-3 md:gap-4 pt-8 px-6 pb-[max(1rem,calc(env(safe-area-inset-bottom)+0.5rem))] md:pb-0">
           <div className="w-12 h-0.5 bg-white/70"></div>
           {/* Apple-style mouse */}
           <svg className="w-5 h-7 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
@@ -41,32 +41,6 @@ export default function Home() {
           <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
             Scroll Down
           </span>
-        </div>
-      </section>
-
-      {/* Specialisaties Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f8fbfc] to-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 w-full">
-          {/* Mobile: Horizontal scroll, Desktop: Horizontal flex */}
-          <div className="flex overflow-x-auto md:overflow-visible md:flex-row md:justify-between md:items-center gap-4 md:gap-6 lg:gap-8 pb-2 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
-            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-shrink-0 md:flex-shrink-1 md:flex-1 min-w-[200px] md:min-w-auto">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900 whitespace-nowrap md:whitespace-normal">
-                Interim Consultancy
-              </p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-shrink-0 md:flex-shrink-1 md:flex-1 min-w-[200px] md:min-w-auto">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900 whitespace-nowrap md:whitespace-normal">
-                Project- &amp; Programmamanagement
-              </p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-sm flex-shrink-0 md:flex-shrink-1 md:flex-1 min-w-[200px] md:min-w-auto">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg font-serif font-bold text-gray-900 whitespace-nowrap md:whitespace-normal">
-                Data, IT &amp; Transformatie
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
