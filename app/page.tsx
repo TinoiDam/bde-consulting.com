@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero Section - BCG Style with Blue to Teal Gradient Effect */}
       <section className="relative overflow-hidden min-h-screen flex flex-col">
         {/* Blue to teal gradient background - BCG effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#e8f4ff] via-[#d4f0ff] to-[#e8f8ff]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e7eff] via-[#0a9dd4] to-[#00d4ff]"></div>
 
         {/* Diagonal gradient overlay for BCG effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00D4FF]/15 to-[#00D4FF]/5 opacity-80"></div>
@@ -18,12 +18,12 @@ export default function Home() {
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
           <div className="max-w-7xl mx-auto px-6 w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-gray-900 mb-8 md:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-8 md:mb-6 leading-tight">
               Strategie is helder,<br />
               maar niet uitvoerbaar.
             </h1>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
               Zorg voor regie<br />op samenhang.
             </h2>
           </div>
@@ -55,11 +55,11 @@ export default function Home() {
 
             {/* Scroll Indicator - Hidden on mobile, visible on md+ */}
             <div className="hidden md:flex justify-end items-center gap-4 pt-8">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-[#0052CC] to-[#00D4FF]"></div>
-              <svg className="w-6 h-6 text-white drop-shadow-lg animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <div className="w-12 h-0.5 bg-white/80"></div>
+              <svg className="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m0 0h-6m0-12a10 10 0 100 20 10 10 0 000-20z" />
               </svg>
-              <span className="text-xs font-semibold tracking-widest text-white drop-shadow-lg uppercase">
+              <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
                 Scroll Down
               </span>
             </div>
