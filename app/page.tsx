@@ -4,18 +4,86 @@ export default function Home() {
   return (
     <main className="bg-white">
       {/* Hero Section - Aurora Mesh Gradient */}
-      <section className="relative w-full min-h-screen bg-[#E4F3FA] overflow-hidden flex items-center px-8 md:px-24">
-        {/* Aurora Background Layers with correct Tailwind syntax */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          {/* Light beam 1 - Main bright diagonal stream */}
-          <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[160%] bg-[#A1DCF9] opacity-70 -rotate-12 -skew-x-12 blur-3xl animate-aurora-1"></div>
+      <section
+        className="relative overflow-hidden min-h-screen flex flex-col"
+        style={{
+          backgroundColor: '#E4F3FA'
+        }}
+      >
+        {/* Beam 1 - Sharp bright stripe with subtle breathing */}
+        <div
+          className="absolute pointer-events-none animate-breathe-1"
+          style={{
+            width: '35%',
+            height: '150%',
+            backgroundColor: '#8BC4F0',
+            top: '-30%',
+            right: '10%',
+            transform: 'rotate(-15deg)',
+            filter: 'blur(120px)',
+            opacity: 0.82
+          }}
+        ></div>
 
-          {/* Light beam 2 - Secondary softer ray */}
-          <div className="absolute -top-[10%] right-[20%] w-[400px] h-[140%] bg-[#C1EAFA] opacity-60 -rotate-12 -skew-x-6 blur-3xl animate-aurora-2"></div>
+        {/* Beam 2 - Secondary stripe with breathing animation */}
+        <div
+          className="absolute pointer-events-none animate-breathe-2"
+          style={{
+            width: '40%',
+            height: '160%',
+            backgroundColor: '#8BC4F0',
+            top: '-40%',
+            right: '150px',
+            transform: 'rotate(-25deg)',
+            filter: 'blur(140px)',
+            opacity: 0.6
+          }}
+        ></div>
 
-          {/* Light beam 3 - Subtle glow for depth */}
-          <div className="absolute -bottom-[20%] -left-[10%] w-[500px] h-[80%] bg-[#EDF7FC] opacity-90 rotate-12 blur-3xl animate-aurora-3"></div>
-        </div>
+        {/* Beam 3 - Shadow stripe with flowing animation */}
+        <div
+          className="absolute pointer-events-none animate-breathe-3"
+          style={{
+            width: '38%',
+            height: '155%',
+            backgroundColor: '#A8D9F7',
+            top: '-35%',
+            right: '-100px',
+            transform: 'rotate(-20deg)',
+            filter: 'blur(130px)',
+            opacity: 0.5
+          }}
+        ></div>
+
+        {/* Secondary dynamic band - High contrast edge */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '95%',
+            height: '55%',
+            backgroundColor: '#A8D9F7',
+            bottom: '-15%',
+            left: '-20%',
+            transform: 'rotate(18deg) skewX(-25deg) skewY(12deg)',
+            filter: 'blur(40px)',
+            opacity: 0.65
+          }}
+        ></div>
+
+        {/* Soft glow edges - Subtle transition */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '140%',
+            height: '100%',
+            backgroundColor: '#A8D9F7',
+            top: '0%',
+            left: '-30%',
+            transform: 'rotate(35deg) skewX(-30deg)',
+            filter: 'blur(80px)',
+            opacity: 0.3
+          }}
+        ></div>
 
         {/* Content - Top */}
         <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
