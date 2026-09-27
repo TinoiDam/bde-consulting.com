@@ -6,7 +6,7 @@ export default function Home() {
     <main className="bg-white">
       {/* Hero Section - Video Background */}
       <section
-        className="relative overflow-hidden min-h-screen min-h-[100svh] flex flex-col"
+        className="relative overflow-hidden min-h-screen supports-[min-height:100svh]:min-h-svh flex flex-col"
         style={{
           backgroundColor: '#DBE8F5'
         }}
