@@ -16,7 +16,7 @@ export default function Home() {
           style={{
             width: '100%',
             height: '60%',
-            backgroundColor: '#A1DCF9',
+            backgroundColor: '#8BC4F0',
             top: '-10%',
             right: '-25%',
             transform: 'rotate(-22deg) skewY(-20deg) scaleX(1.3)',
@@ -31,7 +31,7 @@ export default function Home() {
           style={{
             width: '95%',
             height: '55%',
-            backgroundColor: '#C1EAFA',
+            backgroundColor: '#A8D9F7',
             bottom: '-15%',
             left: '-20%',
             transform: 'rotate(18deg) skewX(-25deg) skewY(12deg)',
@@ -46,7 +46,7 @@ export default function Home() {
           style={{
             width: '140%',
             height: '100%',
-            backgroundColor: '#C1EAFA',
+            backgroundColor: '#A8D9F7',
             top: '0%',
             left: '-30%',
             transform: 'rotate(35deg) skewX(-30deg)',
