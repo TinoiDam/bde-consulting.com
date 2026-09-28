@@ -18,7 +18,7 @@ export default function CasesSection({
           viewBox="0 0 24 24"
           aria-hidden="true"
           focusable="false"
-          className="mx-auto mb-10 md:mb-[60px] h-6 w-6 text-[#1E3A8A]"
+          className="mx-auto mb-10 md:mb-[60px] h-6 w-6 text-accent"
         >
           <polyline
             points="4,8 12,16 20,8"
@@ -32,9 +32,9 @@ export default function CasesSection({
 
         <div className="max-w-4xl mx-auto px-6">
           {eyebrow && (
-            <p className="text-xs md:text-sm font-medium uppercase tracking-[0.18em] text-[#1D4ED8]">{eyebrow}</p>
+            <p className="eyebrow">{eyebrow}</p>
           )}
-          <h2 className="mt-4 md:mt-5 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-[-0.02em] text-[#0A1931] text-balance">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] text-balance">
             {title}
           </h2>
         </div>

@@ -1,49 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  BDE corporate palette: the single source for colours.
+  Use the Tailwind utilities these generate (bg-canvas, text-ink, border-line, text-accent, ...)
+  instead of hard-coded hex values.
+*/
+@theme {
+  --color-canvas: #ffffff;      /* main background */
+  --color-canvas-alt: #fafafa;  /* ultra-light warm gray for alternating sections */
+  --color-mist: #eef3f9;        /* chic light blue for feature sections (e.g. About) */
+  --color-surface: #ffffff;     /* cards and panels */
+  --color-line: #e2e8f0;        /* faint borders and dividers */
+  --color-ink: #0a1931;         /* deep corporate navy: headlines, primary text, structural blocks, buttons */
+  --color-charcoal: #0f172a;    /* slate charcoal: secondary structural elements */
+  --color-ink-soft: #1e293b;    /* secondary headings (charcoal) */
+  --color-accent: #334155;      /* functional highlights only: active states, markers, focus */
+  --color-body: #334155;        /* running text (slate charcoal) */
+  --color-muted: #64748b;       /* labels and captions */
+  --color-subtle: #94a3b8;      /* inactive states, index numbers */
+
+  /* Display sizes default to line-height 1 in Tailwind; use the editorial 1.2 instead */
+  --text-4xl--line-height: 1.2;
+  --text-5xl--line-height: 1.2;
+  --text-6xl--line-height: 1.2;
+  --text-7xl--line-height: 1.2;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Smooth in-page anchor scrolling (e.g. hero link to #contact), unless the visitor prefers reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/*
+  Typography pairing (Waterland-style editorial):
+  headings in a light, sharp serif; body and UI in Inter with generous line-height.
+  Component classes can still override per element (e.g. uppercase sans labels use font-sans).
+*/
+@layer base {
+  /* Headings: one serif profile everywhere (no bold) */
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  h1, h2 {
+    color: var(--color-ink);
+  }
+
+  /* Body copy: light Inter, generous leading, slate charcoal */
+  p {
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--color-body);
   }
 }
 
-/* Aurora Flow Animations - GPU Accelerated */
-@keyframes aurora-flow-1 {
-  0%, 100% { transform: rotate(-22deg) skewX(-15deg) scale(1) translate(0px, 0px); opacity: 0.7; }
-  50% { transform: rotate(-24deg) skewX(-12deg) scale(1.1) translate(-20px, 30px); opacity: 0.85; }
+/* Eyebrows and micro-labels: the single standard for all section labels */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 12px;
 }
-
-@keyframes aurora-flow-2 {
-  0%, 100% { transform: rotate(-18deg) skewX(-10deg) scale(1) translate(0px, 0px); opacity: 0.6; }
-  50% { transform: rotate(-15deg) skewX(-13deg) scale(1.05) translate(30px, -20px); opacity: 0.75; }
-}
-
-@keyframes aurora-flow-3 {
-  0%, 100% { transform: rotate(15deg) scale(1); opacity: 0.9; }
-  50% { transform: rotate(18deg) scale(1.1) translate(-10px, -10px); opacity: 0.75; }
-}
-
-.animate-aurora-1 { animation: aurora-flow-1 26s ease-in-out infinite; will-change: transform, opacity; }
-.animate-aurora-2 { animation: aurora-flow-2 32s ease-in-out infinite; will-change: transform, opacity; }
-.animate-aurora-3 { animation: aurora-flow-3 20s ease-in-out infinite; will-change: transform, opacity; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-canvas);
+  color: var(--color-ink);
   font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.65;
   margin: 0;
   padding: 0;
 }

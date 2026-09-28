@@ -82,7 +82,7 @@ export default function HeroVideo() {
 
   const cls = 'absolute inset-0 w-full h-full object-cover object-center pointer-events-none';
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-[#DBE8F5]" aria-hidden="true">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-canvas-alt" aria-hidden="true">
       <video ref={a} className={cls} autoPlay muted playsInline preload="auto" disablePictureInPicture>
         <source src="/videos/hero.webm" type="video/webm" />
         <source src="/videos/hero.mp4" type="video/mp4" />

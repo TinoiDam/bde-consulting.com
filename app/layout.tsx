@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,11 +32,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="nl"
       className={`${inter.variable} ${playfair.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white m-0 p-0">
+      <body className="min-h-full flex flex-col bg-canvas text-ink m-0 p-0">
         <Header />
         <div className="flex-1">
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   );

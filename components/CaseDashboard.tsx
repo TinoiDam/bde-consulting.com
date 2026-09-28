@@ -88,7 +88,7 @@ export default function CaseDashboard() {
         role="tablist"
         aria-label="Projectsectoren"
         onKeyDown={onKeyDown}
-        className="mb-8 md:mb-0 flex md:flex-col gap-6 md:gap-0 overflow-x-auto md:overflow-visible -mx-6 px-6 md:mx-0 md:px-0 border-b md:border-b-0 md:border-l border-[#e2e8f0] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mb-8 md:mb-0 flex md:flex-col gap-6 md:gap-0 overflow-x-auto md:overflow-visible -mx-6 px-6 md:mx-0 md:px-0 border-b md:border-b-0 md:border-l border-line [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {cases.map((item, i) => {
           const selected = i === active;
@@ -106,12 +106,12 @@ export default function CaseDashboard() {
               aria-controls="case-panel"
               onClick={() => select(i)}
               className={`group/tab relative shrink-0 whitespace-nowrap text-left uppercase tracking-[0.18em] transition-colors duration-300 pb-3 md:pb-0 md:py-4 md:pl-5 ${
-                selected ? 'text-[#0A1931]' : 'text-[#94a3b8] hover:text-[#0A1931]'
+                selected ? 'text-ink' : 'text-subtle hover:text-ink'
               }`}
             >
               <span
                 className={`mr-3 text-[0.625rem] tabular-nums transition-colors duration-300 ${
-                  selected ? 'text-[#1E3A8A]' : 'text-[#cbd5e1] group-hover/tab:text-[#94a3b8]'
+                  selected ? 'text-accent' : 'text-subtle/60 group-hover/tab:text-subtle'
                 }`}
               >
                 {pad(i + 1)}
@@ -122,12 +122,12 @@ export default function CaseDashboard() {
               {selected && (
                 <span
                   aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-0.5 overflow-hidden bg-[#1E3A8A]/20 md:inset-x-auto md:-left-0.5 md:top-0 md:h-auto md:w-[3px]"
+                  className="absolute inset-x-0 bottom-0 h-0.5 overflow-hidden bg-accent/20 md:inset-x-auto md:-left-0.5 md:top-0 md:h-auto md:w-[3px]"
                 >
                   <span
                     key={`${active}-${running}`}
                     onAnimationEnd={() => select(active + 1, false)}
-                    className={`absolute inset-0 origin-left md:origin-top bg-[#1E3A8A] ${running ? 'case-progress' : ''}`}
+                    className={`absolute inset-0 origin-left md:origin-top bg-accent ${running ? 'case-progress' : ''}`}
                     style={
                       running
                         ? ({ '--case-duration': `${AUTOPLAY_MS}ms`, animationPlayState: paused ? 'paused' : 'running' } as React.CSSProperties)
@@ -154,7 +154,7 @@ export default function CaseDashboard() {
         <Link
           href={`/cases/${c.slug}`}
           aria-label={`Bekijk case study: ${c.sector}`}
-          className="group relative block aspect-[16/10] overflow-hidden rounded-[6px] bg-[#0A1931]"
+          className="group relative block aspect-[16/10] overflow-hidden rounded-[6px] bg-ink"
         >
           {cases.map((item, i) => (
             <Image
@@ -172,7 +172,7 @@ export default function CaseDashboard() {
           {/* HUD: index counter and sector */}
           <span
             aria-hidden="true"
-            className="absolute left-4 top-4 md:left-6 md:top-6 flex items-center gap-3 rounded-[4px] bg-[#0A1931]/55 px-3 py-1.5 text-[0.625rem] md:text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur-md"
+            className="absolute left-4 top-4 md:left-6 md:top-6 flex items-center gap-3 rounded-[4px] bg-ink/55 px-3 py-1.5 text-[0.625rem] md:text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-white/90"
           >
             <span className="tabular-nums">
               {pad(active + 1)} <span className="text-white/40">/ {pad(cases.length)}</span>
@@ -184,11 +184,11 @@ export default function CaseDashboard() {
           </span>
 
           {/* Ultra-subtle border overlay, drawn above the image */}
-          <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-[6px] ring-1 ring-inset ring-[#0A1931]/10" />
+          <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-[6px] ring-1 ring-inset ring-ink/10" />
           {/* Arrow overlay on hover */}
           <span
             aria-hidden="true"
-            className="absolute right-5 bottom-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-lg text-[#0A1931] opacity-0 translate-y-2 backdrop-blur-sm transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
+            className="absolute right-5 bottom-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-lg text-ink opacity-0 translate-y-2 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
           >
             →
           </span>
@@ -202,7 +202,7 @@ export default function CaseDashboard() {
               type="button"
               aria-label={`Toon ${item.sector}`}
               onClick={() => select(i)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? 'w-6 bg-[#1E3A8A]' : 'w-1.5 bg-[#cbd5e1]'}`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? 'w-6 bg-accent' : 'w-1.5 bg-subtle/50'}`}
             />
           ))}
         </div>
@@ -210,7 +210,7 @@ export default function CaseDashboard() {
 
       {/* Text link sits in its own row, so the tab rail ends exactly at the image edge */}
       <div className="mt-5 flex justify-end md:col-start-2">
-        <Link href={`/cases/${c.slug}`} className="group inline-flex items-center gap-2 text-sm font-bold text-[#0A1931]">
+        <Link href={`/cases/${c.slug}`} className="group inline-flex items-center gap-2 text-sm font-bold text-ink">
           Bekijk volledige case study
           <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-x-1.5">
             →

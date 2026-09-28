@@ -42,8 +42,8 @@ export default function Readouts({ items }: { items: Readout[] }) {
     <dl ref={root} className="grid grid-cols-3 gap-x-6 sm:flex sm:gap-x-16">
       {items.map((r) => (
         <div key={r.label} className="flex flex-col gap-1">
-          <dt className="text-[0.75rem] font-medium uppercase tracking-[0.12em] text-[#64748b]">{r.label}</dt>
-          <dd className="order-first font-sans font-light tabular-nums text-[1.8rem] leading-none text-[#0A1931]">
+          <dt className="text-[0.75rem] font-medium uppercase tracking-[0.12em] text-muted">{r.label}</dt>
+          <dd className="order-first font-sans font-light tabular-nums text-[1.8rem] leading-none text-ink">
             {Math.round(r.value * progress)}
             {r.suffix}
           </dd>

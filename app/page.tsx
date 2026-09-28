@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import HeroVideo from '@/components/HeroVideo';
 import TrustSection from '@/components/TrustSection';
 import MethodSection from '@/components/MethodSection';
@@ -15,17 +14,32 @@ export default function Home() {
         {/* Background video */}
         <HeroVideo />
 
-        {/* Content - Top */}
-        <div className="relative z-10 flex-1 flex items-center py-16 md:py-0">
-          <div className="max-w-7xl mx-auto px-6 w-full">
-            <h1 className="text-[2.25rem] sm:text-[2.5rem] md:text-5xl lg:text-7xl font-serif font-extrabold text-[#0A1931] leading-[1.12] tracking-[-0.01em]">
-              Strategie is helder,<br />
-              maar niet uitvoerbaar.
-            </h1>
+        {/* Asymmetric editorial split: headline left (55%), subtitle and action right (40%); stacks on mobile */}
+        <div className="relative z-10 flex-1 flex items-center pt-28 pb-16 md:py-24">
+          <div className="mx-auto w-full max-w-[1200px] px-6 lg:flex lg:items-start lg:justify-between lg:gap-16">
+            <div className="lg:w-[55%]">
+              <p className="eyebrow">
+                Interim Management &amp; IT Consultancy
+              </p>
+              <h1 className="text-left text-[2.25rem] sm:text-[2.75rem] md:text-5xl lg:text-[3.5rem]">
+                Strategie is helder, maar niet uitvoerbaar.
+              </h1>
+            </div>
 
-            <h2 className="mt-10 md:mt-12 lg:mt-14 text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans font-normal text-[#0A1931] leading-snug tracking-[-0.01em]">
-              Zorg voor regie<br />op samenhang.
-            </h2>
+            <div className="mt-6 lg:mt-[calc(0.75rem*1.65+1rem+0.4rem)] lg:w-[40%]">
+              <p className="text-left font-sans text-[1.05rem] md:text-[1.15rem] font-light leading-[1.65] text-accent lg:mt-4">
+                Zorg voor regie op samenhang.
+              </p>
+              <a
+                href="#contact"
+                className="group mt-8 inline-flex items-center gap-3 rounded-[4px] border border-ink px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
+              >
+                Plan een strategiesessie
+                <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -39,7 +53,7 @@ export default function Home() {
             {/* Scroll wheel */}
             <path d="M12 5v3" strokeLinecap="round"/>
           </svg>
-          <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
+          <span className="text-xs font-bold tracking-widest text-white uppercase">
             Scroll Down
           </span>
         </div>
@@ -59,28 +73,6 @@ export default function Home() {
         {/* About */}
         <AboutSection />
 
-        {/* CTA Section */}
-        <section id="contact" className="relative py-20 md:py-28 overflow-hidden bg-white scroll-mt-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0052CC] via-[#1a4fa5] to-[#0052CC]"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00D4FF]/20 to-[#00D4FF]/10 opacity-60"></div>
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#00D4FF]/20 to-transparent rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-[#00D4FF]/15 to-transparent rounded-full blur-3xl animate-float-slow-reverse"></div>
-
-          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-              Laten we samen transformeren
-            </h2>
-            <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-              Wij helpen organisaties hun governance, informatievoorziening en AI-capaciteiten op het volgende niveau te brengen.
-            </p>
-            <Link
-              href="#contact"
-              className="inline-block px-8 py-3 md:py-4 bg-white text-[#0052CC] font-semibold text-sm md:text-base hover:bg-blue-50 transition"
-            >
-              CONTACT US
-            </Link>
-          </div>
-        </section>
       </div>
     </main>
   );
