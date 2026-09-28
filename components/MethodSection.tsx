@@ -87,7 +87,7 @@ export default function MethodSection() {
         <div data-reveal>
           <p className="eyebrow">Roadmap</p>
           <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">
-            Van abstracte strategie naar een uitvoerbare aanpak.
+            Een simpele aanpak voor resultaat
           </h2>
         </div>
 

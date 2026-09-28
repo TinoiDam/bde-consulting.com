@@ -3,6 +3,7 @@ import TrustSection from '@/components/TrustSection';
 import MethodSection from '@/components/MethodSection';
 import CasesSection from '@/components/CasesSection';
 import AboutSection from '@/components/AboutSection';
+import EngagementSection from '@/components/EngagementSection';
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
           <div className="mx-auto w-full max-w-[1200px] px-6 lg:flex lg:items-start lg:justify-between lg:gap-16">
             <div className="lg:w-[55%]">
               <p className="eyebrow">
-                Interim Management &amp; IT Consultancy
+                Advies, consultancy en interim
               </p>
               <h1 className="text-left text-[2.25rem] sm:text-[2.75rem] md:text-5xl lg:text-[3.5rem]">
                 Strategie is helder, maar niet uitvoerbaar.
@@ -28,15 +29,15 @@ export default function Home() {
 
             <div className="mt-6 lg:mt-[calc(0.75rem*1.65+1rem+0.4rem)] lg:w-[40%]">
               <p className="text-left font-sans text-[1.05rem] md:text-[1.15rem] font-light leading-[1.65] text-accent lg:mt-4">
-                Zorg voor regie op samenhang.
+                Begeleiding bij digitale strategie en realisatie
               </p>
               <a
-                href="#contact"
+                href="#samenwerkingsvormen"
                 className="group mt-8 inline-flex items-center gap-3 rounded-[4px] border border-ink px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
               >
-                Plan een strategiesessie
-                <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-x-1">
-                  →
+                Samenwerkingsvormen
+                <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-y-0.5">
+                  ↓
                 </span>
               </a>
             </div>
@@ -69,6 +70,9 @@ export default function Home() {
 
         {/* Cases: intro heading + tab dashboard (eyebrow and title are configurable) */}
         <CasesSection eyebrow="Cases & Deliverables" title="Hoe dit in de praktijk eruit ziet" />
+
+        {/* Engagement models: landing target of the hero button */}
+        <EngagementSection />
 
         {/* About */}
         <AboutSection />

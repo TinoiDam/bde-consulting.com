@@ -12,7 +12,7 @@ const cards: { sector?: string; role?: string; title?: string; quote: string; ta
   {
     sector: 'Financial Services',
     role: 'Adviseur',
-    quote: 'Target Operating Models project portfolio stuurinformatie binnen een AML transformatieprogramma en Global Governance Risk, and Compliance (GRC)',
+    quote: 'Target Operating Models, project portfolio management en stuurinformatie binnen een Global AML transformatieprogramma; Governance Risk, and Compliance (GRC)',
     tags: ['Portfolio Management', 'Projectmanagement', 'Business Intelligence'],
   },
   {
@@ -24,16 +24,7 @@ const cards: { sector?: string; role?: string; title?: string; quote: string; ta
 ];
 
 // Consolidated competences, shown once as a full-width ribbon under the sector grid
-const COMPETENCES = [
-  'Projectmanagement',
-  'Data Governance',
-  'Procesbeheersing',
-  'Portfolio Management',
-  'Business Intelligence',
-  'Machine Learning & AI',
-  'Verandermanagement',
-  'AI Governance',
-];
+const COMPETENCES: string[] = [];
 
 // Renders **text** as bold, so emphasis can be set directly in the strings above
 const withBold = (text: string) =>
@@ -53,7 +44,7 @@ export default function TrustSection() {
       {/* Positioning statement, with generous room above the grid */}
       <section className="bg-canvas-alt pt-16 pb-10 md:pt-24 md:pb-16 lg:pt-[120px] lg:pb-20">
         <p data-reveal className="max-w-4xl mx-auto px-6 sm:px-12 md:px-0 text-center text-balance font-sans font-light text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] leading-[1.6] tracking-[0.01em] text-ink">
-          <b>Interim</b> inzetbaar binnen <b>digitale</b> transformaties en programma&apos;s, of flexibel beschikbaar voor losse, onafhankelijke <b>adviestrajecten</b>. 
+        Gespecialiseerd in het mede-vormgeven, begeleiden en vertalen van beleid en strategie naar organisatieinrichting en de concrete uitvoering daarvan. 
         </p>
       </section>
 
@@ -90,22 +81,24 @@ export default function TrustSection() {
           </div>
 
           {/* Competence ribbon: the combined T-shaped skill set on one centered line */}
-          <ul
-            aria-label="Competenties"
-            data-reveal
-            className="mt-16 flex w-full flex-wrap justify-center gap-x-2 gap-y-2 text-center font-sans text-[0.7rem] font-normal uppercase tracking-[0.15em] text-muted min-[1400px]:-mx-6 min-[1400px]:w-[calc(100%+3rem)] min-[1400px]:flex-nowrap min-[1400px]:gap-x-1.5 min-[1400px]:tracking-[0.12em]"
-          >
-            {COMPETENCES.map((c, n) => (
-              <li key={c} className="whitespace-nowrap transition-colors duration-300 hover:text-ink">
-                {c}
-                {n < COMPETENCES.length - 1 && (
-                  <span aria-hidden="true" className="ml-2 text-subtle">
-                    •
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
+          {COMPETENCES.length > 0 && (
+            <ul
+              aria-label="Competenties"
+              data-reveal
+              className="mt-16 flex w-full flex-wrap justify-center gap-x-2 gap-y-2 text-center font-sans text-[0.7rem] font-normal uppercase tracking-[0.15em] text-muted min-[1400px]:-mx-6 min-[1400px]:w-[calc(100%+3rem)] min-[1400px]:flex-nowrap min-[1400px]:gap-x-1.5 min-[1400px]:tracking-[0.12em]"
+            >
+              {COMPETENCES.map((c, n) => (
+                <li key={c} className="whitespace-nowrap transition-colors duration-300 hover:text-ink">
+                  {c}
+                  {n < COMPETENCES.length - 1 && (
+                    <span aria-hidden="true" className="ml-2 text-subtle">
+                      •
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     </>
