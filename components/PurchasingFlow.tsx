@@ -1,17 +1,21 @@
 // Purchasing flow: the four steps from first contact to project start.
-// Will replace the "Samenwerkingsvormen" section; the layout is built in a next step.
+// A step either explains (title + microcopy) or acts (cta): step 01 is the action itself.
 
 export type FlowStep = {
   number: string;
-  title: string;
-  microcopy: string;
+  title?: string;
+  microcopy?: string;
+  cta?: { label: string; href: string; note?: string };
+  // Closing step as a card: engagement options plus a prominent button
+  options?: { name: string; note: string }[];
+  action?: { label: string; href: string };
 };
 
 export const flowSteps: FlowStep[] = [
   {
     number: '01',
-    title: 'Context Delen',
-    microcopy: 'Vraagstuk en beschikbare informatie, veilig ingediend op uw moment.',
+    // Contact CTA with a cost reassurance underneath; points to the contact section until a contact form exists
+    cta: { label: 'Contact', href: '#contact', note: 'Uw vraag en beschikbare informatie delen is kosteloos.' },
   },
   {
     number: '02',
@@ -26,7 +30,14 @@ export const flowSteps: FlowStep[] = [
   {
     number: '04',
     title: 'De Start',
-    microcopy: 'Na akkoord, directe opstart en contract of PO volgens afspraak.',
+    microcopy: 'Na akkoord selecteren we de best passende inzetvorm voor directe, inhoudelijke executie:',
+    options: [
+      { name: 'Interim Management', note: 'Enterprise regie' },
+      { name: 'Deepdives & Sprints', note: '2-4 weken focus' },
+      { name: 'Retainer', note: 'Sparring' },
+      { name: 'Fractional', note: 'Flexibele sturing' },
+    ],
+    action: { label: 'Bekijk opties & tarieven', href: '/services' },
   },
 ];
 
@@ -45,26 +56,27 @@ export default function PurchasingFlow() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">{TITLE}</h2>
         </div>
 
-        {/* Desktop: the line carries the steps. Dot and number sit on the line as one mark (the number masks
-            the line behind it); title and copy hang directly underneath. */}
-        <ol data-reveal className="relative mt-16 hidden md:mt-24 md:grid md:grid-cols-[repeat(4,11rem)] md:grid-rows-[auto_auto_auto] md:gap-x-10 lg:grid-cols-[repeat(4,12rem)] lg:gap-x-16">
-          {/* Line from the first to the last dot: 3 column widths plus 3 gaps, at the vertical centre of the marks */}
+        {/* One list of steps. The line carries the steps: dot and number sit on it as one mark (the number masks
+            the line behind it), title and copy hang underneath. Mobile: vertical line; md+: horizontal track. */}
+        <ol
+          data-reveal
+          className="relative mt-12 md:mt-24 md:grid md:grid-cols-[repeat(4,11rem)] md:grid-rows-[auto_auto_auto_1fr] md:gap-x-10 lg:grid-cols-[repeat(3,12rem)_15rem] lg:gap-x-16"
+        >
+          {/* Horizontal line (md+): from the first to the last dot, 3 column widths plus 3 gaps */}
           <span
             aria-hidden="true"
-            className="absolute left-[5px] top-5 h-px w-[calc(3*(11rem+2.5rem))] bg-ink/20 lg:w-[calc(3*(12rem+4rem))]"
+            className="absolute left-[5px] top-5 hidden h-px w-[calc(3*(11rem+2.5rem))] bg-ink/20 md:block lg:w-[calc(3*(12rem+4rem))]"
           />
           {flowSteps.map((step, i) => (
-            // Each step spans the three shared rows (mark / title / copy) via subgrid, so every row
-            // takes the height of its tallest cell and all columns end on exactly the same baseline
-            <li
-              key={step.number}
-              className="relative row-span-3 grid grid-rows-subgrid"
-              style={{ '--reveal-delay': `${i * 120}ms` } as React.CSSProperties}
-            >
+            // md+: each step spans the three shared rows (mark / title / copy) via subgrid, so all columns
+            // end on exactly the same baseline
+            <li key={step.number} className="relative pb-10 last:pb-0 md:row-span-4 md:grid md:grid-rows-subgrid md:pb-0">
+              {/* Vertical connector to the next step (mobile only) */}
+              {i < last && <span aria-hidden="true" className="absolute left-[5px] top-5 h-full w-px bg-ink/20 md:hidden" />}
               <div className="relative flex h-10 items-center">
                 <span
                   aria-hidden="true"
-                  className={`block h-[11px] w-[11px] shrink-0 rounded-full ${
+                  className={`relative block h-[11px] w-[11px] shrink-0 rounded-full ${
                     i === last ? 'bg-ink' : 'border border-ink/40 bg-canvas-alt'
                   }`}
                 />
@@ -72,25 +84,57 @@ export default function PurchasingFlow() {
                   {step.number}
                 </span>
               </div>
-              <h3 className="mt-5 text-[1.35rem] text-ink">{step.title}</h3>
-              <p className="mt-3 text-[0.9rem] leading-[1.7] text-pretty">{step.microcopy}</p>
-            </li>
-          ))}
-        </ol>
-
-        {/* Mobile: simple vertical sequence (to be refined in a next step) */}
-        <ol data-reveal className="mt-12 border-l border-ink/15 md:hidden">
-          {flowSteps.map((step, i) => (
-            <li key={step.number} className="relative pb-8 pl-6 last:pb-0">
-              <span
-                aria-hidden="true"
-                className={`absolute left-0 top-1.5 h-[9px] w-[9px] -translate-x-1/2 rounded-full ${
-                  i === last ? 'bg-ink' : 'border border-ink/40 bg-canvas-alt'
-                }`}
-              />
-              <p className="font-sans text-[0.72rem] font-semibold tabular-nums tracking-[0.16em] text-subtle">{step.number}</p>
-              <h3 className="mt-1 text-xl text-ink">{step.title}</h3>
-              <p className="mt-2 text-[0.95rem]">{step.microcopy}</p>
+              {step.cta ? (
+                // Action step: the button (plus risk reducer) takes the place of title + copy
+                // md+: spans the title / copy / spare rows, so its height never stretches the rows of the other steps
+                <div className="mt-3 pl-7 md:row-span-3 md:mt-5 md:pl-0">
+                  <div>
+                    <a
+                      href={step.cta.href}
+                      className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-[4px] bg-ink px-4 py-2.5 font-sans text-[0.78rem] font-semibold text-white transition-colors duration-300 hover:bg-accent"
+                    >
+                      {/* Mail icon for a contact action */}
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="5" width="18" height="14" rx="1.5" />
+                        <path d="m3.5 6 8.5 7 8.5-7" />
+                      </svg>
+                      {step.cta.label}
+                    </a>
+                  </div>
+                  {step.cta.note && <p className="mt-2.5 max-w-[13rem] font-sans text-[0.72rem] leading-[1.5] text-muted text-pretty">{step.cta.note}</p>}
+                </div>
+              ) : step.options ? (
+                // Closing step as a subtle card spanning the title / copy / spare rows; text stays aligned with the
+                // other steps because the card's padding sits outside the column (-mx-5 / px-5)
+                <div className="mt-3 ml-7 rounded-[6px] border border-line bg-white px-5 pb-6 md:row-span-3 md:mt-0 md:-mx-5">
+                  <h3 className="pt-4 text-[1.35rem] text-ink md:pt-5">{step.title}</h3>
+                  <p className="mt-2 text-[0.9rem] leading-[1.7] text-pretty md:mt-3">{step.microcopy}</p>
+                  <ul className="mt-5 divide-y divide-line border-y border-line">
+                    {step.options.map((o) => (
+                      <li key={o.name} className="py-2.5">
+                        <span className="block font-sans text-[0.85rem] font-medium text-ink">{o.name}</span>
+                        <span className="block font-sans text-[0.75rem] text-muted">{o.note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {step.action && (
+                    <a
+                      href={step.action.href}
+                      className="group mt-6 flex w-full items-center justify-between gap-3 rounded-[4px] bg-ink px-5 py-3.5 font-sans text-[0.85rem] font-semibold text-white transition-colors duration-300 hover:bg-accent"
+                    >
+                      {step.action.label}
+                      <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-x-1">
+                        →
+                      </span>
+                    </a>
+                  )}
+                </div>
+              ) : (
+                <>
+                  <h3 className="mt-3 pl-7 text-[1.35rem] text-ink md:mt-5 md:pl-0">{step.title}</h3>
+                  <p className="mt-2 pl-7 text-[0.9rem] leading-[1.7] text-pretty md:mt-3 md:pl-0">{step.microcopy}</p>
+                </>
+              )}
             </li>
           ))}
         </ol>

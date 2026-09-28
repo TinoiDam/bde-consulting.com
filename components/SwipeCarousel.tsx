@@ -2,16 +2,23 @@
 
 import { Children, useEffect, useRef, useState } from 'react';
 
-// Mobile swipe carousel: full-width cards with scroll snap; the next card peeks in from the right
-// and position dots below show where you are (tappable).
+// One list, two layouts: a swipe carousel on mobile (full-width cards with scroll snap, the next card peeking in,
+// tappable position dots) and a static layout from md up via desktopClassName. The content exists only once.
 export default function SwipeCarousel({
   children,
   label,
   itemLabel = 'item',
+  desktopClassName = '',
+  itemDesktopClassName = '',
+  rootClassName = '',
 }: {
   children: React.ReactNode;
   label: string;
   itemLabel?: string;
+  // From md up the same markup becomes a static layout (e.g. a grid); the swipe behaviour is mobile-only
+  desktopClassName?: string;
+  itemDesktopClassName?: string;
+  rootClassName?: string;
 }) {
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -36,22 +43,22 @@ export default function SwipeCarousel({
   };
 
   return (
-    <div>
+    <div className={rootClassName}>
       <div
         ref={track}
         role="region"
         aria-roledescription="carrousel"
         aria-label={label}
-        className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className={`-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:snap-none md:overflow-visible md:px-0 md:pb-0 ${desktopClassName}`}
       >
         {items.map((child, i) => (
-          <div key={i} className="w-[calc(100%-2rem)] shrink-0 snap-start" aria-label={`${i + 1} van ${items.length}`}>
+          <div key={i} className={`w-[calc(100%-2rem)] shrink-0 snap-start md:w-auto md:shrink ${itemDesktopClassName}`}>
             {child}
           </div>
         ))}
       </div>
 
-      <div className="mt-5 flex justify-center gap-2">
+      <div className="mt-5 flex justify-center gap-2 md:hidden">
         {items.map((_, i) => (
           <button
             key={i}

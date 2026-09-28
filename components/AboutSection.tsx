@@ -3,6 +3,7 @@ import path from 'node:path';
 import Image from 'next/image';
 import ClientLogos from '@/components/ClientLogos';
 import ExpandableText from '@/components/ExpandableText';
+import { certifications } from '@/lib/certifications';
 
 // Portrait lives at public/assets/tinoi-consultant.jpg; if the file is missing a monogram is shown.
 const PORTRAIT = '/assets/tinoi-consultant.jpg';
@@ -32,32 +33,33 @@ const LINKEDIN = 'https://www.linkedin.com/in/tinoidam/';
 // Profile copy (edit freely)
 const HEADLINE = 'Achtergrond & Visie';
 
-// Biography, split into titled sections; the first section is visible before expanding
-const BIO: { title: string; paragraphs: string[] }[] = [
+// Biography, split into titled sections; the first section is visible before expanding.
+// An optional list renders after the paragraphs as a bold term followed by its explanation.
+const BIO: { title: string; paragraphs: string[]; intro?: string; list?: { term: string; text: string }[] }[] = [
   {
-      title:'BDE Management Consulting is opgericht vanuit een fundamentele overtuiging: dat echte digitale realisatie ontstaat op het snijvlak van inhoudelijke deep dives, mensgericht leiderschap en diplomatieke vaardigheden.',
-      paragraphs: ['Wij zijn van mening dat effectieve digitale sturing onmogelijk is zonder de bereidheid en capaciteit om direct de inhoudelijke diepte in te gaan. Te vaak zien we in de markt dat programmamanagement vervalt in het blind sturen op nietszeggende milestones, oppervlakkige tijdlijnen en window dressing via spreadsheets. Dit is het directe gevolg van een gebrek aan inhoudelijke diepgang: wie de materie niet kan doorgronden, heeft immers geen ander sturingsmiddel dan de spreadsheet.',
-      'Dit gebrek aan inhoud leidt tot kaders en opdrachten die niet alleen onrealistisch zijn qua tijd, maar inhoudelijk vaak onduidelijk zijn of simpelweg feitelijk niet kloppen. Dit is waar het fundamenteel wringt op de werkvloer: het dwingt professionals en specialisten te werken op basis van een foutieve blauwdruk. Omdat papieren milestones in het begin eenvoudig groen kleuren, blijft de werkelijke schade vaak lang gemaskeerd. De destructieve effecten van deze aanpak—zoals operationele uitval, zware technische schuld en het verlies van onderling vertrouwen—worden pas op de lange termijn onherroepelijk zichtbaar.',
+    title: 'De Moderne Consultant',
+    paragraphs: [
+      'BDE Management Consulting is opgericht door Tinoi Dam MSc. Zijn reis begon in de pioniersjaren van de digitale economie. Al op jonge leeftijd doorgrondde hij de wetmatigheden van code, netwerken en database-architecturen. Deze vroege technologiefocus – later gecombineerd met de dynamiek van financiële markten – vormde het fundament voor onafhankelijk ondernemerschap.',
+      'Vanuit de harde praktijk van data crunching verschoof de focus al snel naar procesbeheersing en integrale regie. Vandaag de dag voert BDE de overkoepelende sturing over complexe projectportfolio’s binnen de overheid en de financiële sector.',
+      'Waar de traditionele adviseur stopt bij abstracte managementrapportages, combineert BDE inhoudelijke diepgang met de menselijke kant van verandering. Analytisch, resultaatgedreven en diplomatiek: hard op de inhoud, zacht op de relatie.',
     ],
   },
   {
-    title: 'Technologie als ondersteuning, de mens als fundament',
+    title: 'Onze Visie: Sturing vanuit Inhoud, Niet vanuit Spreadsheets',
     paragraphs: [
-      'Technologie is in onze optiek altijd een ondersteunend hulpmiddel. De technische oplossing of architectuur is vaak het startpunt, maar de echte uitdaging zit in de duurzame verankering ervan. Binnen complexe, sterk gereguleerde matrixorganisaties is voor deze verankering meer nodig dan alleen techniek en procesbeheersing; het vraagt om scherpe diplomatieke vaardigheden en stakeholdermanagement om over afdelingsgrenzen heen draagvlak en échte beweging te creëren.',
-      'Wij geloven dat een transformatie pas slaagt wanneer we door de oppervlakkige voortgangsrapportages heen prikken en de realiteit op de werkvloer verbinden met de strategische doelen. Daarom pakken wij de regie op de samenhang: analytisch scherp op de inhoud, diplomatiek in het krachtenveld, en altijd met een diep begrip van de organisatie.',
+      'Effectieve digitale sturing is onmogelijk zonder de bereidheid om de inhoudelijke diepte in te gaan. Veel projectmanagement vervalt in het blind sturen op nietszeggende milestones en window dressing via spreadsheets.',
+    ],
+    intro: 'Wanneer een adviseur de materie niet doorgrondt, is de spreadsheet vaak nog het enige sturingsmiddel. Dit leidt onherroepelijk tot:',
+    list: [
+      { term: 'Onrealistische kaders', text: 'die inhoudelijk simpelweg feitelijk niet kloppen.' },
+      { term: 'Schijnveiligheid', text: 'omdat papieren milestones in het begin altijd eenvoudig groen kleuren.' },
+      { term: 'Langetermijnschade', text: 'in de vorm van operationele uitval, zware technische schuld en verlies van vertrouwen.' },
     ],
   },
   {
-    title: 'Het Profiel van de Moderne Consultant',
+    title: 'De mens als fundament',
     paragraphs: [
-      'De basis van BDE Management Consulting werd gelegd door oprichter Tinoi Dam MSc. Zijn reis begon niet in de consultancy, maar in de vroege pioniersjaren van de digitale economie. Gedreven door een sterke vroege autonomie ontdekte hij al op jonge leeftijd de wetmatigheden van systemen, code en netwerken: van database-architecturen (MySQL/PHP) en cybersecurity tot vroege e-commerce en wereldwijde Google AdSense-partnerships. Deze vroege focus op technologie, later gecombineerd met internationale ervaringen en de dynamiek van financiële markten, vormde een natuurlijke kiem voor onafhankelijk ondernemerschap.',
-    ],
-  },
-  {
-    title: 'Van inhoudelijke executie naar strategische regie',
-    paragraphs: [
-      'De praktijk is geëvolueerd langs een steil en bewust groeipad. Begonnen in de harde consultancypraktijk met het crunchen van complexe data en het bouwen van kritische rapportages, verschoof de focus al snel naar procesbeheersing en overkoepelende sturing. Van het leiden van individuele specialistenteams groeide BDE door naar de integrale regie over complexe projectportfolio’s binnen de overheid en de financiële sector.',
-      'Hiermee vertegenwoordigt BDE het profiel van de moderne consultant. Waar de traditionele adviseur vaak stopt bij abstracte managementrapportages, combineren wij inhoudelijke scherpte met de menselijke kant van verandering. Onze stijl is analytisch, resultaatgedreven en diplomatiek: we zijn eerlijk en direct (hard op de inhoud) om beweging te creëren, maar blijven altijd dicht bij de organisatie (zacht op de relatie) om duurzaam draagvlak te borgen.',
+      'De technische architectuur is slechts het startpunt; de echte uitdaging zit in de duurzame verankering. Binnen complexe, sterk gereguleerde matrixorganisaties vraagt dit om strakke regie op de samenhang. Met diep organisatiebegrip, scherpte op de inhoud en sterk stakeholdermanagement creëert BDE draagvlak over afdelingsgrenzen heen.',
     ],
   },
 ];
@@ -80,9 +82,7 @@ function SignatureCard() {
           Tinoi Dam<span className="ml-1 text-[0.72rem] font-normal text-muted">MSc</span>
         </p>
         <p className="mt-1 font-sans text-[0.85rem] text-muted">Partner</p>
-        <p className="mt-1 flex items-center gap-2 font-sans text-[0.8rem] text-muted">
-          2K+ volgers <span aria-hidden="true" className="text-subtle">·</span> 500+ connecties
-          <span aria-hidden="true" className="text-subtle">·</span>
+        <p className="mt-2 flex items-center gap-3 font-sans text-[0.8rem] text-muted">
           <a
             href={LINKEDIN}
             target="_blank"
@@ -130,6 +130,16 @@ export default function AboutSection() {
                             {p}
                           </p>
                         ))}
+                        {section.intro && <p className="text-[1.02rem]">{section.intro}</p>}
+                        {section.list && (
+                          <ul className="space-y-2.5 border-l border-line pl-5">
+                            {section.list.map((item) => (
+                              <li key={item.term} className="text-[1.02rem] font-light leading-[1.65] text-body">
+                                <span className="font-medium text-ink">{item.term}</span> {item.text}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -176,6 +186,34 @@ export default function AboutSection() {
           <div className="mx-auto max-w-[1200px]">
             <div data-reveal>
               <ClientLogos />
+            </div>
+
+            {/* Certifications under the project logos: mini badge in colour (grey on hover) plus name */}
+            <div data-reveal className="mt-20 md:mt-24">
+              <p className="eyebrow text-center">Certificeringen en trainingen</p>
+              <ul className="mt-8 grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                {certifications.map((c) => (
+                  <li
+                    key={c.file}
+                    className="group flex h-12 items-center gap-3 rounded-[6px] px-3 transition-colors duration-300 hover:bg-white"
+                  >
+                    <span className="flex h-8 w-11 shrink-0 items-center justify-center">
+                      {c.src ? (
+                        // eslint-disable-next-line @next/next/no-img-element -- fixed max box, width follows the badge's aspect ratio
+                        <img
+                          src={c.src}
+                          alt=""
+                          loading="lazy"
+                          className="h-auto w-auto max-h-8 max-w-11 object-contain transition-[filter] duration-300 group-hover:[filter:grayscale(100%)_opacity(50%)]"
+                        />
+                      ) : (
+                        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent/50" />
+                      )}
+                    </span>
+                    <span className="font-sans text-xs font-medium leading-snug text-ink">{c.name}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

@@ -93,52 +93,56 @@ export default function MethodSection() {
           </h2>
         </div>
 
-        {/* Desktop: navy phase blocks over flat columns; only hairline dividers between phases */}
-        <div data-reveal style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="mt-14 hidden md:grid md:grid-cols-[150px_repeat(3,1fr)] md:gap-x-0">
-          <div />
-          {steps.map((step, i) => (
-            <div key={step.title} className={i < steps.length - 1 ? 'pr-2' : ''}>
-              <PhaseBlock step={step} i={i} />
-            </div>
-          ))}
-
-          {dimensions.map(({ label, Cell }, r) => (
-            <div key={label} className="contents">
-              <div className={`pr-6 ${r === 0 ? 'pt-10' : 'pt-8'} ${r === dimensions.length - 1 ? 'pb-2' : 'pb-8'}`}>
+        {/* One list of phases: swipe cards on mobile; from md up the same cards become three columns that share
+            four rows (phase / activities / deliverables / stakeholders) via subgrid, next to a row-label margin. */}
+        <div
+          data-reveal
+          style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
+          className="mt-10 md:mt-14 md:grid md:grid-cols-[150px_repeat(3,1fr)] md:grid-rows-[auto_auto_auto_auto]"
+        >
+          {/* Row labels (desktop); decorative, the labels inside each card carry them for screen readers */}
+          <div aria-hidden="true" className="hidden md:row-span-4 md:grid md:grid-rows-subgrid">
+            <div />
+            {dimensions.map(({ label }, r) => (
+              <div key={label} className={`pr-6 ${r === 0 ? 'pt-10' : 'pt-8'} ${r === dimensions.length - 1 ? 'pb-2' : 'pb-8'}`}>
                 <Kicker>{label}</Kicker>
               </div>
-              {steps.map((step, i) => (
-                <div
-                  key={step.title}
-                  className={`px-6 ${r === 0 ? 'pt-10' : 'pt-8'} ${r === dimensions.length - 1 ? 'pb-2' : 'pb-8'} ${
-                    i < steps.length - 1 ? 'border-r border-line' : ''
-                  }`}
-                >
-                  <Cell step={step} />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Mobile: phases as a horizontal swipe carousel of full-width cards */}
-        <div data-reveal className="mt-10 md:hidden">
-          <SwipeCarousel label="Roadmap in drie fasen" itemLabel="fase">
-            {steps.map((step, i) => (
-              <article key={step.title} className="h-full border border-line bg-canvas">
-                <PhaseBlock step={step} i={i} />
-                <div className="space-y-6 px-5 py-6">
-                  {dimensions.map(({ label, Cell }) => (
-                    <div key={label}>
-                      <div className="mb-3">
+          <SwipeCarousel
+            label="Roadmap in drie fasen"
+            itemLabel="fase"
+            rootClassName="md:col-span-3 md:row-span-4 md:grid md:grid-cols-subgrid md:grid-rows-subgrid"
+            desktopClassName="md:col-span-3 md:row-span-4 md:grid md:grid-cols-subgrid md:grid-rows-subgrid md:gap-0"
+            itemDesktopClassName="md:row-span-4 md:grid md:grid-rows-subgrid"
+          >
+            {steps.map((step, i) => {
+              const lastCol = i === steps.length - 1;
+              return (
+                <article
+                  key={step.title}
+                  className="h-full border border-line bg-canvas pb-6 md:row-span-4 md:grid md:grid-rows-subgrid md:border-0 md:bg-transparent md:pb-0"
+                >
+                  <div className={lastCol ? '' : 'md:mr-2'}>
+                    <PhaseBlock step={step} i={i} />
+                  </div>
+                  {dimensions.map(({ label, Cell }, r) => (
+                    <div
+                      key={label}
+                      className={`px-5 pt-6 md:px-6 ${r === 0 ? 'md:pt-10' : 'md:pt-8'} ${r === dimensions.length - 1 ? 'md:pb-2' : 'md:pb-8'} ${
+                        lastCol ? '' : 'md:border-r md:border-line'
+                      }`}
+                    >
+                      <div className="mb-3 md:sr-only">
                         <Kicker>{label}</Kicker>
                       </div>
                       <Cell step={step} />
                     </div>
                   ))}
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </SwipeCarousel>
         </div>
       </div>

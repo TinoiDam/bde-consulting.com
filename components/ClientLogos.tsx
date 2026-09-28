@@ -19,20 +19,14 @@ const clients: { name: string; file: string; ratio: number; weight: number; gov?
 
 const heightFor = (ratio: number, weight: number) => Math.round(Math.sqrt(AREA / ratio) * weight);
 
-// 'row': full-width strip with its own centered heading; 'grid': 3x3 grid of equal cells for use inside a column
-export default function ClientLogos({ variant = 'row' }: { variant?: 'row' | 'grid' }) {
-  const list =
-    variant === 'grid'
-      ? 'grid grid-cols-3 gap-x-8 gap-y-10 md:gap-x-12 md:gap-y-14 [&>li]:h-12'
-      : 'mt-8 md:mt-12 flex flex-wrap xl:flex-nowrap items-center justify-center xl:justify-between gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10 xl:gap-x-6 2xl:gap-x-12';
+// Full-width strip with its own centered heading
+export default function ClientLogos() {
   return (
     <div>
-      {variant === 'row' && (
-        <p className="eyebrow text-center">
-          Project ervaring
-        </p>
-      )}
-      <ul className={list}>
+      <p className="eyebrow text-center">
+        Project ervaring
+      </p>
+      <ul className="mt-8 md:mt-12 flex flex-wrap xl:flex-nowrap items-center justify-center xl:justify-between gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10 xl:gap-x-6 2xl:gap-x-12">
         {clients.map((c) => (
           <li
             key={c.file}
@@ -44,7 +38,7 @@ export default function ClientLogos({ variant = 'row' }: { variant?: 'row' | 'gr
               alt={c.name}
               loading="lazy"
               style={{ '--logo-h': `${heightFor(c.ratio, c.weight)}px` } as React.CSSProperties}
-              className={`w-auto object-contain h-[calc(var(--logo-h)*0.8)] md:h-[var(--logo-h)] ${variant === 'grid' && c.gov ? 'max-h-7' : ''}`}
+              className="w-auto object-contain h-[calc(var(--logo-h)*0.8)] md:h-[var(--logo-h)]"
             />
           </li>
         ))}

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { certifications } from '@/lib/certifications';
+import { mainNav } from '@/lib/navigation';
 
 const LINKEDIN = 'https://www.linkedin.com/company/bde-management-consulting';
 // Company statement; add registration details (e.g. KvK-nummer) here when available
@@ -9,21 +9,14 @@ const columns = [
   {
     title: 'Diensten',
     links: [
-      { label: 'Interim management', href: '/services' },
-      { label: 'Governance', href: '/services' },
-      { label: 'Informatievoorziening', href: '/services' },
-      { label: 'AI Context', href: '/services' },
+      { label: 'Transformation Sprints', href: '/services#sprints' },
+      { label: 'Strategic Retainer', href: '/services#retainer' },
+      { label: 'Fractional IT Director', href: '/services#fractional' },
+      { label: 'Interim Management', href: '/services#interim' },
     ],
   },
-  {
-    title: 'BDE',
-    links: [
-      { label: 'Aanpak', href: '/#aanpak' },
-      { label: 'Cases', href: '/#cases' },
-      { label: 'Over', href: '/#over' },
-      { label: 'Insights', href: '/insights' },
-    ],
-  },
+  // Same items and order as the header menu (Contact is covered by the contact column)
+  { title: 'Navigatie', links: mainNav.filter((item) => item.label !== 'Contact') },
 ];
 
 const Heading = ({ children }: { children: React.ReactNode }) => (
@@ -76,34 +69,6 @@ export default function Footer() {
               Volg op LinkedIn
             </a>
           </div>
-        </div>
-
-        {/* Certifications, moved from the About section unchanged: mini badge in colour (grey on hover) plus name */}
-        <div className="mt-16">
-          <Heading>Certificeringen en trainingen</Heading>
-          <ul className="grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {certifications.map((c) => (
-              <li
-                key={c.file}
-                className="group flex h-12 items-center gap-3 rounded-[6px] px-3 transition-colors duration-300 hover:bg-white/5"
-              >
-                <span className="flex h-8 w-11 shrink-0 items-center justify-center">
-                  {c.src ? (
-                    // eslint-disable-next-line @next/next/no-img-element -- fixed max box, width follows the badge's aspect ratio
-                    <img
-                      src={c.src}
-                      alt=""
-                      loading="lazy"
-                      className="h-auto w-auto max-h-8 max-w-11 object-contain transition-[filter] duration-300 group-hover:[filter:grayscale(100%)_opacity(50%)]"
-                    />
-                  ) : (
-                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                  )}
-                </span>
-                <span className="text-xs font-medium leading-snug text-white/80">{c.name}</span>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <p className="mt-16 font-sans text-[0.75rem] text-white/40">

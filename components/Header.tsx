@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { mainNav } from '@/lib/navigation';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -49,28 +50,15 @@ export default function Header() {
           </svg>
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop Menu (shared list with the footer) */}
         <ul className="hidden lg:flex gap-10">
-          <li>
-            <Link href="/services" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
-              DIENSTEN
-            </Link>
-          </li>
-          <li>
-            <Link href="/#cases" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
-              CASES
-            </Link>
-          </li>
-          <li>
-            <Link href="/insights" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
-              INSIGHTS
-            </Link>
-          </li>
-          <li>
-            <a href="#contact" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
-              CONTACT
-            </a>
-          </li>
+          {mainNav.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Menu Button */}
@@ -86,18 +74,16 @@ export default function Header() {
       {isOpen && (
         <div className="lg:hidden bg-canvas-alt border-t border-line">
           <div className="px-6 py-6 space-y-6">
-            <Link href="/services" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
-              Diensten
-            </Link>
-            <Link href="/#cases" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
-              Cases
-            </Link>
-            <Link href="/insights" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
-              Insights
-            </Link>
-            <a href="#contact" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
-              Contact
-            </a>
+            {mainNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
       )}

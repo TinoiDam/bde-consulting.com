@@ -71,25 +71,18 @@ export default function TrustSection() {
       {/* Project matrix: flat columns, separated by whitespace only */}
       <section className="bg-canvas-alt pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-[1360px] mx-auto px-6">
-          {/* Desktop: three flat columns */}
-          <div className="hidden md:grid md:grid-cols-3 md:gap-x-12 lg:gap-x-20 md:pt-[100px]">
-            {cards.map((c, i) => (
-              <article
-                key={i}
-                data-reveal
-                style={{ '--reveal-delay': `${i * 120}ms` } as React.CSSProperties}
-                className="group relative isolate flex min-w-0 flex-col"
-              >
-                <SectorContent c={c} i={i} />
-              </article>
-            ))}
-          </div>
-
-          {/* Mobile: sectors as a horizontal swipe carousel of full-width cards */}
-          <div data-reveal className="pt-12 md:hidden">
-            <SwipeCarousel label="Sectoren" itemLabel="sector">
+          {/* One list of sectors: swipe cards on mobile, three flat columns from md up */}
+          <div data-reveal className="pt-12 md:pt-[100px]">
+            <SwipeCarousel
+              label="Sectoren"
+              itemLabel="sector"
+              desktopClassName="md:grid md:grid-cols-3 md:gap-x-12 lg:gap-x-20"
+            >
               {cards.map((c, i) => (
-                <article key={i} className="group relative isolate h-full overflow-hidden border border-line bg-canvas px-5 pt-10 pb-8">
+                <article
+                  key={i}
+                  className="group relative isolate h-full overflow-hidden border border-line bg-canvas px-5 pt-10 pb-8 md:flex md:min-w-0 md:flex-col md:overflow-visible md:border-0 md:bg-transparent md:p-0"
+                >
                   <SectorContent c={c} i={i} />
                 </article>
               ))}
