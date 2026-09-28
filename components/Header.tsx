@@ -52,22 +52,22 @@ export default function Header() {
         {/* Desktop Menu */}
         <ul className="hidden lg:flex gap-10">
           <li>
-            <Link href="/services" className="text-xs tracking-widest font-medium text-body hover:text-ink transition uppercase">
+            <Link href="/services" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
               DIENSTEN
             </Link>
           </li>
           <li>
-            <Link href="/portfolio" className="text-xs tracking-widest font-medium text-body hover:text-ink transition uppercase">
+            <Link href="/portfolio" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
               PORTFOLIO
             </Link>
           </li>
           <li>
-            <Link href="/insights" className="text-xs tracking-widest font-medium text-body hover:text-ink transition uppercase">
+            <Link href="/insights" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
               INSIGHTS
             </Link>
           </li>
           <li>
-            <a href="#contact" className="text-xs tracking-widest font-medium text-body hover:text-ink transition uppercase">
+            <a href="#contact" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
               CONTACT
             </a>
           </li>

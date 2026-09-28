@@ -30,7 +30,7 @@ export default function CasesSection({
           />
         </svg>
 
-        <div className="max-w-4xl mx-auto px-6">
+        <div data-reveal className="max-w-4xl mx-auto px-6">
           {eyebrow && (
             <p className="eyebrow">{eyebrow}</p>
           )}
@@ -43,7 +43,9 @@ export default function CasesSection({
       {/* Cases dashboard */}
       <section id="cases" className="bg-white pb-20 md:pb-28 lg:pb-32 scroll-mt-24">
         <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
-          <CaseDashboard />
+          <div data-reveal>
+            <CaseDashboard />
+          </div>
         </div>
       </section>
     </>

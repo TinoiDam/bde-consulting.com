@@ -44,12 +44,12 @@ export default function AboutSection() {
     <section id="over" className="scroll-mt-20 bg-canvas py-20 md:py-28 lg:py-32">
       <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
         {/* Executive profile: serif anchor left, one sequential reading stack right */}
-        <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[3.5fr_6.5fr] lg:items-start lg:gap-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">{HEADLINE}</h2>
+        <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[3fr_7fr] lg:items-start lg:gap-16">
+          <h2 data-reveal className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">{HEADLINE}</h2>
 
           {/* Right column: text core (6.5fr) beside a micro timeline track (3.5fr) */}
-          <div className="grid gap-12 lg:grid-cols-[6.5fr_3.5fr] lg:items-start lg:gap-10">
-            <div>
+          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-10">
+            <div data-reveal style={{ '--reveal-delay': '100ms' } as React.CSSProperties}>
               {/* 1. Profile */}
               <p className="font-sans text-[1.05rem] font-light leading-[1.7] text-accent">{PROFILE}</p>
 
@@ -97,13 +97,13 @@ export default function AboutSection() {
             </div>
 
             {/* 2. Career as a micro timeline running parallel to the text */}
-            <div>
+            <div data-reveal style={{ '--reveal-delay': '220ms' } as React.CSSProperties}>
               <p className="eyebrow">Loopbaan</p>
               <ol className="relative border-l border-line">
                 {career.map((c, i) => {
                   const current = i === 0;
                   return (
-                    <li key={c.period} className="relative pb-5 pl-4 last:pb-0">
+                    <li key={c.period} className="group relative pb-5 pl-4 last:pb-0">
                       <span
                         aria-hidden="true"
                         className={`absolute left-0 top-[0.3rem] h-1.5 w-1.5 -translate-x-1/2 rounded-full ${current ? 'bg-accent' : 'border border-subtle/60 bg-canvas'}`}
@@ -111,7 +111,7 @@ export default function AboutSection() {
                       <p className={`font-sans text-[0.75rem] leading-[1.4] tabular-nums ${current ? 'font-medium text-accent' : 'text-muted'}`}>
                         {c.period}
                       </p>
-                      <p className="font-sans text-[0.75rem] leading-[1.4] text-muted">{c.role}</p>
+                      <p className="font-sans text-[0.75rem] leading-[1.4] text-muted transition-colors duration-300 group-hover:text-ink">{c.role}</p>
                       <p className="mt-0.5 font-sans text-[0.6rem] uppercase leading-[1.5] tracking-[0.12em] text-subtle">{c.org}</p>
                     </li>
                   );
@@ -129,7 +129,9 @@ export default function AboutSection() {
       <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
         {/* Project experience: full-width logo row */}
         <div className="mx-auto max-w-[1200px]">
-          <ClientLogos />
+          <div data-reveal>
+            <ClientLogos />
+          </div>
         </div>
       </div>
     </section>

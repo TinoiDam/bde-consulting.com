@@ -52,7 +52,7 @@ export default function TrustSection() {
     <>
       {/* Positioning statement, with generous room above the grid */}
       <section className="bg-canvas-alt pt-16 pb-10 md:pt-24 md:pb-16 lg:pt-[120px] lg:pb-20">
-        <p className="max-w-4xl mx-auto px-6 sm:px-12 md:px-0 text-center text-balance font-sans font-light text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] leading-[1.6] tracking-[0.01em] text-ink">
+        <p data-reveal className="max-w-4xl mx-auto px-6 sm:px-12 md:px-0 text-center text-balance font-sans font-light text-lg sm:text-xl md:text-2xl lg:text-[1.75rem] leading-[1.6] tracking-[0.01em] text-ink">
           <b>Interim</b> inzetbaar binnen <b>digitale</b> transformaties en programma&apos;s, of flexibel beschikbaar voor losse, onafhankelijke <b>adviestrajecten</b>. 
         </p>
       </section>
@@ -65,13 +65,15 @@ export default function TrustSection() {
               return (
                 <article
                   key={i}
-                  className="relative isolate flex min-w-0 flex-col py-10 first:pt-0 last:pb-0 md:py-0"
+                  data-reveal
+                  style={{ '--reveal-delay': `${i * 120}ms` } as React.CSSProperties}
+                  className="group relative isolate flex min-w-0 flex-col py-10 first:pt-0 last:pb-0 md:py-0"
                 >
                   {/* Quiet blueprint layer behind the header */}
                   {/* Clipped to the title band and faded out downwards, so body text always sits on a clean background */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-x-0 -top-8 -z-10 h-24 overflow-hidden opacity-40 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+                    className="absolute inset-x-0 -top-8 -z-10 h-24 overflow-hidden opacity-40 transition-opacity duration-700 ease-out group-hover:opacity-80 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
                   >
                     <Blueprint variant={i} />
                   </div>
@@ -90,10 +92,11 @@ export default function TrustSection() {
           {/* Competence ribbon: the combined T-shaped skill set on one centered line */}
           <ul
             aria-label="Competenties"
+            data-reveal
             className="mt-16 flex w-full flex-wrap justify-center gap-x-2 gap-y-2 text-center font-sans text-[0.7rem] font-normal uppercase tracking-[0.15em] text-muted min-[1400px]:-mx-6 min-[1400px]:w-[calc(100%+3rem)] min-[1400px]:flex-nowrap min-[1400px]:gap-x-1.5 min-[1400px]:tracking-[0.12em]"
           >
             {COMPETENCES.map((c, n) => (
-              <li key={c} className="whitespace-nowrap">
+              <li key={c} className="whitespace-nowrap transition-colors duration-300 hover:text-ink">
                 {c}
                 {n < COMPETENCES.length - 1 && (
                   <span aria-hidden="true" className="ml-2 text-subtle">

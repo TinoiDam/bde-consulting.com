@@ -84,13 +84,15 @@ export default function MethodSection() {
   return (
     <section id="aanpak" className="scroll-mt-20 bg-canvas py-20 md:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="eyebrow">Roadmap</p>
-        <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">
-          Van abstracte strategie naar een uitvoerbare aanpak.
-        </h2>
+        <div data-reveal>
+          <p className="eyebrow">Roadmap</p>
+          <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">
+            Van abstracte strategie naar een uitvoerbare aanpak.
+          </h2>
+        </div>
 
         {/* Desktop: navy phase blocks over flat columns; only hairline dividers between phases */}
-        <div className="mt-14 hidden md:grid md:grid-cols-[150px_repeat(3,1fr)] md:gap-x-0">
+        <div data-reveal style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="mt-14 hidden md:grid md:grid-cols-[150px_repeat(3,1fr)] md:gap-x-0">
           <div />
           {steps.map((step, i) => (
             <div key={step.title} className={i < steps.length - 1 ? 'pr-2' : ''}>
@@ -118,7 +120,7 @@ export default function MethodSection() {
         </div>
 
         {/* Mobile: each phase as a navy block with the three dimensions underneath */}
-        <ol className="mt-10 space-y-10 md:hidden">
+        <ol data-reveal className="mt-10 space-y-10 md:hidden">
           {steps.map((step, i) => (
             <li key={step.title}>
               <PhaseBlock step={step} i={i} />
