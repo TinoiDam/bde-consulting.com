@@ -1,20 +1,22 @@
+import SwipeCarousel from '@/components/SwipeCarousel';
+
 // Roadmap matrix: columns are phases (sequence), rows are dimensions (what we do -> what it delivers -> who is involved).
 // DRAFT: deliverables and stakeholders are first proposals; adjust to your own practice.
 const steps = [
   {
-    title: 'ALIGN',
-    items: ['Prioriteiten verhelderen', 'Bottlenecks identificeren', 'Leiderschap uitlijnen op de kern'],
-    deliverables: ['Nulmeting & gedeeld probleembeeld', 'Geprioriteerde roadmap'],
-    stakeholders: ['Directie / MT', 'Opdrachtgever', 'Domeineigenaren'],
+    title: 'Richting bepalen',
+    items: ['Prioriteiten scherpstellen', 'Knelpunten, afhankelijkhedenen risico\'s begrijpen', 'Leiderschap uitlijnen op de kern'],
+    deliverables: ['Gedeelde start- en probleembeeld', 'Geprioriteerde roadmap', 'Werkpakketten', 'afhankelijkheden overzicht'],
+    stakeholders: ['Sponsors', 'Opdrachtgever', 'Domeineigenaren', 'Specialisten'],
   },
   {
-    title: 'GOVERNANCE',
-    items: ['Eigenaarschap vastleggen', 'Operationeel ritme inrichten', 'Heldere besluitvormingspaden definiëren'],
-    deliverables: ['Besluitvormingsstructuur & RACI', 'Overleg- en rapportageritme'],
+    title: 'Bestuurbaar maken',
+    items: ['Eigenaarschap en mandaat vastleggen', 'Operationeel ritme inrichten', 'Heldere besluitvormingspaden definiëren'],
+    deliverables: ['Governance & RACI', 'Besluitkalender', 'Overleg- en rapportageritme'],
     stakeholders: ['Stuurgroep', 'Programmamanagement', 'Business & IT-leads'],
   },
   {
-    title: 'RUN',
+    title: 'Realiseren en borgen',
     items: ['Monitor voortgang', 'Voorspelbare processen', 'Transitie naar de lijn / business as usual'],
     deliverables: ['Voortgangsrapportage & KPI-dashboard', 'Overdrachtsplan naar de lijn'],
     stakeholders: ['Lijnmanagement', 'Product owners', 'Uitvoerende teams'],
@@ -29,26 +31,26 @@ type Step = (typeof steps)[number];
 // Cell renderers per dimension; plain text, no bullets
 function Activities({ step }: { step: Step }) {
   return (
-    <ol className="space-y-2">
-      {step.items.map((item, n) => (
-        <li key={item} className="flex gap-3">
-          <span className="shrink-0 pt-[0.2em] font-sans text-[0.72rem] tabular-nums text-subtle">{pad(n + 1)}</span>
-          <span className="font-sans text-[0.92rem] font-light leading-[1.55] text-ink-soft">{item}</span>
+    <ul className="space-y-2">
+      {step.items.map((item) => (
+        <li key={item} className="font-sans text-[0.92rem] font-light leading-[1.55] text-ink-soft">
+          {item}
         </li>
       ))}
-    </ol>
+    </ul>
   );
 }
 
 function Deliverables({ step }: { step: Step }) {
   return (
-    <ul className="space-y-2">
-      {step.deliverables.map((d) => (
-        <li key={d} className="font-sans text-[0.92rem] font-medium leading-[1.5] text-ink">
-          {d}
+    <ol className="space-y-2">
+      {step.deliverables.map((d, n) => (
+        <li key={d} className="flex gap-3">
+          <span className="shrink-0 pt-[0.2em] font-sans text-[0.72rem] tabular-nums text-subtle">{pad(n + 1)}</span>
+          <span className="font-sans text-[0.92rem] font-medium leading-[1.5] text-ink">{d}</span>
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
 
@@ -63,7 +65,7 @@ function Stakeholders({ step }: { step: Step }) {
 const dimensions = [
   { label: 'Kernactiviteiten', Cell: Activities },
   { label: 'Oplevering', Cell: Deliverables },
-  { label: 'Stakeholders', Cell: Stakeholders },
+  { label: 'Kernstakeholders', Cell: Stakeholders },
 ];
 
 function Kicker({ children }: { children: React.ReactNode }) {
@@ -87,7 +89,7 @@ export default function MethodSection() {
         <div data-reveal>
           <p className="eyebrow">Roadmap</p>
           <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">
-            Een simpele aanpak voor resultaat
+            Een eenvoudige aanpak voor sneller begrip, betere besluiten en resultaat
           </h2>
         </div>
 
@@ -119,24 +121,26 @@ export default function MethodSection() {
           ))}
         </div>
 
-        {/* Mobile: each phase as a navy block with the three dimensions underneath */}
-        <ol data-reveal className="mt-10 space-y-10 md:hidden">
-          {steps.map((step, i) => (
-            <li key={step.title}>
-              <PhaseBlock step={step} i={i} />
-              <div className="space-y-6 pt-6">
-                {dimensions.map(({ label, Cell }) => (
-                  <div key={label}>
-                    <div className="mb-3">
-                      <Kicker>{label}</Kicker>
+        {/* Mobile: phases as a horizontal swipe carousel of full-width cards */}
+        <div data-reveal className="mt-10 md:hidden">
+          <SwipeCarousel label="Roadmap in drie fasen" itemLabel="fase">
+            {steps.map((step, i) => (
+              <article key={step.title} className="h-full border border-line bg-canvas">
+                <PhaseBlock step={step} i={i} />
+                <div className="space-y-6 px-5 py-6">
+                  {dimensions.map(({ label, Cell }) => (
+                    <div key={label}>
+                      <div className="mb-3">
+                        <Kicker>{label}</Kicker>
+                      </div>
+                      <Cell step={step} />
                     </div>
-                    <Cell step={step} />
-                  </div>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ol>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </SwipeCarousel>
+        </div>
       </div>
     </section>
   );

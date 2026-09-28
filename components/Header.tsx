@@ -57,8 +57,8 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/portfolio" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
-              PORTFOLIO
+            <Link href="/#cases" className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
+              CASES
             </Link>
           </li>
           <li>
@@ -89,8 +89,8 @@ export default function Header() {
             <Link href="/services" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
               Diensten
             </Link>
-            <Link href="/portfolio" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
-              Portfolio
+            <Link href="/#cases" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
+              Cases
             </Link>
             <Link href="/insights" className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest">
               Insights

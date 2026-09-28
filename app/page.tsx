@@ -3,7 +3,7 @@ import TrustSection from '@/components/TrustSection';
 import MethodSection from '@/components/MethodSection';
 import CasesSection from '@/components/CasesSection';
 import AboutSection from '@/components/AboutSection';
-import EngagementSection from '@/components/EngagementSection';
+import PurchasingFlow from '@/components/PurchasingFlow';
 
 export default function Home() {
   return (
@@ -15,31 +15,38 @@ export default function Home() {
         {/* Background video */}
         <HeroVideo />
 
-        {/* Asymmetric editorial split: headline left (55%), subtitle and action right (40%); stacks on mobile */}
+        {/* Diagonal editorial composition on desktop: headline top-left, subtitle and CTAs lower-right; stacks on mobile.
+            Wide container so there is little white at the sides. */}
         <div className="relative z-10 flex-1 flex items-center pt-28 pb-16 md:py-24">
-          <div className="mx-auto w-full max-w-[1200px] px-6 lg:flex lg:items-start lg:justify-between lg:gap-16">
-            <div className="lg:w-[55%]">
-              <p className="eyebrow">
+          <div className="mx-auto w-full max-w-[110rem] px-6 lg:grid lg:grid-cols-[55fr_45fr] lg:grid-rows-[auto_auto] lg:gap-x-16 lg:px-[4vw]">
+            <div className="lg:col-start-1 lg:row-start-1">
+              <p className="eyebrow text-[#0B1528]/80">
                 Advies, consultancy en interim
               </p>
-              <h1 className="text-left text-[2.25rem] sm:text-[2.75rem] md:text-5xl lg:text-[3.5rem]">
+              <h1 className="text-left text-[#0B1528] text-[2.25rem] sm:text-[2.75rem] md:text-5xl lg:text-[3.5rem]">
                 Strategie is helder, maar niet uitvoerbaar.
               </h1>
             </div>
 
-            <div className="mt-6 lg:mt-[calc(0.75rem*1.65+1rem+0.4rem)] lg:w-[40%]">
-              <p className="text-left font-sans text-[1.05rem] md:text-[1.15rem] font-light leading-[1.65] text-accent lg:mt-4">
+            <div className="mt-6 lg:col-start-2 lg:row-start-2 lg:mt-20 lg:justify-self-start lg:w-full lg:max-w-[520px]">
+              <p className="text-left font-sans text-[1.05rem] md:text-[1.15rem] font-light leading-[1.65] text-[#1E293B]">
                 Begeleiding bij digitale strategie en realisatie
               </p>
-              <a
-                href="#samenwerkingsvormen"
-                className="group mt-8 inline-flex items-center gap-3 rounded-[4px] border border-ink px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-ink transition-colors duration-300 hover:bg-ink hover:text-white"
-              >
-                Samenwerkingsvormen
-                <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-y-0.5">
-                  ↓
-                </span>
-              </a>
+              {/* CTAs tinted in the hero's own blue so they blend with the background (shape unchanged) */}
+              <div className="mt-14 md:mt-8 flex flex-col items-center gap-3 md:flex-row md:flex-wrap md:items-start">
+                <a
+                  href="#samenwerkingsvormen"
+                  className="group inline-flex w-full max-w-xs items-center justify-center gap-3 rounded-[4px] border border-[#0B1528]/20 md:w-auto md:max-w-none bg-[#cfe2f8]/85 px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-[#0B1528] transition-colors duration-300 hover:border-[#0B1528]/40 hover:bg-[#b9d5f5]"
+                >
+                  Samenwerkingsvormen
+                </a>
+                <a
+                  href="#expertise"
+                  className="group inline-flex w-full max-w-xs items-center justify-center gap-3 rounded-[4px] border border-[#0B1528]/15 md:w-auto md:max-w-none bg-white/35 px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-[#0B1528]/90 transition-colors duration-300 hover:border-[#0B1528]/35 hover:bg-[#e3eefb]/80"
+                >
+                  Expertises
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -71,8 +78,8 @@ export default function Home() {
         {/* Cases: intro heading + tab dashboard (eyebrow and title are configurable) */}
         <CasesSection eyebrow="Cases & Deliverables" title="Hoe dit in de praktijk eruit ziet" />
 
-        {/* Engagement models: landing target of the hero button */}
-        <EngagementSection />
+        {/* Purchasing flow: landing target of the hero button (replaces the engagement models section) */}
+        <PurchasingFlow />
 
         {/* About */}
         <AboutSection />

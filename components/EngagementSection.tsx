@@ -1,7 +1,7 @@
 // Commercial offer: three engagement models plus the low-threshold entry route.
 // Landing target of the hero button "Samenwerkingsvormen" (#samenwerkingsvormen).
 const INTRO =
-  'Onze flexibiliteit in inzet weerspiegelt onze visie op resultaat: wij leveren geen standaardpakketten, maar stemmen de contractvorm af op de schaal, de complexiteit en de dynamiek van het vraagstuk.';
+  'Bespaar tijd en geld met een asynchroon voortrajct. Betaal pas bij een live gesprek of wanneer een passende inzetvorm is gekozen.';
 
 const pillars = [
   {
