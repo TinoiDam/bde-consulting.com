@@ -85,14 +85,14 @@ export default function Home() {
         {/* Certifications and trainings */}
         <CertificationsSection />
 
+        {/* Purchasing flow: landing target of the hero button (replaces the engagement models section) */}
+        <PurchasingFlow />
+
         {/* Trust / validation */}
         <TrustSection />
 
         {/* Cases: intro heading + tab dashboard (eyebrow and title are configurable) */}
         <CasesSection eyebrow="Cases & Deliverables" title="Hoe dit in de praktijk eruit ziet" />
-
-        {/* Purchasing flow: landing target of the hero button (replaces the engagement models section) */}
-        <PurchasingFlow />
       </div>
     </main>
   );
