@@ -8,7 +8,7 @@
 @theme {
   --color-canvas: #ffffff;      /* main background */
   --color-canvas-alt: #fafafa;  /* ultra-light warm gray for alternating sections */
-  --color-mist: #eef3f9;        /* chic light blue for feature sections (e.g. About) */
+  --color-mist: #ecf4fd;        /* soft light blue from the hero sky: feature sections (e.g. About), bands */
   --color-surface: #ffffff;     /* cards and panels */
   --color-line: #e2e8f0;        /* faint borders and dividers */
   --color-ink: #0a1931;         /* deep corporate navy: headlines, primary text, structural blocks, buttons */

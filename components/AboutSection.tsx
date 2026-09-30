@@ -180,18 +180,31 @@ export default function AboutSection() {
         </div>
       </section>
 
-      {/* Credentials band: light blue, so the change of background separates it from the profile above */}
-      <section className="bg-mist py-20 md:py-28">
-        <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
-          <div className="mx-auto max-w-[1200px]">
-            <div data-reveal>
-              <ClientLogos />
-            </div>
+    </>
+  );
+}
 
-            {/* Certifications under the project logos: mini badge in colour (grey on hover) plus name */}
-            <div data-reveal className="mt-20 md:mt-24">
-              <p className="eyebrow text-center">Certificeringen en trainingen</p>
-              <ul className="mt-8 grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+// Project experience: client logos on a light-blue band
+export function ProjectExperienceSection() {
+  return (
+    <section className="bg-mist py-20 md:py-28">
+      <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
+        <div data-reveal className="mx-auto max-w-[1200px]">
+          <ClientLogos />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Certifications and trainings: mini badge in colour (grey on hover) plus name
+export function CertificationsSection() {
+  return (
+    <section className="bg-canvas py-20 md:py-28">
+      <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
+        <div data-reveal className="mx-auto max-w-[1200px]">
+          <p className="eyebrow text-center">Certificeringen en trainingen</p>
+          <ul className="mt-8 grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {certifications.map((c) => (
                   <li
                     key={c.file}
@@ -213,11 +226,9 @@ export default function AboutSection() {
                     <span className="font-sans text-xs font-medium leading-snug text-ink">{c.name}</span>
                   </li>
                 ))}
-              </ul>
-            </div>
-          </div>
+          </ul>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

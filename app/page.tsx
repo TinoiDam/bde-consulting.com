@@ -1,8 +1,9 @@
 import HeroVideo from '@/components/HeroVideo';
+import PropositionSection from '@/components/PropositionSection';
 import TrustSection from '@/components/TrustSection';
 import MethodSection from '@/components/MethodSection';
 import CasesSection from '@/components/CasesSection';
-import AboutSection from '@/components/AboutSection';
+import AboutSection, { CertificationsSection, ProjectExperienceSection } from '@/components/AboutSection';
 import PurchasingFlow from '@/components/PurchasingFlow';
 
 export default function Home() {
@@ -69,21 +70,29 @@ export default function Home() {
 
       {/* Everything below the pinned hero slides up over it like a curtain */}
       <div className="relative z-10">
-        {/* Trust / validation */}
-        <TrustSection />
+        {/* Proposition: what BDE does, directly below the hero */}
+        <PropositionSection />
 
         {/* Method: three-step roadmap */}
         <MethodSection />
+
+        {/* About: background & vision */}
+        <AboutSection />
+
+        {/* Project experience: client logos */}
+        <ProjectExperienceSection />
+
+        {/* Certifications and trainings */}
+        <CertificationsSection />
+
+        {/* Trust / validation */}
+        <TrustSection />
 
         {/* Cases: intro heading + tab dashboard (eyebrow and title are configurable) */}
         <CasesSection eyebrow="Cases & Deliverables" title="Hoe dit in de praktijk eruit ziet" />
 
         {/* Purchasing flow: landing target of the hero button (replaces the engagement models section) */}
         <PurchasingFlow />
-
-        {/* About */}
-        <AboutSection />
-
       </div>
     </main>
   );
