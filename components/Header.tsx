@@ -10,9 +10,10 @@ export default function Header() {
   const pathname = usePathname();
   const [overHero, setOverHero] = useState(true);
 
-  // Over the homepage hero the bar is transparent with a white wordmark; elsewhere it turns frosted white
+  // At the very top of the homepage the bar is transparent with a white wordmark; as soon as you scroll it turns
+  // frosted white
   useEffect(() => {
-    const update = () => setOverHero(window.scrollY < window.innerHeight - 80);
+    const update = () => setOverHero(window.scrollY < 8);
     update();
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
@@ -54,7 +55,7 @@ export default function Header() {
         <ul className="hidden lg:flex gap-10">
           {mainNav.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="link-quiet text-xs tracking-widest font-medium text-body hover:text-ink uppercase">
+              <Link href={item.href} className="link-quiet text-xs tracking-widest font-semibold text-ink hover:text-ink-soft uppercase">
                 {item.label}
               </Link>
             </li>

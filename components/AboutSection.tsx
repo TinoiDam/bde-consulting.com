@@ -109,7 +109,7 @@ function SignatureCard() {
 export default function AboutSection() {
   return (
     <>
-      <section id="over" className="scroll-mt-20 bg-canvas py-20 md:py-28 lg:py-32">
+      <section id="over" className="scroll-mt-20 py-20 md:py-28 lg:py-32">
         <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
           {/* 35 / 65 split: sticky title left, collapsible biography (ending in the signature card) and career right.
               Wider container and a larger column gap: less white at the sides, more between the columns. */}
@@ -184,25 +184,17 @@ export default function AboutSection() {
   );
 }
 
-// Project experience: client logos on a light-blue band
-export function ProjectExperienceSection() {
+// Project experience and certifications in one light-blue section, kept apart by spacing:
+// client logos on top, certifications and trainings (mini badge in colour, grey on hover) plus name below
+export function CredentialsSection() {
   return (
     <section className="bg-mist py-20 md:py-28">
       <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
         <div data-reveal className="mx-auto max-w-[1200px]">
           <ClientLogos />
         </div>
-      </div>
-    </section>
-  );
-}
 
-// Certifications and trainings: mini badge in colour (grey on hover) plus name
-export function CertificationsSection() {
-  return (
-    <section className="bg-canvas py-20 md:py-28">
-      <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
-        <div data-reveal className="mx-auto max-w-[1200px]">
+        <div data-reveal className="mx-auto mt-12 max-w-[1200px] md:mt-16">
           <p className="eyebrow text-center">Certificeringen en trainingen</p>
           <ul className="mt-8 grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {certifications.map((c) => (

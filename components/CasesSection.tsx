@@ -12,7 +12,7 @@ export default function CasesSection({
   return (
     <>
       {/* Section intro */}
-      <section className="bg-white pt-10 pb-16 md:pt-[60px] md:pb-24 text-center">
+      <section className="bg-white pt-28 pb-16 md:pt-36 md:pb-24 text-center">
         {/* Section transition: thin downward chevron, mirroring the logo mark */}
         <svg
           viewBox="0 0 24 24"
@@ -34,9 +34,9 @@ export default function CasesSection({
           {eyebrow && (
             <p className="eyebrow">{eyebrow}</p>
           )}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] text-balance">
             {title}
-          </h2>
+          </h1>
         </div>
       </section>
 

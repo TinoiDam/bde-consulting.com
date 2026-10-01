@@ -1,4 +1,4 @@
-// Purchasing flow: the four steps from first contact to project start.
+// Purchasing flow (on /services): the four steps from first contact to project start.
 // A step either explains (title + microcopy) or acts (cta): step 01 is the action itself.
 
 export type FlowStep = {
@@ -37,7 +37,7 @@ export const flowSteps: FlowStep[] = [
       { name: 'Retainer', note: 'Sparring' },
       { name: 'Fractional', note: 'Flexibele sturing' },
     ],
-    action: { label: 'Bekijk opties & tarieven', href: '/services' },
+    action: { label: 'Bekijk opties & tarieven', href: '#inzetvormen' },
   },
 ];
 
@@ -48,7 +48,7 @@ const TITLE = 'Van eerste contact naar start';
 export default function PurchasingFlow() {
   const last = flowSteps.length - 1;
   return (
-    <section id="samenwerkingsvormen" className="scroll-mt-20 bg-canvas-alt py-24 md:py-32 lg:py-40">
+    <section id="samenwerkingsvormen" className="scroll-mt-20 bg-canvas py-24 md:py-32 lg:py-40">
       {/* Left-weighted composition: heading and track sit left, the right side stays deliberately empty */}
       <div className="mx-auto max-w-[1200px] px-6">
         <div data-reveal className="max-w-3xl">
@@ -77,10 +77,10 @@ export default function PurchasingFlow() {
                 <span
                   aria-hidden="true"
                   className={`relative block h-[11px] w-[11px] shrink-0 rounded-full ${
-                    i === last ? 'bg-ink' : 'border border-ink/40 bg-canvas-alt'
+                    i === last ? 'bg-ink' : 'border border-ink/40 bg-canvas'
                   }`}
                 />
-                <span className="bg-canvas-alt pl-3 pr-4 font-serif text-[1.9rem] leading-none tabular-nums lining-nums text-ink">
+                <span className="bg-canvas pl-3 pr-4 font-serif text-[1.9rem] leading-none tabular-nums lining-nums text-ink">
                   {step.number}
                 </span>
               </div>

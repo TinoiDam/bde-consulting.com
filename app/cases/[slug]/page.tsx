@@ -27,7 +27,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   return (
     <main className="bg-white pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-3xl mx-auto px-6">
-        <Link href="/#cases" className="text-xs font-semibold uppercase tracking-[0.18em] text-subtle hover:text-ink transition-colors">
+        <Link href="/cases" className="text-xs font-semibold uppercase tracking-[0.18em] text-subtle hover:text-ink transition-colors">
           ← Alle cases
         </Link>
         <p className="eyebrow mt-10">

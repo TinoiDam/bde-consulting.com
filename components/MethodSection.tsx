@@ -72,7 +72,7 @@ function PhaseColumn({ step, i }: { step: Step; i: number }) {
 
 export default function MethodSection() {
   return (
-    <section id="aanpak" className="scroll-mt-20 bg-canvas-alt py-20 md:py-28 lg:py-32">
+    <section id="aanpak" className="scroll-mt-20 py-20 md:py-28 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <div data-reveal>
           <p className="eyebrow">Roadmap</p>

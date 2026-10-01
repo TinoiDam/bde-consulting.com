@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import PurchasingFlow from '@/components/PurchasingFlow';
+import StaggerCarousel from '@/components/StaggerCarousel';
 
 export const metadata: Metadata = {
   title: 'Diensten & tarieven | BDE Management Consulting',
@@ -99,18 +101,17 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services: 2x2 grid of flat cards, each with price band, availability, focus, audience and a CTA */}
-      <section aria-label="Inzetvormen" className="bg-canvas-alt py-16 md:py-24 lg:py-28">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <ol className="grid gap-6 md:grid-cols-2 lg:gap-8">
+      {/* Services: diagonal carousel of flat cards (each a step lower than the previous), each with price band,
+          availability, focus, audience and a CTA; the card in focus is shown slightly larger */}
+      <section
+        id="inzetvormen"
+        aria-label="Inzetvormen"
+        className="scroll-mt-20 overflow-hidden bg-[linear-gradient(to_bottom,var(--color-canvas),transparent_18%,transparent_80%,var(--color-canvas)),radial-gradient(ellipse_80%_70%_at_40%_50%,#d6e8f9_0%,var(--color-mist)_50%,var(--color-canvas)_90%)] py-16 md:py-24 lg:py-28"
+      >
+        <div data-reveal>
+          <StaggerCarousel label="Inzetvormen" itemLabel="inzetvorm">
             {services.map((s, i) => (
-              <li
-                key={s.id}
-                id={s.id}
-                data-reveal
-                style={{ '--reveal-delay': `${(i % 2) * 100}ms` } as React.CSSProperties}
-                className="flex scroll-mt-28 flex-col rounded-[6px] border border-line bg-white p-7 md:p-9"
-              >
+              <article key={s.id} id={s.id} className="flex h-full scroll-mt-28 flex-col rounded-[6px] border border-line bg-white p-7 md:p-9">
                 <span className="font-serif text-[1.1rem] tabular-nums lining-nums text-subtle">
                   {String(i + 1).padStart(2, '0')}
                 </span>
@@ -150,11 +151,14 @@ export default function Services() {
                     →
                   </span>
                 </a>
-              </li>
+              </article>
             ))}
-          </ol>
+          </StaggerCarousel>
         </div>
       </section>
+
+      {/* Purchasing flow: from first contact to start (target of the homepage "Samenwerkingsvormen" button) */}
+      <PurchasingFlow />
 
       {/* Gatekeeper qualification: dark, contrasting closing band with the main CTA */}
       <section className="border-b border-white/10 bg-ink py-20 md:py-28 lg:py-32">
