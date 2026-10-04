@@ -7,7 +7,7 @@ import ZoomableDiagram from '@/components/ZoomableDiagram';
 export default function PropositionSection() {
   return (
     <section id="propositie" aria-labelledby="propositie-titel" className="relative scroll-mt-20 shadow-[0_-24px_60px_-30px_rgba(10,25,49,0.25)]">
-      <div className="overflow-hidden bg-canvas py-24 md:py-36">
+      <div className="overflow-hidden py-24 md:py-36">
         <div data-reveal className="relative mx-auto max-w-6xl px-6 lg:grid lg:grid-cols-[55fr_45fr] lg:grid-rows-[auto_auto_auto] lg:gap-x-16 xl:max-w-[88rem] xl:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] xl:grid-rows-[auto_auto] xl:gap-x-20">
           <div className="lg:col-start-1 lg:row-start-1">
             <div aria-hidden="true" className="inline-flex items-start font-serif text-[2.25rem] font-bold leading-none tracking-[-0.03em] text-ink md:text-[2.75rem]">

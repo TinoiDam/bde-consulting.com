@@ -2,7 +2,7 @@ import HeroVideo from '@/components/HeroVideo';
 import PropositionSection from '@/components/PropositionSection';
 import SectionDivider from '@/components/SectionDivider';
 import InsetPanel from '@/components/InsetPanel';
-import SlantedSection from '@/components/SlantedSection';
+import BackgroundRibbon from '@/components/BackgroundRibbon';
 import ApproachTeaser from '@/components/ApproachTeaser';
 import AboutSection, { CredentialsSection } from '@/components/AboutSection';
 
@@ -75,38 +75,32 @@ export default function Home() {
         {/* Sections 2 to project experience/certifications as one panel that slides up over the pinned hero: inset at first
             (hero visible at the sides), widening to full width once half of section 2 has come into view */}
         <InsetPanel>
-          {/* Sections alternate white and light blue, each with a slanted top that leans the other way than the one
-              before (zigzag); the last one slants into the navy footer. --slant sets the cut's height: gentler on
-              small screens so text and diagrams always stay inside their backdrop. */}
-          <div className="[--slant:1.5vw] md:[--slant:3vw] lg:[--slant:4vw]">
-            {/* Proposition: what BDE does */}
-            <SlantedSection top="up" className="bg-canvas">
+          {/* Proposition, Approach and About on one white backdrop, with a faint light-blue half-plane behind their
+              content that turns as the page scrolls; clip-path keeps the fixed plane inside this backdrop */}
+          <div className="relative bg-canvas [clip-path:inset(0)]">
+            <BackgroundRibbon />
+
+            <div className="relative">
+              {/* Proposition: what BDE does */}
               <PropositionSection />
-            </SlantedSection>
 
-            <SectionDivider />
+              {/* Between all sections the same extremely subtle transition mark (BDE chevron) sits on the boundary */}
+              <SectionDivider />
 
-            {/* Approach: short teaser, the full methodology lives on /aanpak */}
-            <SlantedSection top="down" className="bg-mist">
+              {/* Approach: short teaser, the full methodology lives on /aanpak */}
               <ApproachTeaser />
-            </SlantedSection>
 
-            <SectionDivider />
+              <SectionDivider />
 
-            {/* About: background & vision */}
-            <SlantedSection top="up" className="bg-canvas">
+              {/* About: background & vision */}
               <AboutSection />
-            </SlantedSection>
-
-            <SectionDivider />
-
-            {/* Project experience and certifications, one section; the navy behind its slanted bottom runs on into the footer */}
-            <div className="bg-[#0b1329]">
-              <SlantedSection top="down" bottom="up" className="bg-mist">
-                <CredentialsSection />
-              </SlantedSection>
             </div>
           </div>
+
+          <SectionDivider />
+
+          {/* Project experience and certifications, one section */}
+          <CredentialsSection />
         </InsetPanel>
       </div>
     </main>
