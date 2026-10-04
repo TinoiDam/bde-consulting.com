@@ -38,7 +38,7 @@ export default function BackgroundRibbon() {
       ref={ref}
       aria-hidden="true"
       style={{ '--ribbon-angle': `${START}deg` } as React.CSSProperties}
-      className="pointer-events-none fixed top-1/2 left-1/2 h-[200vmax] w-[400vmax] origin-top -translate-x-1/2 rotate-[var(--ribbon-angle)] bg-[#f3f7fd]"
+      className="pointer-events-none fixed top-1/2 left-1/2 h-[200vmax] w-[400vmax] origin-top -translate-x-1/2 rotate-[var(--ribbon-angle)] bg-[#fafcfe]"
     />
   );
 }
