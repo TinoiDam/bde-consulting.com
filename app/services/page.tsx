@@ -33,44 +33,36 @@ const services: Service[] = [
     name: 'Deepdives & Sprints',
     price: '€15.000,- tot €35.000,-',
     priceBasis: 'Fixed-fee',
-    availability: 'Gelimiteerd aantal slots per kwartaal beschikbaar.',
-    focus:
-      'Intensieve samenwerking (doorlooptijd 2 tot 4 weken) bijvoorbeeld bij een vastgelopen project, fit-gap advisory of volwassenheidsscans',
-    audience:
-      'Directies en stuurgroepen die binnen een kritieke deadline een onafhankelijke, diepgaande inhoudelijke doorlichting en direct toepasbaar actieplan eisen.',
+    availability: 'Beperkt aantal slots per kwartaal.',
+    focus: 'Intensief traject van 2 tot 4 weken, bijvoorbeeld bij een vastgelopen project of een volwassenheidsscan.',
+    audience: 'Directies en stuurgroepen die snel een onafhankelijke doorlichting en actieplan nodig hebben.',
   },
   {
     id: 'retainer',
     name: 'Retainer',
     price: '€3.500,- tot €7.500,- per maand',
     priceBasis: 'Vaste maandelijkse fee',
-    availability: 'Uitsluitend beschikbaar voor maximaal 3 organisaties parallel.',
-    focus:
-      "Continu strategisch klankbord en diplomatieke regie achter de schermen. Directe en prioritaire toegang tot expertise bij acute IT-vraagstukken, governance-risico's of politieke patstellingen in transformatieprogramma's.",
-    audience:
-      'Boardrooms, programmamanagers en directieleden die behoefte hebben aan een onafhankelijke, kritische sparringpartner zonder operationele overhead.',
+    availability: 'Maximaal 3 organisaties tegelijk.',
+    focus: 'Continu strategisch klankbord, met directe toegang bij acute IT-, governance- of programmavraagstukken.',
+    audience: 'Bestuurders en programmamanagers die een kritische sparringpartner zoeken.',
   },
   {
     id: 'fractional',
     name: 'Fractional Lead / Advisory',
-    price: '€2000,- tot €12.500,- per maand',
-    priceBasis: 'Op basis van 0,5 tot 2 dagen per week (flexibel in te zetten)',
-    availability: 'Actuele capaciteit uitsluitend op basis van match met het veranderportfolio.',
-    focus:
-      'Hoogwaardige IT- en data-sturing op executive niveau. Het inrichten van datamigratie-architecturen en het borgen van wet- en regelgeving rondom algoritmen en AI-governance, zonder de noodzaak voor een fulltime positie.',
-    audience:
-      'Mid-market en corporate organisaties die de scherpte en het trackrecord van een zwaargewicht consultant willen inzetten voor structurele, flexibele regie.',
+    price: '€2.000,- tot €12.500,- per maand',
+    priceBasis: '0,5 tot 2 dagen per week',
+    availability: 'Op basis van match met het veranderportfolio.',
+    focus: 'IT- en datasturing op executive niveau, inclusief AI-governance, zonder fulltime positie.',
+    audience: 'Organisaties die senior regie flexibel willen inzetten.',
   },
   {
     id: 'interim',
     name: 'Interim Management',
-    price: '€800,- tot €1400,- per dag',
+    price: '€800,- tot €1.400,- per dag',
     priceBasis: 'Enterprise tariefstructuur',
-    availability: 'Maximaal 1 actieve enterprise transformatie parallel.',
-    focus:
-      "Integrale, grootschalige regie over miljoenenportfolio's, vitale infrastructuur en zware transformatieprogramma's in sterk gereguleerde sectoren (overheid, financiële sector, utilities). Hard op de inhoud om beweging te creëren, zacht op de relatie om duurzaam draagvlak te borgen.",
-    audience:
-      'Enterprise-organisaties die te maken hebben met zware audits, crisismanagement of complexe datamigraties en behoefte hebben aan een interim-manager met diepe technologische wortels (MySQL/PHP/Python).',
+    availability: 'Maximaal 1 transformatie tegelijk.',
+    focus: "Integrale regie over grote portfolio's en transformatieprogramma's in gereguleerde sectoren.",
+    audience: 'Organisaties met zware audits, crisismanagement of complexe datamigraties.',
   },
 ];
 
@@ -99,7 +91,8 @@ export default function Services() {
       <PurchasingFlow background="bg-[linear-gradient(to_bottom,var(--color-canvas),transparent_18%,transparent_80%,var(--color-canvas)),radial-gradient(ellipse_80%_70%_at_40%_50%,#d6e8f9_0%,var(--color-mist)_50%,var(--color-canvas)_90%)]" />
 
       {/* Services: diagonal carousel of flat cards (each a step lower than the previous), each with price band,
-          availability, focus, audience and a CTA; the card in focus is shown slightly larger */}
+          availability, focus and audience; the card in focus is shown slightly larger. Below it the topic picker opens
+          a pre-filled e-mail for the chosen engagement form. */}
       <section
         id="inzetvormen"
         aria-label="Inzetvormen"
@@ -107,12 +100,9 @@ export default function Services() {
       >
         <div data-reveal>
           <StaggerCarousel label="Inzetvormen" itemLabel="inzetvorm">
-            {services.map((s, i) => (
+            {services.map((s) => (
               <article key={s.id} id={s.id} className="flex h-full scroll-mt-28 flex-col rounded-[6px] border border-line bg-white p-7 md:p-9">
-                <span className="font-serif text-[1.1rem] tabular-nums lining-nums text-subtle">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h2 className="mt-3 text-[1.6rem] md:text-[1.85rem] leading-[1.2] text-ink">{s.name}</h2>
+                <h2 className="text-[1.6rem] md:text-[1.85rem] leading-[1.2] text-ink">{s.name}</h2>
 
                 {/* Price band */}
                 <div className="mt-6 border-y border-line py-5">
@@ -143,18 +133,18 @@ export default function Services() {
             ))}
           </StaggerCarousel>
         </div>
+
+        <div data-reveal className="mx-auto mt-12 max-w-[1200px] px-6 md:mt-16">
+          <MailTopicPicker topics={serviceTopics} />
+        </div>
       </section>
 
-      {/* Gatekeeper qualification: dark, contrasting closing band; choosing an engagement form opens a pre-filled e-mail
-          (same pattern as the contact page) */}
+      {/* Gatekeeper qualification: dark, contrasting closing band */}
       <section className="border-b border-white/10 bg-ink py-10 md:py-14 lg:py-16">
         <div data-reveal className="mx-auto max-w-[1200px] px-6">
           <div className="max-w-3xl">
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-white">{GATE.title}</h2>
             <p className="mt-6 text-[1.05rem] md:text-[1.1rem] text-white/75 text-pretty">{GATE.body}</p>
-            <div className="mt-10">
-              <MailTopicPicker topics={serviceTopics} tone="dark" />
-            </div>
           </div>
         </div>
       </section>

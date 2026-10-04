@@ -4,15 +4,18 @@ import { useState } from 'react';
 import { EMAIL, mailto, type MailTopic } from '@/lib/contact';
 
 // Topic chips and one e-mail button: the chosen topic decides the subject and the pre-structured body that open in
-// the visitor's own mail client. `tone` adapts the colours to a light or a dark (ink) section.
+// the visitor's own mail client. `tone` adapts the colours to a light or a dark (ink) section; `align` centres the
+// chips (the surrounding text alignment does the rest).
 export default function MailTopicPicker({
   topics,
   initial,
   tone = 'light',
+  align = 'start',
 }: {
   topics: MailTopic[];
   initial?: string;
   tone?: 'light' | 'dark';
+  align?: 'start' | 'center';
 }) {
   const [key, setKey] = useState(initial ?? topics[0].key);
   const topic = topics.find((t) => t.key === key) ?? topics[0];
@@ -22,7 +25,7 @@ export default function MailTopicPicker({
   return (
     <div>
       <p className={`eyebrow ${dark ? 'text-white/60' : ''}`}>Kies uw onderwerp</p>
-      <ul className="flex flex-wrap gap-2">
+      <ul className={`flex flex-wrap gap-2 ${align === 'center' ? 'justify-center' : ''}`}>
         {topics.map((t) => {
           const active = t.key === key;
           return (

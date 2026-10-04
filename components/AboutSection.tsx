@@ -30,20 +30,19 @@ const career = [
 const LINKEDIN = 'https://www.linkedin.com/in/tinoidam/';
 
 // Profile copy (edit freely)
-const HEADLINE = 'Achtergrond';
+const HEADLINE = 'De Moderne Consultant';
 
 // Biography, split into titled sections. The full background lives on /over (app/over/page.tsx).
 // An optional list renders after the paragraphs as a bold term followed by its explanation.
-export type BioSection = { title: string; paragraphs: string[]; intro?: string; list?: { term: string; text: string }[] };
+export type BioSection = { title?: string; paragraphs: string[]; intro?: string; list?: { term: string; text: string }[] };
 
 const BIO: BioSection[] = [
   {
-    title: 'De Moderne Consultant',
     paragraphs: [
-      'BDE Management Consulting helpt organisaties grip te krijgen op complexe veranderopgaven waarin mensen, IT, data en organisatie samenkomen. Vaak gaat het om vraagstukken met meerdere belangen, bestuurlijke dynamiek en afhankelijkheden; van besluitvorming aan de top tot een uitvoerbare verandering op de werkvloer.', ' Binnen 3,5 jaar als consultant realiseerde ik meer dan vijf omvangrijke projecten bij onder andere Eneco en Rabobank. Daarna maakte ik de stap naar ondernemerschap en richtte ik BDE Management Consulting op.',
+      'BDE Management Consulting helpt organisaties grip te krijgen op veranderopgaven waarin mensen, IT, data en organisatie samenkomen. Vaak gaat het om vraagstukken met meerdere belangen, bestuurlijke dynamiek en afhankelijkheden; van besluitvorming aan de top tot een uitvoerbare verandering op de werkvloer.', 
       'Met ervaring in politiek-bestuurlijke transformaties combineer ik snelle inhoudelijke verdieping met regie, heldere besluitvorming en een pragmatische aanpak. Ik beweeg soepel tussen directie, management en uitvoering en vertaal strategische richting naar gedragen, uitvoerbare verandering.',
-    ],
-  },
+    ]
+  }
 ];
 
 const LINKEDIN_ICON =
@@ -54,8 +53,8 @@ export function BioSections({ sections }: { sections: BioSection[] }) {
   return (
     <div className="space-y-10">
       {sections.map((section) => (
-        <div key={section.title}>
-          <h3 className="mb-4 text-[1.35rem] text-ink">{section.title}</h3>
+        <div key={section.title ?? section.paragraphs[0].slice(0, 32)}>
+          {section.title && <h3 className="mb-4 text-[1.35rem] text-ink">{section.title}</h3>}
           <div className="space-y-4">
             {section.paragraphs.map((p) => (
               <p key={p.slice(0, 32)} className="text-[1.02rem]">
@@ -124,14 +123,14 @@ export default function AboutSection() {
       <section id="over" className="scroll-mt-20 py-10 md:py-14 lg:py-16">
         {/* Same container as section 2 and Roadmap, so the section titles share one left edge */}
         <div className="mx-auto max-w-6xl px-6 xl:max-w-[88rem]">
-          {/* 35 / 65 split: sticky title left, biography, signature card and career right,
-              with a large column gap */}
-          <div className="grid gap-12 lg:grid-cols-[35fr_65fr] lg:items-start lg:gap-28">
-            <div data-reveal className="lg:sticky lg:top-28">
+          {/* Diagonal: the title top left, the biography, signature card and career below it in the right column
+              (35 / 65 split from lg, stacked below) */}
+          <div className="grid gap-8 lg:grid-cols-[35fr_65fr] lg:gap-x-28 lg:gap-y-10">
+            <div data-reveal className="lg:col-span-2">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">{HEADLINE}</h2>
             </div>
 
-            <div data-reveal style={{ '--reveal-delay': '100ms' } as React.CSSProperties}>
+            <div data-reveal className="lg:col-start-2" style={{ '--reveal-delay': '100ms' } as React.CSSProperties}>
               <BioSections sections={BIO} />
 
               {/* Signature card and career on one row (stacked on small screens): card left, a compact horizontal
@@ -175,8 +174,7 @@ export default function AboutSection() {
   );
 }
 
-// Project experience and certifications in one light-blue section, kept apart by spacing:
-// client logos on top, certifications and trainings (mini badge in colour, grey on hover) plus name below
+// Project experience on a light-blue band: client logos (homepage)
 export function CredentialsSection() {
   return (
     <section className="bg-sky-hue py-10 md:py-14 lg:py-16">
@@ -184,31 +182,41 @@ export function CredentialsSection() {
         <div data-reveal className="mx-auto max-w-[1200px]">
           <ClientLogos />
         </div>
+      </div>
+    </section>
+  );
+}
 
-        <div data-reveal className="mx-auto mt-10 max-w-[1200px] md:mt-12">
+// Certifications and trainings on the same light-blue band (on /over and /contact): mini badge in colour (grey on
+// hover) plus name
+export function CertificationsSection() {
+  return (
+    <section className="bg-sky-hue py-10 md:py-14 lg:py-16">
+      <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
+        <div data-reveal className="mx-auto max-w-[1200px]">
           <p className="eyebrow text-center text-ink/70">Certificeringen en trainingen</p>
           <ul className="mt-5 grid gap-x-4 gap-y-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                {certifications.map((c) => (
-                  <li
-                    key={c.file}
-                    className="group flex h-11 items-center gap-3 rounded-[6px] px-3 transition-colors duration-300 hover:bg-white"
-                  >
-                    <span className="flex h-8 w-11 shrink-0 items-center justify-center">
-                      {c.src ? (
-                        // eslint-disable-next-line @next/next/no-img-element -- fixed max box, width follows the badge's aspect ratio
-                        <img
-                          src={c.src}
-                          alt=""
-                          loading="lazy"
-                          className="h-auto w-auto max-h-8 max-w-11 object-contain transition-[filter] duration-300 group-hover:[filter:grayscale(100%)_opacity(50%)]"
-                        />
-                      ) : (
-                        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent/50" />
-                      )}
-                    </span>
-                    <span className="font-sans text-xs font-medium leading-snug text-ink">{c.name}</span>
-                  </li>
-                ))}
+            {certifications.map((c) => (
+              <li
+                key={c.file}
+                className="group flex h-11 items-center gap-3 rounded-[6px] px-3 transition-colors duration-300 hover:bg-white"
+              >
+                <span className="flex h-8 w-11 shrink-0 items-center justify-center">
+                  {c.src ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- fixed max box, width follows the badge's aspect ratio
+                    <img
+                      src={c.src}
+                      alt=""
+                      loading="lazy"
+                      className="h-auto w-auto max-h-8 max-w-11 object-contain transition-[filter] duration-300 group-hover:[filter:grayscale(100%)_opacity(50%)]"
+                    />
+                  ) : (
+                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent/50" />
+                  )}
+                </span>
+                <span className="font-sans text-xs font-medium leading-snug text-ink">{c.name}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

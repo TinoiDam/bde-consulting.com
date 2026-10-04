@@ -6,7 +6,7 @@ export default function PropositionSection() {
       <div className="overflow-hidden py-10 md:py-14 lg:py-16">
         <div data-reveal className="relative mx-auto max-w-6xl px-6 xl:max-w-[88rem]">
           <h2 id="propositie-titel" className="text-[1.9rem] leading-[1.2] sm:text-[2.3rem] md:text-[2.75rem]">
-            Partner voor de gereguleerde private sector en (semi-)overheden
+            Partner voor de gereguleerde private sector en semioverheid
           </h2>
 
           {/* Statement and CTA directly under the title */}

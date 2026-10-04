@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { BioSections, type BioSection } from '@/components/AboutSection';
+import { BioSections, CertificationsSection, type BioSection } from '@/components/AboutSection';
 
 export const metadata: Metadata = {
   title: 'Over | BDE Management Consulting',
@@ -50,6 +50,9 @@ export default function Over() {
           </div>
         </div>
       </section>
+
+      {/* Certifications and trainings */}
+      <CertificationsSection />
     </main>
   );
 }

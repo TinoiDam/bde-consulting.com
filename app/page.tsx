@@ -40,13 +40,13 @@ export default function Home() {
                     href="/services#inzetvormen"
                     className="btn btn-primary w-full max-w-xs sm:w-auto sm:max-w-none"
                   >
-                    Consultancy &amp; Projectinzet
+                    Consultancy en Advies
                   </a>
                   <Link
                     href="/expertise"
                     className="btn btn-ghost w-full max-w-xs sm:w-auto sm:max-w-none"
                   >
-                    Strategisch advies &amp; Maatwerk
+                    Maatwerk advies
                   </Link>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Project experience and certifications, one section */}
+          {/* Project experience: client logos (certifications live on /over and /contact) */}
           <CredentialsSection />
         </div>
       </div>

@@ -19,10 +19,10 @@ export default function ApproachTeaser() {
         >
           <div>
             <h2 id="aanpak-titel" className="max-w-[28ch] text-[1.6rem] leading-[1.25] text-ink md:text-[2rem]">
-              Breng samenhang in complexe veranderopgaven.
+              Breng samenhang in grote veranderopgaven.
             </h2>
             <p className="mt-6 text-[1.05rem] leading-[1.7] text-ink-soft">
-              Complexe verandering ontstaat niet door één los initiatief. Breng samenhang tussen strategie, processen,
+              Verandering ontstaat niet door één los initiatief. Breng samenhang tussen strategie, processen,
               mensen, data en technologie: van richtinggevende keuzes tot concrete uitvoering.
             </p>
             {/* CTA to the expertise page (moved here from the proposition section) */}
