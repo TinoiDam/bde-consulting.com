@@ -1,6 +1,6 @@
 import SwipeCarousel from '@/components/SwipeCarousel';
 
-// Roadmap matrix without rules: phases are columns, rows are what we do and what it delivers.
+// Roadmap as an asymmetric triptych: three phases, each with what we do and what it delivers.
 // DRAFT: deliverables are first proposals; adjust to your own practice.
 const steps = [
   {
@@ -31,37 +31,53 @@ function Kicker({ children }: { children: React.ReactNode }) {
 
 const rows = ['Kernactiviteiten', 'Oplevering'];
 
-// One phase column; on mobile it is a card with its own row labels, from md up the labels live once in the left margin.
+// Asymmetric triptych: each phase has its own rhythm instead of shared table rows. Phase 01 is deliberately
+// dominant (without direction the rest is worthless): larger title, more air between title and copy. Phases 02 and
+// 03 are tighter, as governance and embedding are by nature more concrete, and sit slightly lower, so the three
+// read as a magazine spread rather than a framework. On mobile each phase is a swipe card.
+const rhythm = [
+  {
+    col: 'md:pt-0',
+    title: 'text-[1.9rem] md:text-[2.4rem] lg:text-[2.75rem]',
+    gapTitle: 'md:mt-14',
+    gapBlock: 'md:mt-12',
+    text: 'md:text-[1.02rem] md:leading-[1.7]',
+  },
+  { col: 'md:pt-10 md:border-l md:pl-8', title: 'text-[1.6rem] md:text-[1.7rem]', gapTitle: 'md:mt-8', gapBlock: 'md:mt-8', text: '' },
+  { col: 'md:pt-16 md:border-l md:pl-8', title: 'text-[1.6rem] md:text-[1.55rem]', gapTitle: 'md:mt-7', gapBlock: 'md:mt-7', text: '' },
+];
+
 function PhaseColumn({ step, i }: { step: Step; i: number }) {
+  const r = rhythm[i];
   return (
-    <article className="flex h-full flex-col gap-8 border border-line bg-canvas p-6 md:row-span-3 md:grid md:grid-rows-subgrid md:gap-0 md:border-0 md:border-l md:bg-transparent md:p-0 md:pb-4 md:pl-7">
-      <header className="md:pb-10">
-        <span className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.2em] text-subtle">Fase {pad(i + 1)}</span>
-        <h3 className="mt-2 font-serif text-[1.65rem] leading-[1.2] text-ink">{phaseName(step.title)}</h3>
+    <article className={`flex h-full flex-col border border-line bg-canvas p-6 md:h-auto md:border-0 md:border-line md:bg-transparent md:p-0 ${r.col}`}>
+      <header>
+        <span className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted">Fase {pad(i + 1)}</span>
+        <h3 className={`mt-2 font-serif leading-[1.15] text-ink ${r.title}`}>{phaseName(step.title)}</h3>
       </header>
 
-      <div className="md:pb-10">
-        <div className="mb-3 md:sr-only">
+      <div className={`mt-8 ${r.gapTitle}`}>
+        <div className="mb-3">
           <Kicker>{rows[0]}</Kicker>
         </div>
         <ul className="space-y-2">
           {step.items.map((item) => (
-            <li key={item} className="font-sans text-[0.92rem] font-light leading-[1.6] text-body">
+            <li key={item} className={`font-sans text-[0.95rem] font-normal leading-[1.6] text-ink-soft ${r.text}`}>
               {item}
             </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <div className="mb-3 md:sr-only">
+      <div className={`mt-8 ${r.gapBlock}`}>
+        <div className="mb-3">
           <Kicker>{rows[1]}</Kicker>
         </div>
         <ol className="space-y-2">
           {step.deliverables.map((d, n) => (
             <li key={d} className="flex gap-3">
-              <span className="shrink-0 pt-[0.2em] font-sans text-[0.72rem] tabular-nums text-subtle">{pad(n + 1)}</span>
-              <span className="font-sans text-[0.92rem] font-medium leading-[1.5] text-ink">{d}</span>
+              <span className="shrink-0 pt-[0.2em] font-sans text-[0.72rem] font-medium tabular-nums text-muted">{pad(n + 1)}</span>
+              <span className="font-sans text-[0.95rem] font-medium leading-[1.5] text-ink">{d}</span>
             </li>
           ))}
         </ol>
@@ -70,39 +86,27 @@ function PhaseColumn({ step, i }: { step: Step; i: number }) {
   );
 }
 
+// Full methodology, rendered as the /aanpak page (the homepage carries a short teaser that links here)
 export default function MethodSection() {
   return (
-    <section id="aanpak" className="scroll-mt-20 py-20 md:py-28 lg:py-32">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="methodiek" className="pt-36 pb-20 md:pt-44 md:pb-28 lg:pt-48 lg:pb-32">
+      {/* Same container as the homepage sections, so titles share one left edge */}
+      <div className="mx-auto max-w-6xl px-6 xl:max-w-[88rem]">
         <div data-reveal>
-          <p className="eyebrow">Roadmap</p>
-          <h2 className="max-w-3xl text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">
-            Een eenvoudige aanpak voor sneller begrip, betere besluiten en resultaat
-          </h2>
+          <p className="eyebrow">Aanpak</p>
+          <h1 className="max-w-3xl text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4rem] text-balance">Methodiek &amp; opleveringen</h1>
+          <p className="mt-8 max-w-2xl text-[1.05rem] md:text-[1.15rem] text-pretty">
+            Vanuit een bewezen framework loods ik organisaties door de drie cruciale fasen van strategie-executie: van
+            het eerste gedeelde startbeeld tot de uiteindelijke overdracht naar de business.
+          </p>
         </div>
 
-        {/* Swipe cards on mobile; from md up a label margin plus three phase columns sharing three rows via subgrid. */}
-        <div
-          data-reveal
-          style={{ '--reveal-delay': '120ms' } as React.CSSProperties}
-          className="mt-10 md:mt-16 md:grid md:grid-cols-[150px_repeat(3,1fr)] md:grid-rows-[auto_auto_auto] md:gap-x-10"
-        >
-          {/* Row labels (desktop); decorative, the sr-only labels in each column carry them for screen readers */}
-          <div aria-hidden="true" className="hidden md:row-span-3 md:grid md:grid-rows-subgrid">
-            <div />
-            {rows.map((label) => (
-              <div key={label} className="pt-1">
-                <Kicker>{label}</Kicker>
-              </div>
-            ))}
-          </div>
-
+        {/* Swipe cards on mobile; from md up an asymmetric 45 / 30 / 25 triptych */}
+        <div data-reveal style={{ '--reveal-delay': '120ms' } as React.CSSProperties} className="mt-10 md:mt-16">
           <SwipeCarousel
             label="Roadmap in drie fasen"
             itemLabel="fase"
-            rootClassName="md:col-span-3 md:row-span-3 md:grid md:grid-cols-subgrid md:grid-rows-subgrid"
-            desktopClassName="md:col-span-3 md:row-span-3 md:grid md:grid-cols-subgrid md:grid-rows-subgrid"
-            itemDesktopClassName="md:row-span-3 md:grid md:grid-rows-subgrid"
+            desktopClassName="md:grid md:grid-cols-[45fr_30fr_25fr] md:items-start md:gap-x-10 lg:gap-x-14"
           >
             {steps.map((step, i) => (
               <PhaseColumn key={step.title} step={step} i={i} />

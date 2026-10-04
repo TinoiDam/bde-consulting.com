@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   description: 'Vier inzetvormen met heldere financiële bandbreedtes: Transformation Sprints, Strategic Retainer, Fractional IT Director en Interim Management.',
 };
 
-// Every CTA points to the contact section until a contact form exists
-const CONTACT = '#contact';
+// Every CTA points to the contact page with the Consultancy & Projectinzet email template preset
+const CONTACT = '/contact?vraag=consultancy';
 
 // Page copy (edit freely)
 const HERO = {
@@ -134,11 +134,11 @@ export default function Services() {
                   </div>
                   <div>
                     <dt className="eyebrow mb-1.5">De focus</dt>
-                    <dd className="font-sans text-[0.95rem] font-light leading-[1.65] text-body">{s.focus}</dd>
+                    <dd className="font-sans text-[0.95rem] font-normal leading-[1.65] text-body">{s.focus}</dd>
                   </div>
                   <div>
                     <dt className="eyebrow mb-1.5">Voor wie</dt>
-                    <dd className="font-sans text-[0.95rem] font-light leading-[1.65] text-body">{s.audience}</dd>
+                    <dd className="font-sans text-[0.95rem] font-normal leading-[1.65] text-body">{s.audience}</dd>
                   </div>
                 </dl>
 

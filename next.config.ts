@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // The former portfolio page is consolidated into the Cases & Deliverables section on the homepage
+  // Retired routes: the former portfolio page now lives on /cases; the insights section was removed
   redirects() {
-    return [{ source: "/portfolio", destination: "/#cases", permanent: true }];
+    return [
+      { source: "/portfolio", destination: "/cases", permanent: true },
+      { source: "/insights", destination: "/", permanent: true },
+    ];
   },
 };
 

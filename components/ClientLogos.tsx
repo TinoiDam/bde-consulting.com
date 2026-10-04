@@ -26,7 +26,7 @@ export default function ClientLogos() {
       <p className="eyebrow text-center">
         Project ervaring
       </p>
-      <ul className="mt-8 md:mt-12 flex flex-wrap xl:flex-nowrap items-center justify-center xl:justify-between gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10 xl:gap-x-6 2xl:gap-x-12">
+      <ul className="mt-6 md:mt-8 flex flex-wrap xl:flex-nowrap items-center justify-center xl:justify-between gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10 xl:gap-x-6 2xl:gap-x-12">
         {clients.map((c) => (
           <li
             key={c.file}

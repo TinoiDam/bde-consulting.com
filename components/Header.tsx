@@ -1,7 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { mainNav } from '@/lib/navigation';
+import futureGroupWhite from '@/public/logos/the-future-group-white.png';
+import futureGroupNavy from '@/public/logos/the-future-group-navy.png';
+import { contactHref, mainNav } from '@/lib/navigation';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -51,21 +54,43 @@ export default function Header() {
           </svg>
         </Link>
 
-        {/* Desktop Menu (shared list with the footer) */}
-        <ul className="hidden lg:flex gap-10">
-          {mainNav.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="link-quiet text-xs tracking-widest font-semibold text-ink hover:text-ink-soft uppercase">
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Menu (shared list with the footer) plus the membership badge */}
+        <div className="hidden lg:flex items-center gap-10">
+          <ul className="flex gap-10">
+            {mainNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href === '/contact' ? contactHref(pathname) : item.href} className={`link-quiet text-xs tracking-widest font-semibold uppercase transition-colors duration-300 ${onBlue && !isOpen ? 'text-white [text-shadow:0_1px_8px_rgba(11,19,41,0.45)] hover:text-white/85' : 'text-ink hover:text-ink-soft'}`}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* "Aangesloten bij The Future Group": follows the bar's colour change. Over the hero the label and
+              lettering are white; on the white bar they turn grey and navy (the coloured strokes stay). */}
+          <a
+            href="https://www.thefuthttps://the-future-group.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Aangesloten bij The Future Group (opent in nieuw venster)"
+            className={`flex items-center gap-3 border-l pl-8 transition-colors duration-300 ${onBlue && !isOpen ? 'border-white/40' : 'border-line'}`}
+          >
+            <span className={`font-sans text-[0.6rem] font-medium uppercase leading-[1.3] tracking-[0.16em] transition-colors duration-300 ${onBlue && !isOpen ? 'text-white [text-shadow:0_1px_8px_rgba(11,19,41,0.45)]' : 'text-muted'}`}>
+              Aangesloten
+              <br />
+              bij
+            </span>
+            <span className="relative block h-9 w-[2.55rem]">
+              <Image src={futureGroupWhite} alt="" sizes="48px" className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${onBlue && !isOpen ? 'opacity-100' : 'opacity-0'}`} />
+              <Image src={futureGroupNavy} alt="" sizes="48px" className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${onBlue && !isOpen ? 'opacity-0' : 'opacity-100'}`} />
+            </span>
+          </a>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-ink text-2xl hover:text-ink transition"
+          className={`lg:hidden text-2xl transition-colors duration-300 ${onBlue && !isOpen ? 'text-white' : 'text-ink'}`}
         >
           ☰
         </button>
@@ -78,13 +103,22 @@ export default function Header() {
             {mainNav.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={item.href === '/contact' ? contactHref(pathname) : item.href}
                 onClick={() => setIsOpen(false)}
                 className="block text-sm font-medium text-ink hover:text-ink transition uppercase tracking-widest"
               >
                 {item.label}
               </Link>
             ))}
+            <a
+              href="https://www.thefuturegroup.nl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 border-t border-line pt-6"
+            >
+              <span className="font-sans text-[0.65rem] font-medium uppercase tracking-[0.16em] text-muted">Aangesloten bij</span>
+              <Image src={futureGroupNavy} alt="The Future Group" sizes="48px" className="h-9 w-auto" />
+            </a>
           </div>
         </div>
       )}

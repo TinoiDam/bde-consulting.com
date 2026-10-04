@@ -13,7 +13,7 @@ export default function TrustSection() {
           <p className="mt-6 max-w-[48ch] text-[1.02rem] leading-[1.75] text-body">
             Ik verbind strategie met eigenaarschap, regelgeving met dagelijks handelen en technologie met de praktijk. Zo wordt verandering niet alleen bedacht, maar ook uitvoerbaar.
           </p>
-          <Link href="/#aanpak" className="link-quiet mt-7 inline-flex items-center gap-2 font-sans text-sm font-medium text-ink">
+          <Link href="/aanpak" className="link-quiet mt-7 inline-flex items-center gap-2 font-sans text-sm font-medium text-ink">
             Zo werk ik <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>

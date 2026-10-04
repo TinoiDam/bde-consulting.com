@@ -32,7 +32,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Smooth in-page anchor scrolling (e.g. hero link to #contact), unless the visitor prefers reduced motion */
+/* Smooth in-page anchor scrolling (e.g. hero link to #propositie), unless the visitor prefers reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
@@ -54,9 +54,10 @@
     color: var(--color-ink);
   }
 
-  /* Body copy: light Inter, generous leading, slate charcoal */
+  /* Body copy: regular Inter (no light or italic weights: those read poorly on screens), generous leading,
+     slate charcoal */
   p {
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.65;
     color: var(--color-body);
   }
@@ -135,4 +136,10 @@ html.reveal-ready [data-reveal].is-revealed {
     outline: 1px solid var(--color-ink);
     outline-offset: 3px;
   }
+}
+
+/* Gentle drift for the floating planes in the approach section (ArchitectureLayers) */
+@keyframes plane-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
 }

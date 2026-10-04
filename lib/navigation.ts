@@ -1,5 +1,4 @@
-// Single source of truth for site navigation: the header menu and the footer both render this list,
-// so they always show the same structure in the same order.
+// Single source of truth for the site navigation rendered by the header menu (desktop and mobile).
 export type NavItem = { label: string; href: string };
 
 export const mainNav: NavItem[] = [
@@ -7,6 +6,13 @@ export const mainNav: NavItem[] = [
   { label: 'Expertise', href: '/expertise' },
   { label: 'Cases', href: '/cases' },
   { label: 'Over', href: '/#over' },
-  { label: 'Insights', href: '/insights' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: '/contact' },
 ];
+
+// The contact page has one mailto button; the route the visitor comes from presets its email template
+// (services = Consultancy & Projectinzet, expertise = Strategisch advies & Maatwerk, elsewhere a general one)
+export function contactHref(pathname: string | null): string {
+  if (pathname?.startsWith('/services')) return '/contact?vraag=consultancy';
+  if (pathname?.startsWith('/expertise')) return '/contact?vraag=strategie';
+  return '/contact';
+}

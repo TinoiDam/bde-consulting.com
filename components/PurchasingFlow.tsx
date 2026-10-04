@@ -14,8 +14,8 @@ export type FlowStep = {
 export const flowSteps: FlowStep[] = [
   {
     number: '01',
-    // Contact CTA with a cost reassurance underneath; points to the contact section until a contact form exists
-    cta: { label: 'Contact', href: '#contact', note: 'Uw vraag en beschikbare informatie delen is kosteloos.' },
+    // Contact CTA with a cost reassurance underneath; this flow lives on /services, so it presets the consultancy template
+    cta: { label: 'Contact', href: '/contact?vraag=consultancy', note: 'Uw vraag en beschikbare informatie delen is kosteloos.' },
   },
   {
     number: '02',
