@@ -152,7 +152,7 @@ export default function CaseDashboard() {
         onTouchEnd={onTouchEnd}
       >
         <Link
-          href={`/cases/${c.slug}`}
+          href={`/expertise/${c.slug}`}
           aria-label={`Bekijk case study: ${c.sector}`}
           className="group relative block aspect-[16/10] overflow-hidden rounded-[6px] bg-ink"
         >
@@ -210,11 +210,9 @@ export default function CaseDashboard() {
 
       {/* Text link sits in its own row, so the tab rail ends exactly at the image edge */}
       <div className="mt-5 flex justify-end md:col-start-2">
-        <Link href={`/cases/${c.slug}`} className="group inline-flex items-center gap-2 text-sm font-bold text-ink">
-          Bekijk volledige case study
-          <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-x-1.5">
-            →
-          </span>
+        <Link href={`/expertise/${c.slug}`} className="link-cta">
+          <span className="link-quiet">Bekijk volledige case study</span>
+          <span aria-hidden="true" className="btn-arrow">→</span>
         </Link>
       </div>
     </div>

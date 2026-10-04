@@ -1,4 +1,4 @@
-// Project cases shown in the homepage dashboard and on /cases/[slug].
+// Project cases shown in the case dashboard on /expertise and on /expertise/[slug].
 export type CaseStudy = {
   slug: string;
   image: string;

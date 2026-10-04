@@ -25,10 +25,11 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   ];
 
   return (
-    <main className="bg-white pt-32 pb-24 md:pt-40 md:pb-32">
+    <main className="bg-white pt-32 pb-10 md:pt-40 md:pb-14 lg:pt-44 lg:pb-16">
       <div className="max-w-3xl mx-auto px-6">
-        <Link href="/cases" className="text-xs font-semibold uppercase tracking-[0.18em] text-subtle hover:text-ink transition-colors">
-          ← Alle cases
+        <Link href="/expertise#cases" className="link-cta">
+          <span aria-hidden="true" className="btn-arrow btn-arrow-back">←</span>
+          <span className="link-quiet">Alle cases</span>
         </Link>
         <p className="eyebrow mt-10">
           {c.role} <span className="mx-2 text-ink/25">|</span> {c.context}

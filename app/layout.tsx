@@ -22,9 +22,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const DESCRIPTION =
+  "BDE Management Consulting overbrugt de kloof tussen strategie en realisatie voor (semi-)overheden en de gereguleerde private sector.";
+
+// Site-wide metadata. Pages set their own title ("<Page> | BDE Management Consulting"); the homepage uses the default.
+// The browser-tab icons come from app/favicon.ico, app/icon.svg and app/apple-icon.png (Next.js file conventions).
 export const metadata: Metadata = {
-  title: "BDE | Strategic Consulting",
-  description: "Governance, informatievoorziening en AI-context vertaald naar controleerbare structuren en heldere implementatie.",
+  metadataBase: new URL("https://bde-consulting.com"),
+  title: "BDE Management Consulting | Van strategie naar realisatie",
+  description: DESCRIPTION,
+  applicationName: "BDE Management Consulting",
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "BDE Management Consulting",
+    title: "BDE Management Consulting | Van strategie naar realisatie",
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

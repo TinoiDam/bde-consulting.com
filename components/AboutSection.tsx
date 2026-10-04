@@ -121,7 +121,7 @@ function SignatureCard() {
 export default function AboutSection() {
   return (
     <>
-      <section id="over" className="scroll-mt-20 py-20 md:py-28 lg:py-32">
+      <section id="over" className="scroll-mt-20 py-10 md:py-14 lg:py-16">
         {/* Same container as section 2 and Roadmap, so the section titles share one left edge */}
         <div className="mx-auto max-w-6xl px-6 xl:max-w-[88rem]">
           {/* 35 / 65 split: sticky title left, biography, signature card and career right,
@@ -179,14 +179,14 @@ export default function AboutSection() {
 // client logos on top, certifications and trainings (mini badge in colour, grey on hover) plus name below
 export function CredentialsSection() {
   return (
-    <section className="bg-mist py-12 md:py-16">
+    <section className="bg-sky-hue py-10 md:py-14 lg:py-16">
       <div className="max-w-[110rem] mx-auto px-6 lg:px-[4vw]">
         <div data-reveal className="mx-auto max-w-[1200px]">
           <ClientLogos />
         </div>
 
         <div data-reveal className="mx-auto mt-10 max-w-[1200px] md:mt-12">
-          <p className="eyebrow text-center">Certificeringen en trainingen</p>
+          <p className="eyebrow text-center text-ink/70">Certificeringen en trainingen</p>
           <ul className="mt-5 grid gap-x-4 gap-y-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {certifications.map((c) => (
                   <li

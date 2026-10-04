@@ -1,7 +1,6 @@
+import Link from 'next/link';
 import HeroVideo from '@/components/HeroVideo';
 import PropositionSection from '@/components/PropositionSection';
-import SectionDivider from '@/components/SectionDivider';
-import InsetPanel from '@/components/InsetPanel';
 import BackgroundRibbon from '@/components/BackgroundRibbon';
 import ApproachTeaser from '@/components/ApproachTeaser';
 import AboutSection, { CredentialsSection } from '@/components/AboutSection';
@@ -9,8 +8,8 @@ import AboutSection, { CredentialsSection } from '@/components/AboutSection';
 export default function Home() {
   return (
     <main>
-      {/* Hero + all sections below: the hero stays pinned only within this wrapper, so those sections slide over it as an
-          inset panel (hero visible at the sides) through project experience and certifications */}
+      {/* Hero + all sections below: the hero stays pinned only within this wrapper, so those sections slide over it as one
+          full-width panel through project experience and certifications */}
       <div className="relative">
         {/* Hero Section - Video Background, pinned while the sections below scroll over it */}
         <section
@@ -33,21 +32,22 @@ export default function Home() {
                 <h1 className="text-left text-[#0B1528] text-[2.25rem] sm:text-[2.75rem] md:text-5xl lg:text-[3.5rem]">
                   Strategie is helder, maar niet uitvoerbaar.
                 </h1>
-                {/* Two CTAs, left-aligned under the headline, in the same button styles as section 2: the primary
-                    (dark navy) for consultancy and project work, the secondary (light outline) for strategic advice */}
+                {/* Two CTAs, left-aligned under the headline: the primary (deep blue, not black, so it sits with the
+                    hero's colours) for consultancy and project work, the secondary (ghost: transparent, white text,
+                    thin white border) for strategic advice */}
                 <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap md:mt-12">
                   <a
                     href="/services#inzetvormen"
-                    className="inline-flex w-full max-w-xs items-center justify-center gap-3 rounded-[4px] border border-ink bg-ink px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors duration-300 hover:bg-ink-soft sm:w-auto sm:max-w-none"
+                    className="btn btn-primary w-full max-w-xs sm:w-auto sm:max-w-none"
                   >
                     Consultancy &amp; Projectinzet
                   </a>
-                  <a
+                  <Link
                     href="/expertise"
-                    className="inline-flex w-full max-w-xs items-center justify-center gap-3 rounded-[4px] border border-ink/20 bg-white/60 px-8 py-3 font-sans text-xs font-medium uppercase tracking-[0.08em] text-ink backdrop-blur-sm transition-colors duration-300 hover:border-ink/40 hover:bg-white sm:w-auto sm:max-w-none"
+                    className="btn btn-ghost w-full max-w-xs sm:w-auto sm:max-w-none"
                   >
                     Strategisch advies &amp; Maatwerk
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -72,9 +72,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Sections 2 to project experience/certifications as one panel that slides up over the pinned hero: inset at first
-            (hero visible at the sides), widening to full width once half of section 2 has come into view */}
-        <InsetPanel>
+        {/* Sections 2 to project experience/certifications as one full-width panel that slides up over the pinned hero */}
+        <div className="relative z-10">
           {/* Proposition, Approach and About on one white backdrop, with a faint light-blue half-plane behind their
               content that turns as the page scrolls; clip-path keeps the fixed plane inside this backdrop */}
           <div className="relative bg-canvas [clip-path:inset(0)]">
@@ -84,24 +83,17 @@ export default function Home() {
               {/* Proposition: what BDE does */}
               <PropositionSection />
 
-              {/* Between all sections the same extremely subtle transition mark (BDE chevron) sits on the boundary */}
-              <SectionDivider />
-
               {/* Approach: short teaser, the full methodology lives on /aanpak */}
               <ApproachTeaser />
-
-              <SectionDivider />
 
               {/* About: background & vision */}
               <AboutSection />
             </div>
           </div>
 
-          <SectionDivider />
-
           {/* Project experience and certifications, one section */}
           <CredentialsSection />
-        </InsetPanel>
+        </div>
       </div>
     </main>
   );

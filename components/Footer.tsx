@@ -1,15 +1,13 @@
 import Link from 'next/link';
+import { COMPANY, KVK } from '@/lib/legal';
 
 const LINKEDIN = 'https://www.linkedin.com/company/bde-management-consulting';
-const COMPANY = 'BDE Management Consulting B.V.';
-// Chamber of Commerce (KvK) registration number
-const KVK = '42008316';
 
-// Legal pages; the routes still need their own page.tsx
+// Legal pages (content and version history in lib/legal.ts)
 const legalLinks = [
   { label: 'Privacy', href: '/privacy' },
   { label: 'Legal', href: '/legal' },
-  { label: 'Cookie policy', href: '/cookies' },
+  { label: 'Cookies', href: '/cookies' },
 ];
 
 // Minimal footer: company name with KvK number left, legal links and LinkedIn right (stacks on mobile)

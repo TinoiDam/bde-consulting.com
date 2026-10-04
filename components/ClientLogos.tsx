@@ -23,7 +23,7 @@ const heightFor = (ratio: number, weight: number) => Math.round(Math.sqrt(AREA /
 export default function ClientLogos() {
   return (
     <div>
-      <p className="eyebrow text-center">
+      <p className="eyebrow text-center text-ink/70">
         Project ervaring
       </p>
       <ul className="mt-6 md:mt-8 flex flex-wrap xl:flex-nowrap items-center justify-center xl:justify-between gap-x-10 gap-y-8 md:gap-x-12 md:gap-y-10 xl:gap-x-6 2xl:gap-x-12">

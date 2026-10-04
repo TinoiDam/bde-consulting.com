@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Retired routes: the former portfolio page now lives on /cases; the insights section was removed
+  // Retired routes: portfolio and cases were merged into /expertise (case pages on /expertise/[slug]); the insights
+  // section was removed
   redirects() {
     return [
-      { source: "/portfolio", destination: "/cases", permanent: true },
+      { source: "/portfolio", destination: "/expertise#cases", permanent: true },
+      { source: "/cases", destination: "/expertise#cases", permanent: true },
+      { source: "/cases/:slug", destination: "/expertise/:slug", permanent: true },
       { source: "/insights", destination: "/", permanent: true },
     ];
   },

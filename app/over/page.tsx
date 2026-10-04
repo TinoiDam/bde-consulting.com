@@ -39,7 +39,7 @@ const BACKGROUND: BioSection[] = [
 export default function Over() {
   return (
     <main>
-      <section className="py-20 md:py-28 lg:py-32">
+      <section className="pt-32 pb-10 md:pt-40 md:pb-14 lg:pt-44 lg:pb-16">
         {/* Same container and 35 / 65 split as the homepage "Over" section */}
         <div className="mx-auto max-w-6xl px-6 xl:max-w-[88rem]">
           <div className="grid gap-12 lg:grid-cols-[35fr_65fr] lg:items-start lg:gap-28">

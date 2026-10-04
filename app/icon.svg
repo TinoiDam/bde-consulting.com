@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- BDE favicon: deep navy tile, serif "B" with the brand's corner chevron in sky blue -->
+  <rect width="64" height="64" rx="12" fill="#0a1931"/>
+  <text x="29" y="47" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#ffffff">B</text>
+  <polygon points="2,0 10,0 10,8 7.6,8 7.6,2.4 2,2.4" fill="#a1cdf6" transform="translate(40 11) scale(1.5)"/>
+</svg>

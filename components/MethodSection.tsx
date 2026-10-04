@@ -89,7 +89,7 @@ function PhaseColumn({ step, i }: { step: Step; i: number }) {
 // Full methodology, rendered as the /aanpak page (the homepage carries a short teaser that links here)
 export default function MethodSection() {
   return (
-    <section id="methodiek" className="pt-36 pb-20 md:pt-44 md:pb-28 lg:pt-48 lg:pb-32">
+    <section id="methodiek" className="pt-32 pb-10 md:pt-40 md:pb-14 lg:pt-44 lg:pb-16">
       {/* Same container as the homepage sections, so titles share one left edge */}
       <div className="mx-auto max-w-6xl px-6 xl:max-w-[88rem]">
         <div data-reveal>

@@ -5,6 +5,8 @@ import { useRef } from 'react';
 // A detailed diagram that may render small in its column: click (or Enter) opens it in a full-screen dialog
 // at reading size; Esc, the close button or a click on the backdrop closes it again. Only the zoomed view carries
 // a faint BDE watermark across its centre. The diagram is passed as children and rendered in both places.
+// On small screens the diagram scales down to the column width with a small zoom badge in its corner; on md+ the
+// badge appears on hover.
 export default function ZoomableDiagram({ label, children }: { label: string; children: React.ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null);
 
@@ -16,8 +18,9 @@ export default function ZoomableDiagram({ label, children }: { label: string; ch
         aria-label="Schema vergroten"
         className="group relative block w-full cursor-zoom-in text-left"
       >
-        <div className="w-full min-w-[860px] md:min-w-0">{children}</div>
-        <span className="pointer-events-none absolute right-2 bottom-2 hidden items-center gap-2 rounded-[4px] bg-ink/85 px-3 py-1.5 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:flex">
+        {children}
+        {/* Zoom hint in the diagram's corner: always shown (small, quiet) on touch-sized screens, on hover from md */}
+        <span className="pointer-events-none absolute right-0 bottom-0 flex items-center gap-1.5 rounded-[4px] bg-ink/75 px-2 py-1 font-sans text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-white md:right-2 md:bottom-2 md:gap-2 md:bg-ink/85 md:px-3 md:py-1.5 md:text-[0.7rem] md:opacity-0 md:transition-opacity md:duration-300 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
           <span aria-hidden="true">⤢</span> Vergroten
         </span>
       </button>
@@ -36,8 +39,9 @@ export default function ZoomableDiagram({ label, children }: { label: string; ch
         >
           <span aria-hidden="true" className="text-lg leading-none">✕</span>
         </button>
+        <p className="mt-2 font-sans text-xs text-muted md:hidden">Veeg horizontaal om het hele schema te zien.</p>
         <div className="flex min-h-[calc(100%-2.5rem)] items-center">
-          <div className="relative mx-auto w-full min-w-[1100px] max-w-[1800px]">
+          <div className="relative mx-auto w-full min-w-[900px] max-w-[1800px] md:min-w-[1100px]">
             {children}
             {/* Watermark: BDE wordmark with the chevron, very faint, centred over the diagram */}
             <div

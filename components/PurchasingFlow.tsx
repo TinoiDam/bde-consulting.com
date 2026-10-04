@@ -1,5 +1,5 @@
 // Purchasing flow (on /services): the four steps from first contact to project start.
-// A step either explains (title + microcopy) or acts (cta): step 01 is the action itself.
+// A step either explains (title + microcopy) or acts (cta); on the site all steps currently explain.
 
 export type FlowStep = {
   number: string;
@@ -14,8 +14,8 @@ export type FlowStep = {
 export const flowSteps: FlowStep[] = [
   {
     number: '01',
-    // Contact CTA with a cost reassurance underneath; this flow lives on /services, so it presets the consultancy template
-    cta: { label: 'Contact', href: '/contact?vraag=consultancy', note: 'Uw vraag en beschikbare informatie delen is kosteloos.' },
+    title: 'Contact',
+    microcopy: 'U deelt uw vraag en beschikbare informatie per e-mail. Dat is kosteloos.',
   },
   {
     number: '02',
@@ -37,7 +37,6 @@ export const flowSteps: FlowStep[] = [
       { name: 'Retainer', note: 'Sparring' },
       { name: 'Fractional', note: 'Flexibele sturing' },
     ],
-    action: { label: 'Bekijk opties & tarieven', href: '#inzetvormen' },
   },
 ];
 
@@ -45,10 +44,10 @@ export const flowSteps: FlowStep[] = [
 const EYEBROW = 'Samenwerking';
 const TITLE = 'Van eerste contact naar start';
 
-export default function PurchasingFlow() {
+export default function PurchasingFlow({ background = 'bg-canvas' }: { background?: string }) {
   const last = flowSteps.length - 1;
   return (
-    <section id="samenwerkingsvormen" className="scroll-mt-20 bg-canvas py-24 md:py-32 lg:py-40">
+    <section id="samenwerkingsvormen" className={`scroll-mt-20 py-10 md:py-14 lg:py-16 ${background}`}>
       {/* Left-weighted composition: heading and track sit left, the right side stays deliberately empty */}
       <div className="mx-auto max-w-[1200px] px-6">
         <div data-reveal className="max-w-3xl">
@@ -56,33 +55,31 @@ export default function PurchasingFlow() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem]">{TITLE}</h2>
         </div>
 
-        {/* One list of steps. The line carries the steps: dot and number sit on it as one mark (the number masks
-            the line behind it), title and copy hang underneath. Mobile: vertical line; md+: horizontal track. */}
+        {/* One list of steps. The line carries the steps: dot and number sit on it as one mark, title and copy hang
+            underneath. Mobile: vertical line; md+: horizontal track, drawn per step from after its number to the next
+            dot, so nothing has to mask it and it works on any background. */}
         <ol
           data-reveal
           className="relative mt-12 md:mt-24 md:grid md:grid-cols-[repeat(4,11rem)] md:grid-rows-[auto_auto_auto_1fr] md:gap-x-10 lg:grid-cols-[repeat(3,12rem)_15rem] lg:gap-x-16"
         >
-          {/* Horizontal line (md+): from the first to the last dot, 3 column widths plus 3 gaps */}
-          <span
-            aria-hidden="true"
-            className="absolute left-[5px] top-5 hidden h-px w-[calc(3*(11rem+2.5rem))] bg-ink/20 md:block lg:w-[calc(3*(12rem+4rem))]"
-          />
           {flowSteps.map((step, i) => (
             // md+: each step spans the three shared rows (mark / title / copy) via subgrid, so all columns
             // end on exactly the same baseline
             <li key={step.number} className="relative pb-10 last:pb-0 md:row-span-4 md:grid md:grid-rows-subgrid md:pb-0">
               {/* Vertical connector to the next step (mobile only) */}
-              {i < last && <span aria-hidden="true" className="absolute left-[5px] top-5 h-full w-px bg-ink/20 md:hidden" />}
+              {i < last && <span aria-hidden="true" className="absolute top-[26px] left-[5px] h-full w-px bg-ink/20 md:hidden" />}
               <div className="relative flex h-10 items-center">
                 <span
                   aria-hidden="true"
                   className={`relative block h-[11px] w-[11px] shrink-0 rounded-full ${
-                    i === last ? 'bg-ink' : 'border border-ink/40 bg-canvas'
+                    i === last ? 'bg-ink' : 'border border-ink/40'
                   }`}
                 />
-                <span className="bg-canvas pl-3 pr-4 font-serif text-[1.9rem] leading-none tabular-nums lining-nums text-ink">
+                <span className="pl-3 pr-4 font-serif text-[1.9rem] leading-none tabular-nums lining-nums text-ink">
                   {step.number}
                 </span>
+                {/* Track segment (md+) to the next step's dot: fills the rest of the column and crosses the gap */}
+                {i < last && <span aria-hidden="true" className="hidden h-px flex-1 bg-ink/20 md:-mr-10 md:block lg:-mr-16" />}
               </div>
               {step.cta ? (
                 // Action step: the button (plus risk reducer) takes the place of title + copy
@@ -91,7 +88,7 @@ export default function PurchasingFlow() {
                   <div>
                     <a
                       href={step.cta.href}
-                      className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-[4px] bg-ink px-4 py-2.5 font-sans text-[0.78rem] font-semibold text-white transition-colors duration-300 hover:bg-accent"
+                      className="btn btn-primary whitespace-nowrap"
                     >
                       {/* Mail icon for a contact action */}
                       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -120,12 +117,10 @@ export default function PurchasingFlow() {
                   {step.action && (
                     <a
                       href={step.action.href}
-                      className="group mt-6 flex w-full items-center justify-between gap-3 rounded-[4px] bg-ink px-5 py-3.5 font-sans text-[0.85rem] font-semibold text-white transition-colors duration-300 hover:bg-accent"
+                      className="btn btn-primary mt-6 w-full justify-between"
                     >
                       {step.action.label}
-                      <span aria-hidden="true" className="transition-transform duration-300 ease-out group-hover:translate-x-1">
-                        →
-                      </span>
+                      <span aria-hidden="true" className="btn-arrow">→</span>
                     </a>
                   )}
                 </div>

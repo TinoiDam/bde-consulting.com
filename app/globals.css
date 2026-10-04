@@ -18,6 +18,8 @@
   --color-body: #334155;        /* running text (slate charcoal) */
   --color-muted: #64748b;       /* labels and captions */
   --color-subtle: #94a3b8;      /* inactive states, index numbers */
+  --color-action: #16336b;      /* deep blue: primary call-to-action buttons */
+  --color-action-hover: #1d4287;
 
   /* Display sizes default to line-height 1 in Tailwind; use the editorial 1.2 instead */
   --text-4xl--line-height: 1.2;
@@ -116,6 +118,17 @@ html.reveal-ready [data-reveal].is-revealed {
   }
 }
 
+/* Light sky-blue hue with a pronounced gradient: a sky-blue glow from the top left and a lilac glow from the top
+   right over a light blue-to-lilac base, fading towards white at the bottom. Used for the approach panel and the
+   project experience / certifications band. */
+@utility bg-sky-hue {
+  background-color: #dbe9fb;
+  background-image: linear-gradient(to bottom, rgb(255 255 255 / 0) 45%, rgb(255 255 255 / 0.6) 100%),
+    radial-gradient(ellipse 70% 90% at 0% 0%, rgb(140 196 248 / 0.6), rgb(140 196 248 / 0) 70%),
+    radial-gradient(ellipse 60% 85% at 100% 0%, rgb(196 186 240 / 0.55), rgb(196 186 240 / 0) 70%),
+    linear-gradient(to right, #c9e4fc 0%, #d8e3f8 55%, #e4dff5 100%);
+}
+
 /* Quiet link: a hairline underline that draws in from the left */
 @utility link-quiet {
   background-image: linear-gradient(currentColor, currentColor);
@@ -127,6 +140,96 @@ html.reveal-ready [data-reveal].is-revealed {
   &:hover,
   &:focus-visible {
     background-size: 100% 1px;
+  }
+}
+
+/*
+  Calls to action: one system for the whole site. Every button is `btn` plus one variant; layout extras
+  (w-full, justify-between, margins) are added as utilities, which win over this layer.
+    btn-primary    deep blue, the main action
+    btn-secondary  outline with ink text, the alternative next to a primary
+    btn-inverse    white, for a primary on a dark band
+    btn-ghost      transparent with white text, only on the hero image
+  An arrow inside a button or text link: <span aria-hidden="true" className="btn-arrow">→</span>
+  Text link CTA: link-cta, with the label in a link-quiet span so the underline draws in on hover.
+*/
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0.75rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-primary {
+    border-color: var(--color-action);
+    background-color: var(--color-action);
+    color: #ffffff;
+    &:hover {
+      border-color: var(--color-action-hover);
+      background-color: var(--color-action-hover);
+    }
+  }
+  .btn-secondary {
+    border-color: color-mix(in srgb, var(--color-ink) 20%, transparent);
+    background-color: transparent;
+    color: var(--color-ink);
+    &:hover {
+      border-color: color-mix(in srgb, var(--color-ink) 40%, transparent);
+      background-color: #ffffff;
+    }
+  }
+  .btn-inverse {
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: var(--color-ink);
+    &:hover {
+      border-color: var(--color-mist);
+      background-color: var(--color-mist);
+    }
+  }
+  .btn-ghost {
+    border-color: rgb(255 255 255 / 0.4);
+    background-color: transparent;
+    color: #ffffff;
+    &:hover {
+      border-color: rgb(255 255 255 / 0.7);
+      background-color: rgb(255 255 255 / 0.1);
+    }
+  }
+  .link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+  .btn-arrow {
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.3s ease-out;
+  }
+  .btn:hover .btn-arrow,
+  .link-cta:hover .btn-arrow {
+    transform: translateX(0.25rem);
+  }
+  /* A back link: the arrow points and moves the other way */
+  .link-cta:hover .btn-arrow-back {
+    transform: translateX(-0.25rem);
   }
 }
 
